@@ -1,1 +1,97 @@
-{}
+{
+  "APMD": {
+    "last_close": 29.0,
+    "volume_avg20": 341795.0,
+    "volume_breakout_last_alert_date": "2026-09-20"
+  },
+  "CBRS": {
+    "last_close": 198.37,
+    "news_last_seen_ts": 1789870309,
+    "volume_avg20": 6021085.0
+  },
+  "EXLS": {
+    "last_close": 35.15,
+    "news_last_seen_ts": 1789806641,
+    "trend_template_status": "red",
+    "volume_avg20": 1866405.0
+  },
+  "FEIM": {
+    "last_close": 85.53,
+    "news_last_seen_ts": 1789718400,
+    "trend_template_status": "green",
+    "volume_avg20": 330165.0
+  },
+  "FLY": {
+    "last_close": 20.97,
+    "news_last_seen_ts": 1789819945,
+    "trend_template_status": "red",
+    "volume_avg20": 2367740.0,
+    "volume_breakout_last_alert_date": "2026-09-20"
+  },
+  "HTFL": {
+    "last_close": 50.75,
+    "news_last_seen_ts": 1789649387,
+    "trend_template_status": "red",
+    "volume_avg20": 1923445.0,
+    "volume_breakout_last_alert_date": "2026-09-20"
+  },
+  "INDV": {
+    "last_close": 34.88,
+    "news_last_seen_ts": 1789642800,
+    "trend_template_status": "red",
+    "volume_avg20": 1982645.0
+  },
+  "MMED": {
+    "last_close": 21.79,
+    "volume_avg20": 2324995.0
+  },
+  "NEO": {
+    "last_close": 19.91,
+    "news_last_seen_ts": 1789735240,
+    "trend_template_status": "red",
+    "volume_avg20": 1735950.0
+  },
+  "NSIT": {
+    "last_close": 154.91,
+    "news_last_seen_ts": 1789747201,
+    "trend_template_status": "red",
+    "volume_avg20": 285310.0,
+    "volume_breakout_last_alert_date": "2026-09-20"
+  },
+  "NWPX": {
+    "last_close": 101.33,
+    "trend_template_status": "red",
+    "volume_avg20": 142485.0
+  },
+  "PDEX": {
+    "last_close": 72.55,
+    "news_last_seen_ts": 1789740000,
+    "trend_template_status": "green",
+    "volume_avg20": 73090.0
+  },
+  "QBTS": {
+    "last_close": 17.11,
+    "news_last_seen_ts": 1789771055,
+    "trend_template_status": "red",
+    "volume_avg20": 16039675.0
+  },
+  "RDVT": {
+    "last_close": 75.94,
+    "news_last_seen_ts": 1789630105,
+    "trend_template_status": "red",
+    "volume_avg20": 225575.0
+  },
+  "TWST": {
+    "last_close": 166.99001,
+    "move_alert_last_alert_date": "2026-09-20",
+    "news_last_seen_ts": 1789775788,
+    "trend_template_status": "red",
+    "volume_avg20": 1692720.0
+  },
+  "VH2": {},
+  "YSWY": {
+    "last_close": 21.4,
+    "news_last_seen_ts": 1789633149,
+    "volume_avg20": 279855.0
+  }
+}

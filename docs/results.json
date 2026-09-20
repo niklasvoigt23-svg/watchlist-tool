@@ -1,5 +1,299 @@
 {
-  "last_run_at": null,
-  "last_run_mode": null,
-  "tickers": {}
+  "last_run_at": "2026-09-20T15:45:01.775728+00:00",
+  "last_run_mode": "full",
+  "tickers": {
+    "APMD": {
+      "data_status": "ok",
+      "events_today": {
+        "death_cross": false,
+        "golden_cross": false,
+        "move": false,
+        "volume_breakout": true
+      },
+      "note": "",
+      "price": 29.0,
+      "rs": null,
+      "rs_trend": null,
+      "sma150": null,
+      "sma200": null,
+      "sma50": null,
+      "trend_template_reason": "insufficient_history",
+      "trend_template_status": "grey"
+    },
+    "CBRS": {
+      "data_status": "ok",
+      "events_today": {
+        "death_cross": false,
+        "golden_cross": false,
+        "move": false,
+        "volume_breakout": false
+      },
+      "note": "",
+      "price": 198.37,
+      "rs": null,
+      "rs_trend": null,
+      "sma150": null,
+      "sma200": null,
+      "sma50": null,
+      "trend_template_reason": "insufficient_history",
+      "trend_template_status": "grey"
+    },
+    "EXLS": {
+      "data_status": "ok",
+      "events_today": {
+        "death_cross": false,
+        "golden_cross": false,
+        "move": false,
+        "volume_breakout": false
+      },
+      "note": "",
+      "price": 35.15,
+      "rs": 0.3289663002608165,
+      "rs_trend": 0.10529195411446146,
+      "sma150": 31.06346668666665,
+      "sma200": 33.319950006499994,
+      "sma50": 33.81860002,
+      "trend_template_reason": null,
+      "trend_template_status": "red"
+    },
+    "FEIM": {
+      "data_status": "ok",
+      "events_today": {
+        "death_cross": false,
+        "golden_cross": false,
+        "move": false,
+        "volume_breakout": false
+      },
+      "note": "",
+      "price": 85.53,
+      "rs": 0.15148677170728164,
+      "rs_trend": 0.08189103109863494,
+      "sma150": 61.04373333999996,
+      "sma200": 58.19439999149999,
+      "sma50": 68.35740002000001,
+      "trend_template_reason": null,
+      "trend_template_status": "green"
+    },
+    "FLY": {
+      "data_status": "ok",
+      "events_today": {
+        "death_cross": false,
+        "golden_cross": false,
+        "move": false,
+        "volume_breakout": true
+      },
+      "note": "",
+      "price": 20.97,
+      "rs": -0.3357540229424787,
+      "rs_trend": 0.142235809706326,
+      "sma150": 28.695299973333306,
+      "sma200": 27.692799979999986,
+      "sma50": 22.240799980000016,
+      "trend_template_reason": null,
+      "trend_template_status": "red"
+    },
+    "HTFL": {
+      "data_status": "ok",
+      "events_today": {
+        "death_cross": false,
+        "golden_cross": false,
+        "move": false,
+        "volume_breakout": true
+      },
+      "note": "",
+      "price": 50.75,
+      "rs": 0.479010356847138,
+      "rs_trend": -0.18241305535958663,
+      "sma150": 31.04473331999996,
+      "sma200": 30.76062499499996,
+      "sma50": 37.30840001999998,
+      "trend_template_reason": null,
+      "trend_template_status": "red"
+    },
+    "INDV": {
+      "data_status": "ok",
+      "events_today": {
+        "death_cross": false,
+        "golden_cross": false,
+        "move": false,
+        "volume_breakout": false
+      },
+      "note": "",
+      "price": 34.88,
+      "rs": -0.10716982847712508,
+      "rs_trend": -0.08408655308484492,
+      "sma150": 35.96169995266668,
+      "sma200": 35.69499996600001,
+      "sma50": 37.694199911999995,
+      "trend_template_reason": null,
+      "trend_template_status": "red"
+    },
+    "MMED": {
+      "data_status": "ok",
+      "events_today": {
+        "death_cross": false,
+        "golden_cross": false,
+        "move": false,
+        "volume_breakout": false
+      },
+      "note": "",
+      "price": 21.79,
+      "rs": null,
+      "rs_trend": null,
+      "sma150": null,
+      "sma200": null,
+      "sma50": null,
+      "trend_template_reason": "insufficient_history",
+      "trend_template_status": "grey"
+    },
+    "NEO": {
+      "data_status": "ok",
+      "events_today": {
+        "death_cross": false,
+        "golden_cross": false,
+        "move": false,
+        "volume_breakout": false
+      },
+      "note": "",
+      "price": 19.91,
+      "rs": 0.7537482529892832,
+      "rs_trend": -0.05155749012849897,
+      "sma150": 11.912866660000015,
+      "sma200": 11.980549995,
+      "sma50": 16.30779997999998,
+      "trend_template_reason": null,
+      "trend_template_status": "red"
+    },
+    "NSIT": {
+      "data_status": "ok",
+      "events_today": {
+        "death_cross": false,
+        "golden_cross": false,
+        "move": false,
+        "volume_breakout": true
+      },
+      "note": "",
+      "price": 154.91,
+      "rs": 0.40049351045929593,
+      "rs_trend": -0.14186904954157953,
+      "sma150": 106.56493308666657,
+      "sma200": 100.93534979499995,
+      "sma50": 142.26439944000006,
+      "trend_template_reason": null,
+      "trend_template_status": "red"
+    },
+    "NWPX": {
+      "data_status": "ok",
+      "events_today": {
+        "death_cross": false,
+        "golden_cross": false,
+        "move": false,
+        "volume_breakout": false
+      },
+      "note": "",
+      "price": 101.33,
+      "rs": -0.28629101609183016,
+      "rs_trend": -0.2608682645176008,
+      "sma150": 106.19006646999999,
+      "sma200": 96.09834984749989,
+      "sma50": 118.00919969999997,
+      "trend_template_reason": null,
+      "trend_template_status": "red"
+    },
+    "PDEX": {
+      "data_status": "ok",
+      "events_today": {
+        "death_cross": false,
+        "golden_cross": false,
+        "move": false,
+        "volume_breakout": false
+      },
+      "note": "",
+      "price": 72.55,
+      "rs": 0.1049562006395297,
+      "rs_trend": 0.08945966436333741,
+      "sma150": 57.22793328866667,
+      "sma200": 53.043599976499934,
+      "sma50": 63.048999906000056,
+      "trend_template_reason": null,
+      "trend_template_status": "green"
+    },
+    "QBTS": {
+      "data_status": "ok",
+      "events_today": {
+        "death_cross": false,
+        "golden_cross": false,
+        "move": false,
+        "volume_breakout": false
+      },
+      "note": "",
+      "price": 17.11,
+      "rs": -0.32060855271517086,
+      "rs_trend": -0.2674308069255007,
+      "sma150": 19.804066659999986,
+      "sma200": 21.282350004999977,
+      "sma50": 18.326200000000014,
+      "trend_template_reason": null,
+      "trend_template_status": "red"
+    },
+    "RDVT": {
+      "data_status": "ok",
+      "events_today": {
+        "death_cross": false,
+        "golden_cross": false,
+        "move": false,
+        "volume_breakout": false
+      },
+      "note": "",
+      "price": 75.94,
+      "rs": 0.3511705332424577,
+      "rs_trend": -0.03211075730207136,
+      "sma150": 54.24646663400001,
+      "sma200": 53.37442497049997,
+      "sma50": 69.94990004200002,
+      "trend_template_reason": null,
+      "trend_template_status": "red"
+    },
+    "TWST": {
+      "data_status": "ok",
+      "events_today": {
+        "death_cross": false,
+        "golden_cross": false,
+        "move": true,
+        "volume_breakout": false
+      },
+      "note": "",
+      "price": 166.99001,
+      "rs": 0.8697170721451954,
+      "rs_trend": -0.5997809530373364,
+      "sma150": 80.23013360200001,
+      "sma200": 69.68425018800002,
+      "sma50": 118.30820081999998,
+      "trend_template_reason": null,
+      "trend_template_status": "red"
+    },
+    "VH2": {
+      "data_status": "error",
+      "error": "Twelve Data error: This symbol is available starting with the Pro or Venture plan. Consider upgrading now at https://twelvedata.com/pricing",
+      "note": "ACHTUNG: bei Twelve Data nur als deutsche Aktie (Friedrich Vorwerk Group SE / XETR) auffindbar - nicht US-Ticker und selbst dort nur mit bezahltem Plan. Bitte klaeren/korrigieren."
+    },
+    "YSWY": {
+      "data_status": "ok",
+      "events_today": {
+        "death_cross": false,
+        "golden_cross": false,
+        "move": false,
+        "volume_breakout": false
+      },
+      "note": "",
+      "price": 21.4,
+      "rs": null,
+      "rs_trend": null,
+      "sma150": null,
+      "sma200": null,
+      "sma50": null,
+      "trend_template_reason": "insufficient_history",
+      "trend_template_status": "grey"
+    }
+  }
 }
