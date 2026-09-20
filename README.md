@@ -81,7 +81,7 @@ Unter **Settings -> Secrets and variables -> Actions -> New repository secret** 
 
 **Settings -> Pages -> Build and deployment -> Source: "Deploy from a branch"**, Branch
 **`main`**, Ordner **`/docs`**, speichern. Die Seite ist danach unter
-`https://{owner}.github.io/{repo}/` erreichbar (URL nicht ungefragt weitergeben).
+`https://niklasvoigt23-svg.github.io/watchlist-tool/` erreichbar (URL nicht ungefragt weitergeben).
 
 Trag die Repo-Adresse zusaetzlich in `docs/index.html` ein (Zeile `const REPO = "OWNER/REPO";`)
 -- das speist den "Ticker hinzufuegen"-Link.
@@ -118,7 +118,7 @@ anlegen (Wochentage Mo-Fr, Berliner Zeit):
 
 Fuer jeden Job in cron-job.org:
 
-- **URL**: `https://api.github.com/repos/{owner}/{repo}/actions/workflows/screen.yml/dispatches`
+- **URL**: `https://api.github.com/repos/niklasvoigt23-svg/watchlist-tool/actions/workflows/screen.yml/dispatches`
 - **Methode**: `POST`
 - **Header**:
   - `Authorization: Bearer <DEIN_GITHUB_PAT>`
