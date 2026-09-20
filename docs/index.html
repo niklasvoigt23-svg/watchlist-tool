@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Watchlist Signal-Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Watchlist Signal-Dashboard</h1>
+  <div id="meta" class="meta">Lade Daten...</div>
+  <a id="add-ticker-link" class="add-ticker" href="#" target="_blank" rel="noopener">+ Ticker hinzufuegen</a>
+</header>
+
+<main>
+  <table id="watchlist-table">
+    <thead>
+      <tr>
+        <th>Ticker</th>
+        <th>Kurs</th>
+        <th>Trend-Template</th>
+        <th>Events heute</th>
+        <th>Notiz</th>
+      </tr>
+    </thead>
+    <tbody id="watchlist-body">
+    </tbody>
+  </table>
+  <p id="empty-note" class="empty-note" hidden>Keine Daten vorhanden. Loese den Workflow einmal per workflow_dispatch aus.</p>
+</main>
+
+<script>
+// Owner/Repo fuer den "Ticker hinzufuegen"-Link -- nach dem Anlegen des Repos hier eintragen.
+const REPO = "OWNER/REPO";
+
+function statusLabel(status, reason) {
+  if (status === "green") return { text: "GRUEN", cls: "status-green" };
+  if (status === "red") return { text: "ROT", cls: "status-red" };
+  if (reason === "insufficient_history") return { text: "zu wenig Historie", cls: "status-grey" };
+  return { text: "keine Daten", cls: "status-grey" };
+}
+
+function eventBadges(events) {
+  if (!events) return "";
+  const parts = [];
+  if (events.golden_cross) parts.push('<span class="badge badge-cross">Golden Cross</span>');
+  if (events.death_cross) parts.push('<span class="badge badge-cross">Death Cross</span>');
+  if (events.volume_breakout) parts.push('<span class="badge badge-volume">Volumen</span>');
+  if (events.move) parts.push('<span class="badge badge-move">Move</span>');
+  return parts.join(" ");
+}
+
+function fmtPrice(price) {
+  if (price === undefined || price === null) return "-";
+  return price.toFixed(2);
+}
+
+function fmtTimestamp(iso) {
+  if (!iso) return "noch nie gelaufen";
+  const d = new Date(iso);
+  return d.toLocaleString("de-DE", { dateStyle: "medium", timeStyle: "short" });
+}
+
+async function load() {
+  const addLink = document.getElementById("add-ticker-link");
+  addLink.href = `https://github.com/${REPO}/edit/main/data/watchlist.csv`;
+
+  let data;
+  try {
+    const resp = await fetch("results.json?_=" + Date.now());
+    data = await resp.json();
+  } catch (e) {
+    document.getElementById("meta").textContent = "Fehler beim Laden von results.json: " + e;
+    return;
+  }
+
+  document.getElementById("meta").textContent =
+    `Letzter Lauf: ${fmtTimestamp(data.last_run_at)} (${data.last_run_mode || "-"})`;
+
+  const tickers = data.tickers || {};
+  const tbody = document.getElementById("watchlist-body");
+  tbody.innerHTML = "";
+  const names = Object.keys(tickers).sort();
+
+  if (names.length === 0) {
+    document.getElementById("empty-note").hidden = false;
+    return;
+  }
+
+  for (const ticker of names) {
+    const t = tickers[ticker];
+    const row = document.createElement("tr");
+
+    const statusInfo = statusLabel(t.trend_template_status, t.trend_template_reason);
+
+    row.innerHTML = `
+      <td class="ticker-cell">${ticker}</td>
+      <td>${t.data_status === "ok" ? fmtPrice(t.price) : "-"}</td>
+      <td><span class="status-dot ${statusInfo.cls}"></span>${statusInfo.text}</td>
+      <td>${eventBadges(t.events_today)}</td>
+      <td class="note-cell">${t.note ? t.note : ""}</td>
+    `;
+
+    if (t.data_status && t.data_status !== "ok") {
+      row.classList.add("row-no-data");
+      row.title = t.error || "Keine Daten verfuegbar";
+    }
+
+    tbody.appendChild(row);
+  }
+}
+
+load();
+</script>
+</body>
+</html>

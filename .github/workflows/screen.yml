@@ -1,0 +1,83 @@
+name: Watchlist Screen
+
+# Bewusst KEIN `schedule:`-Trigger -- GitHubs eingebauter Cron ist aktuell
+# nachweislich unzuverlaessig (teils stundenlange Verzoegerungen bei hoher
+# Last). Stattdessen wird dieser Workflow per workflow_dispatch von einem
+# externen Cron-Dienst (cron-job.org) ausgeloest. Siehe README.md.
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "full (alle Kriterien, 1x/Tag nach US-Handelsschluss) oder intraday (nur Kriterien 4,5,6)"
+        required: true
+        type: choice
+        options:
+          - full
+          - intraday
+        default: intraday
+
+permissions:
+  contents: write
+
+concurrency:
+  group: watchlist-screen
+  cancel-in-progress: false
+
+jobs:
+  screen:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Cache TA-Lib C library
+        id: cache-talib
+        uses: actions/cache@v4
+        with:
+          path: /usr/local/lib/libta_lib*
+          key: talib-c-lib-${{ runner.os }}-0.4.0
+
+      - name: Build TA-Lib C library
+        if: steps.cache-talib.outputs.cache-hit != 'true'
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y build-essential wget
+          wget -q https://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-src.tar.gz
+          tar -xzf ta-lib-0.4.0-src.tar.gz
+          cd ta-lib
+          ./configure --prefix=/usr/local
+          make
+          sudo make install
+          sudo ldconfig
+
+      - name: Ensure TA-Lib C library is registered (cache-hit case)
+        if: steps.cache-talib.outputs.cache-hit == 'true'
+        run: sudo ldconfig
+
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run screening
+        env:
+          TWELVEDATA_API_KEY: ${{ secrets.TWELVEDATA_API_KEY }}
+          FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python scripts/screen.py --mode ${{ inputs.mode }}
+
+      - name: Commit and push updated data
+        run: |
+          git config user.name "watchlist-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/state.json docs/results.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Update watchlist data (${{ inputs.mode }} run)"
+            git push
+          fi
