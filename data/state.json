@@ -25,6 +25,7 @@
   },
   "FLY": {
     "last_close": 20.97,
+    "move_alert_last_alert_date": "2026-09-21",
     "news_last_seen_ts": 1789819945,
     "trend_template_status": "red",
     "volume_avg20": 2367740.0,
