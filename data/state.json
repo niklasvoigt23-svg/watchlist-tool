@@ -1,92 +1,126 @@
 {
   "APMD": {
-    "last_close": 29.0,
+    "last_close": 26.14,
     "move_alert_last_alert_date": "2026-09-21",
-    "volume_avg20": 341795.0,
+    "volume_avg20": 477195.0,
     "volume_breakout_last_alert_date": "2026-09-20"
   },
   "CBRS": {
-    "last_close": 198.37,
+    "last_close": 208.39,
     "move_alert_last_alert_date": "2026-09-21",
     "news_last_seen_ts": 1789977661,
-    "volume_avg20": 6021085.0
+    "relative_staerke_status": "red",
+    "volume_avg20": 6225740.0
   },
   "EXLS": {
-    "last_close": 35.15,
+    "fundamental_status": "red",
+    "last_close": 35.25,
     "news_last_seen_ts": 1789806641,
-    "trend_template_status": "red",
-    "volume_avg20": 1866405.0
+    "relative_staerke_status": "green",
+    "trendstruktur_status": "red",
+    "volume_avg20": 1906425.0,
+    "year_high_252": 44.029999
   },
   "FEIM": {
-    "last_close": 85.53,
+    "fundamental_status": "green",
+    "last_close": 89.115,
     "news_last_seen_ts": 1789718400,
-    "trend_template_status": "green",
-    "volume_avg20": 330165.0
+    "relative_staerke_status": "green",
+    "trendstruktur_status": "green",
+    "volume_avg20": 352265.0,
+    "year_high_252": 88.38,
+    "year_high_last_alert_date": "2026-09-21"
   },
   "FLY": {
-    "last_close": 20.97,
+    "last_close": 22.825,
     "move_alert_last_alert_date": "2026-09-21",
     "news_last_seen_ts": 1789819945,
-    "trend_template_status": "red",
-    "volume_avg20": 2367740.0,
-    "volume_breakout_last_alert_date": "2026-09-20"
+    "relative_staerke_status": "red",
+    "trendstruktur_status": "red",
+    "volume_avg20": 2660135.0,
+    "volume_breakout_last_alert_date": "2026-09-20",
+    "year_high_252": 58.81
   },
   "INDV": {
-    "last_close": 34.88,
+    "fundamental_status": "red",
+    "last_close": 35.555,
     "news_last_seen_ts": 1789642800,
-    "trend_template_status": "red",
-    "volume_avg20": 1982645.0
+    "relative_staerke_status": "red",
+    "trendstruktur_status": "red",
+    "volume_avg20": 2144740.0,
+    "year_high_252": 41.83
   },
   "MMED": {
-    "last_close": 21.79,
-    "volume_avg20": 2324995.0
+    "last_close": 21.12,
+    "relative_staerke_status": "red",
+    "volume_avg20": 2397845.0
   },
   "NEO": {
-    "last_close": 19.91,
+    "last_close": 19.39,
     "news_last_seen_ts": 1789956120,
-    "trend_template_status": "red",
-    "volume_avg20": 1735950.0
+    "relative_staerke_status": "red",
+    "trendstruktur_status": "red",
+    "volume_avg20": 1818455.0,
+    "year_high_252": 19.91
   },
   "NSIT": {
-    "last_close": 154.91,
+    "fundamental_status": "red",
+    "last_close": 156.76,
     "news_last_seen_ts": 1789747201,
-    "trend_template_status": "red",
-    "volume_avg20": 285310.0,
-    "volume_breakout_last_alert_date": "2026-09-20"
+    "relative_staerke_status": "red",
+    "trendstruktur_status": "green",
+    "volume_avg20": 327905.0,
+    "volume_breakout_last_alert_date": "2026-09-20",
+    "year_high_252": 165.37
   },
   "NWPX": {
-    "last_close": 101.33,
-    "trend_template_status": "red",
-    "volume_avg20": 142485.0
+    "fundamental_status": "green",
+    "last_close": 102.59,
+    "relative_staerke_status": "red",
+    "trendstruktur_status": "red",
+    "volume_avg20": 154895.0,
+    "year_high_252": 149.94
   },
   "PDEX": {
-    "last_close": 72.55,
+    "fundamental_status": "red",
+    "last_close": 72.49,
     "news_last_seen_ts": 1789740000,
-    "trend_template_status": "green",
-    "volume_avg20": 73090.0
+    "relative_staerke_status": "green",
+    "trendstruktur_status": "green",
+    "volume_avg20": 75535.0,
+    "year_high_252": 73.41
   },
   "QBTS": {
-    "last_close": 17.11,
+    "last_close": 17.695,
     "news_last_seen_ts": 1789988400,
-    "trend_template_status": "red",
-    "volume_avg20": 16039675.0
+    "relative_staerke_status": "red",
+    "trendstruktur_status": "red",
+    "volume_avg20": 16406245.0,
+    "year_high_252": 44.78
   },
   "RDVT": {
-    "last_close": 75.94,
+    "fundamental_status": "green",
+    "last_close": 75.41,
     "news_last_seen_ts": 1789936188,
-    "trend_template_status": "red",
-    "volume_avg20": 225575.0
+    "relative_staerke_status": "red",
+    "trendstruktur_status": "green",
+    "volume_avg20": 229060.0,
+    "year_high_252": 77.52
   },
   "TWST": {
-    "last_close": 166.99001,
+    "last_close": 165.79,
     "move_alert_last_alert_date": "2026-09-20",
     "news_last_seen_ts": 1789775788,
-    "trend_template_status": "red",
-    "volume_avg20": 1692720.0
+    "relative_staerke_status": "red",
+    "trendstruktur_status": "green",
+    "volume_avg20": 1726365.0,
+    "year_high_252": 166.99001
   },
   "YSWY": {
-    "last_close": 21.4,
+    "fundamental_status": "red",
+    "last_close": 20.38,
     "news_last_seen_ts": 1789633149,
-    "volume_avg20": 279855.0
+    "relative_staerke_status": "red",
+    "volume_avg20": 286600.0
   }
 }

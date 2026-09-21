@@ -1,19 +1,28 @@
 {
-  "last_run_at": "2026-09-21T18:34:29.044842+00:00",
-  "last_run_mode": "intraday",
+  "last_run_at": "2026-09-21T20:44:09.531780+00:00",
+  "last_run_mode": "full",
   "tickers": {
     "APMD": {
       "data_status": "ok",
       "events_today": [],
       "fundamental": {
+        "eps_growth": null,
+        "net_margin_current": 0.7984,
+        "net_margin_prior_quarter": -3.3325,
+        "reason": "insufficient_fundamentals",
+        "revenue_growth": 26.0885,
         "status": "grey"
       },
       "note": "",
-      "price": 25.175,
+      "price": 26.14,
       "relative_staerke": {
+        "history_days": 36,
+        "reason": "insufficient_history",
         "status": "grey"
       },
       "trendstruktur": {
+        "history_days": 36,
+        "reason": "insufficient_history",
         "status": "grey"
       }
     },
@@ -21,14 +30,26 @@
       "data_status": "ok",
       "events_today": [],
       "fundamental": {
+        "eps_growth": null,
+        "net_margin_current": -2.5014,
+        "net_margin_prior_quarter": -0.0724,
+        "reason": "insufficient_fundamentals",
+        "revenue_growth": null,
         "status": "grey"
       },
       "note": "",
-      "price": 208.01,
+      "price": 208.39,
       "relative_staerke": {
+        "conditions": {
+          "rs_positive_and_rising": false
+        },
+        "rs": -0.10643741995537026,
+        "rs_trend": 0.2186217150797365,
         "status": "red"
       },
       "trendstruktur": {
+        "history_days": 89,
+        "reason": "insufficient_history",
         "status": "grey"
       }
     },
@@ -36,29 +57,80 @@
       "data_status": "ok",
       "events_today": [],
       "fundamental": {
+        "conditions": {
+          "eps_growth_ok": false,
+          "margin_not_declining": false,
+          "revenue_growth_ok": true
+        },
+        "eps_growth": 0.0492,
+        "net_margin_current": 0.1085,
+        "net_margin_prior_quarter": 0.1176,
+        "revenue_growth": 0.1561,
         "status": "red"
       },
       "note": "",
-      "price": 35.31,
+      "price": 35.25,
       "relative_staerke": {
+        "conditions": {
+          "rs_positive_and_rising": true
+        },
+        "rs": 0.324581032230274,
+        "rs_trend": 0.07919245900665839,
         "status": "green"
       },
       "trendstruktur": {
+        "conditions": {
+          "price_above_smas": true,
+          "sma200_rising": false,
+          "sma_order": false
+        },
+        "price": 35.25,
+        "sma150": 31.098200013333315,
+        "sma200": 33.29735000649999,
+        "sma50": 33.97760002,
         "status": "red"
       }
     },
     "FEIM": {
       "data_status": "ok",
-      "events_today": [],
+      "events_today": [
+        {
+          "type": "year_high",
+          "value": "+0.8%"
+        }
+      ],
       "fundamental": {
+        "conditions": {
+          "eps_growth_ok": true,
+          "margin_not_declining": true,
+          "revenue_growth_ok": true
+        },
+        "eps_growth": 5.319,
+        "net_margin_current": 0.1798,
+        "net_margin_prior_quarter": -0.3185,
+        "revenue_growth": 0.6979000000000001,
         "status": "green"
       },
       "note": "",
-      "price": 88.81,
+      "price": 89.115,
       "relative_staerke": {
+        "conditions": {
+          "rs_positive_and_rising": true
+        },
+        "rs": 0.2298726255289505,
+        "rs_trend": 0.23075738275053304,
         "status": "green"
       },
       "trendstruktur": {
+        "conditions": {
+          "price_above_smas": true,
+          "sma200_rising": true,
+          "sma_order": true
+        },
+        "price": 89.115,
+        "sma150": 61.3263666733333,
+        "sma200": 58.50272499149998,
+        "sma50": 68.99310002000001,
         "status": "green"
       }
     },
@@ -66,44 +138,71 @@
       "data_status": "ok",
       "events_today": [],
       "fundamental": {
+        "eps_growth": null,
+        "net_margin_current": -0.7845,
+        "net_margin_prior_quarter": -1.1953,
+        "reason": "insufficient_fundamentals",
+        "revenue_growth": 6.5685,
         "status": "grey"
       },
       "note": "",
-      "price": 22.83,
+      "price": 22.825,
       "relative_staerke": {
+        "conditions": {
+          "rs_positive_and_rising": false
+        },
+        "rs": -0.24152509269483935,
+        "rs_trend": 0.20514795587160994,
         "status": "red"
       },
       "trendstruktur": {
+        "conditions": {
+          "price_above_smas": false,
+          "sma200_rising": true,
+          "sma_order": false
+        },
+        "price": 22.825,
+        "sma150": 28.718799973333304,
+        "sma200": 27.717424979999986,
+        "sma50": 22.21549998000002,
         "status": "red"
-      }
-    },
-    "HTFL": {
-      "data_status": "ok",
-      "events_today": [],
-      "fundamental": {
-        "status": "grey"
-      },
-      "note": "",
-      "price": 50.49,
-      "relative_staerke": {
-        "status": "red"
-      },
-      "trendstruktur": {
-        "status": "green"
       }
     },
     "INDV": {
       "data_status": "ok",
       "events_today": [],
       "fundamental": {
+        "conditions": {
+          "eps_growth_ok": true,
+          "margin_not_declining": true,
+          "revenue_growth_ok": false
+        },
+        "eps_growth": 5.8852,
+        "net_margin_current": 0.3557,
+        "net_margin_prior_quarter": 0.2808,
+        "revenue_growth": 0.1358,
         "status": "red"
       },
       "note": "",
-      "price": 35.39,
+      "price": 35.555,
       "relative_staerke": {
+        "conditions": {
+          "rs_positive_and_rising": false
+        },
+        "rs": -0.10709722754981377,
+        "rs_trend": -0.06178309180568076,
         "status": "red"
       },
       "trendstruktur": {
+        "conditions": {
+          "price_above_smas": false,
+          "sma200_rising": true,
+          "sma_order": true
+        },
+        "price": 35.555,
+        "sma150": 35.96819995266667,
+        "sma200": 35.70277496600001,
+        "sma50": 37.595299911999994,
         "status": "red"
       }
     },
@@ -111,14 +210,26 @@
       "data_status": "ok",
       "events_today": [],
       "fundamental": {
+        "eps_growth": null,
+        "net_margin_current": 0.0,
+        "net_margin_prior_quarter": -0.221,
+        "reason": "insufficient_fundamentals",
+        "revenue_growth": null,
         "status": "grey"
       },
       "note": "",
-      "price": 21.22,
+      "price": 21.12,
       "relative_staerke": {
+        "conditions": {
+          "rs_positive_and_rising": false
+        },
+        "rs": 0.4292997124657385,
+        "rs_trend": -0.26316969881848196,
         "status": "red"
       },
       "trendstruktur": {
+        "history_days": 137,
+        "reason": "insufficient_history",
         "status": "grey"
       }
     },
@@ -126,14 +237,33 @@
       "data_status": "ok",
       "events_today": [],
       "fundamental": {
+        "eps_growth": null,
+        "net_margin_current": 0.0111,
+        "net_margin_prior_quarter": -0.0916,
+        "reason": "insufficient_fundamentals",
+        "revenue_growth": 0.1121,
         "status": "grey"
       },
       "note": "",
-      "price": 19.5,
+      "price": 19.39,
       "relative_staerke": {
+        "conditions": {
+          "rs_positive_and_rising": false
+        },
+        "rs": 0.6660528555337939,
+        "rs_trend": -0.14184727664188634,
         "status": "red"
       },
       "trendstruktur": {
+        "conditions": {
+          "price_above_smas": true,
+          "sma200_rising": true,
+          "sma_order": false
+        },
+        "price": 19.39,
+        "sma150": 11.966266660000015,
+        "sma200": 12.017149995,
+        "sma50": 16.41339997999998,
         "status": "red"
       }
     },
@@ -141,14 +271,37 @@
       "data_status": "ok",
       "events_today": [],
       "fundamental": {
+        "conditions": {
+          "eps_growth_ok": true,
+          "margin_not_declining": true,
+          "revenue_growth_ok": false
+        },
+        "eps_growth": 0.7594,
+        "net_margin_current": 0.0323,
+        "net_margin_prior_quarter": 0.0141,
+        "revenue_growth": 0.14730000000000001,
         "status": "red"
       },
       "note": "",
-      "price": 156.425,
+      "price": 156.76,
       "relative_staerke": {
+        "conditions": {
+          "rs_positive_and_rising": false
+        },
+        "rs": 0.421967959119816,
+        "rs_trend": -0.10590243992090032,
         "status": "red"
       },
       "trendstruktur": {
+        "conditions": {
+          "price_above_smas": true,
+          "sma200_rising": true,
+          "sma_order": true
+        },
+        "price": 156.76,
+        "sma150": 107.04259975333326,
+        "sma200": 101.27344979499996,
+        "sma50": 143.00339944000007,
         "status": "green"
       }
     },
@@ -156,14 +309,37 @@
       "data_status": "ok",
       "events_today": [],
       "fundamental": {
+        "conditions": {
+          "eps_growth_ok": true,
+          "margin_not_declining": true,
+          "revenue_growth_ok": true
+        },
+        "eps_growth": 0.7775,
+        "net_margin_current": 0.0993,
+        "net_margin_prior_quarter": 0.0762,
+        "revenue_growth": 0.1974,
         "status": "green"
       },
       "note": "",
-      "price": 103.18,
+      "price": 102.59,
       "relative_staerke": {
+        "conditions": {
+          "rs_positive_and_rising": false
+        },
+        "rs": -0.29941411334403045,
+        "rs_trend": -0.2788080040165817,
         "status": "red"
       },
       "trendstruktur": {
+        "conditions": {
+          "price_above_smas": false,
+          "sma200_rising": true,
+          "sma_order": true
+        },
+        "price": 102.59,
+        "sma150": 106.37619980333334,
+        "sma200": 96.3206498474999,
+        "sma50": 117.38319969999996,
         "status": "red"
       }
     },
@@ -171,14 +347,37 @@
       "data_status": "ok",
       "events_today": [],
       "fundamental": {
+        "conditions": {
+          "eps_growth_ok": true,
+          "margin_not_declining": false,
+          "revenue_growth_ok": true
+        },
+        "eps_growth": 1.3757,
+        "net_margin_current": 0.14,
+        "net_margin_prior_quarter": 0.1974,
+        "revenue_growth": 0.1664,
         "status": "red"
       },
       "note": "",
-      "price": 73.14,
+      "price": 72.49,
       "relative_staerke": {
+        "conditions": {
+          "rs_positive_and_rising": true
+        },
+        "rs": 0.08323135186353059,
+        "rs_trend": 0.06586249273560552,
         "status": "green"
       },
       "trendstruktur": {
+        "conditions": {
+          "price_above_smas": true,
+          "sma200_rising": true,
+          "sma_order": true
+        },
+        "price": 72.49,
+        "sma150": 57.44799995533334,
+        "sma200": 53.218249976499926,
+        "sma50": 63.24099990600006,
         "status": "green"
       }
     },
@@ -186,14 +385,33 @@
       "data_status": "ok",
       "events_today": [],
       "fundamental": {
+        "eps_growth": null,
+        "net_margin_current": -15.6138,
+        "net_margin_prior_quarter": -6.423,
+        "reason": "insufficient_fundamentals",
+        "revenue_growth": -0.0060999999999999995,
         "status": "grey"
       },
       "note": "",
-      "price": 17.74,
+      "price": 17.695,
       "relative_staerke": {
+        "conditions": {
+          "rs_positive_and_rising": false
+        },
+        "rs": -0.30410200295546785,
+        "rs_trend": -0.07246034505640819,
         "status": "red"
       },
       "trendstruktur": {
+        "conditions": {
+          "price_above_smas": false,
+          "sma200_rising": false,
+          "sma_order": false
+        },
+        "price": 17.695,
+        "sma150": 19.79089999333332,
+        "sma200": 21.258325004999975,
+        "sma50": 18.278300000000012,
         "status": "red"
       }
     },
@@ -201,14 +419,37 @@
       "data_status": "ok",
       "events_today": [],
       "fundamental": {
+        "conditions": {
+          "eps_growth_ok": true,
+          "margin_not_declining": true,
+          "revenue_growth_ok": true
+        },
+        "eps_growth": 0.8575,
+        "net_margin_current": 0.1856,
+        "net_margin_prior_quarter": 0.1699,
+        "revenue_growth": 0.2271,
         "status": "green"
       },
       "note": "",
-      "price": 75.565,
+      "price": 75.41,
       "relative_staerke": {
+        "conditions": {
+          "rs_positive_and_rising": false
+        },
+        "rs": 0.3349914418470088,
+        "rs_trend": -0.08659546656550976,
         "status": "red"
       },
       "trendstruktur": {
+        "conditions": {
+          "price_above_smas": true,
+          "sma200_rising": true,
+          "sma_order": true
+        },
+        "price": 75.41,
+        "sma150": 54.471466634000016,
+        "sma200": 53.48037497049998,
+        "sma50": 70.10630004200002,
         "status": "green"
       }
     },
@@ -216,34 +457,64 @@
       "data_status": "ok",
       "events_today": [],
       "fundamental": {
+        "eps_growth": null,
+        "net_margin_current": -0.2961,
+        "net_margin_prior_quarter": -0.3976,
+        "reason": "insufficient_fundamentals",
+        "revenue_growth": 0.2324,
         "status": "grey"
       },
       "note": "",
-      "price": 163.77,
+      "price": 165.79,
       "relative_staerke": {
+        "conditions": {
+          "rs_positive_and_rising": false
+        },
+        "rs": 0.8732712730000445,
+        "rs_trend": -0.5267440227350664,
         "status": "red"
       },
       "trendstruktur": {
+        "conditions": {
+          "price_above_smas": true,
+          "sma200_rising": true,
+          "sma_order": true
+        },
+        "price": 165.79,
+        "sma150": 81.00800026866668,
+        "sma200": 70.36470018800003,
+        "sma50": 119.81120081999998,
         "status": "green"
       }
-    },
-    "VH2": {
-      "data_status": "error",
-      "error": "Twelve Data error: This symbol is available starting with the Pro or Venture plan. Consider upgrading now at https://twelvedata.com/pricing",
-      "note": "ACHTUNG: bei Twelve Data nur als deutsche Aktie (Friedrich Vorwerk Group SE / XETR) auffindbar - nicht US-Ticker und selbst dort nur mit bezahltem Plan. Bitte klaeren/korrigieren."
     },
     "YSWY": {
       "data_status": "ok",
       "events_today": [],
       "fundamental": {
+        "conditions": {
+          "eps_growth_ok": false,
+          "margin_not_declining": false,
+          "revenue_growth_ok": true
+        },
+        "eps_growth": -0.3492,
+        "net_margin_current": 0.0177,
+        "net_margin_prior_quarter": 0.0442,
+        "revenue_growth": 0.35869999999999996,
         "status": "red"
       },
       "note": "",
-      "price": 20.53,
+      "price": 20.38,
       "relative_staerke": {
+        "conditions": {
+          "rs_positive_and_rising": false
+        },
+        "rs": -0.055728956592733137,
+        "rs_trend": -0.10478755404349605,
         "status": "red"
       },
       "trendstruktur": {
+        "history_days": 105,
+        "reason": "insufficient_history",
         "status": "grey"
       }
     }
