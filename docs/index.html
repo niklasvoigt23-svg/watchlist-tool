@@ -19,9 +19,7 @@
       <tr>
         <th>Ticker</th>
         <th>Kurs</th>
-        <th>Trendstruktur</th>
-        <th>Relative Staerke</th>
-        <th>Fundamental</th>
+        <th>Signal</th>
         <th>Events heute</th>
       </tr>
     </thead>
@@ -55,6 +53,37 @@ function statusCell(block) {
   if (!block) return `<span class="status-dot status-grey"></span>keine Daten`;
   const info = statusLabel(block.status, block.reason);
   return `<span class="status-dot ${info.cls}"></span>${info.text}`;
+}
+
+const SIGNAL_LABELS = {
+  trendstruktur: "Trendstruktur",
+  relative_staerke: "Relative Staerke",
+  fundamental: "Fundamental",
+};
+
+// Eine Ampel: rot wenn irgendein Kriterium rot ist (das ist ein echtes "nicht erfuellt"),
+// grau wenn keins rot aber mind. eins grau ist (noch nicht abschliessend beurteilbar),
+// gruen nur wenn alle drei gruen sind.
+function combinedStatus(t) {
+  const parts = [t.trendstruktur, t.relative_staerke, t.fundamental];
+  const statuses = parts.map((p) => (p ? p.status : "grey"));
+  if (statuses.includes("red")) return "red";
+  if (statuses.includes("grey")) return "grey";
+  return "green";
+}
+
+function signalCell(t) {
+  const combined = combinedStatus(t);
+  const cls = combined === "green" ? "status-green" : combined === "red" ? "status-red" : "status-grey";
+  const detailRows = ["trendstruktur", "relative_staerke", "fundamental"]
+    .map((key) => `<div class="signal-detail-row">${SIGNAL_LABELS[key]}: ${statusCell(t[key])}</div>`)
+    .join("");
+  return `
+    <details class="signal-details">
+      <summary><span class="status-dot status-dot-lg ${cls}"></span></summary>
+      <div class="signal-detail-panel">${detailRows}</div>
+    </details>
+  `;
 }
 
 function eventBadges(events) {
@@ -116,9 +145,7 @@ async function load() {
     row.innerHTML = `
       <td class="ticker-cell"><a href="https://finance.yahoo.com/quote/${encodeURIComponent(ticker)}" target="_blank" rel="noopener">${ticker}</a></td>
       <td>${t.data_status === "ok" ? fmtPrice(t.price) : "-"}</td>
-      <td>${statusCell(t.trendstruktur)}</td>
-      <td>${statusCell(t.relative_staerke)}</td>
-      <td>${statusCell(t.fundamental)}</td>
+      <td class="signal-cell">${signalCell(t)}</td>
       <td>${eventBadges(t.events_today)}</td>
     `;
 
