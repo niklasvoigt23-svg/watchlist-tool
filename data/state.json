@@ -1,12 +1,14 @@
 {
   "APMD": {
     "last_close": 29.0,
+    "move_alert_last_alert_date": "2026-09-21",
     "volume_avg20": 341795.0,
     "volume_breakout_last_alert_date": "2026-09-20"
   },
   "CBRS": {
     "last_close": 198.37,
-    "news_last_seen_ts": 1789870309,
+    "move_alert_last_alert_date": "2026-09-21",
+    "news_last_seen_ts": 1789977661,
     "volume_avg20": 6021085.0
   },
   "EXLS": {
@@ -28,13 +30,6 @@
     "volume_avg20": 2367740.0,
     "volume_breakout_last_alert_date": "2026-09-20"
   },
-  "HTFL": {
-    "last_close": 50.75,
-    "news_last_seen_ts": 1789649387,
-    "trend_template_status": "red",
-    "volume_avg20": 1923445.0,
-    "volume_breakout_last_alert_date": "2026-09-20"
-  },
   "INDV": {
     "last_close": 34.88,
     "news_last_seen_ts": 1789642800,
@@ -47,7 +42,7 @@
   },
   "NEO": {
     "last_close": 19.91,
-    "news_last_seen_ts": 1789735240,
+    "news_last_seen_ts": 1789956120,
     "trend_template_status": "red",
     "volume_avg20": 1735950.0
   },
@@ -71,13 +66,13 @@
   },
   "QBTS": {
     "last_close": 17.11,
-    "news_last_seen_ts": 1789771055,
+    "news_last_seen_ts": 1789988400,
     "trend_template_status": "red",
     "volume_avg20": 16039675.0
   },
   "RDVT": {
     "last_close": 75.94,
-    "news_last_seen_ts": 1789630105,
+    "news_last_seen_ts": 1789936188,
     "trend_template_status": "red",
     "volume_avg20": 225575.0
   },
@@ -88,7 +83,6 @@
     "trend_template_status": "red",
     "volume_avg20": 1692720.0
   },
-  "VH2": {},
   "YSWY": {
     "last_close": 21.4,
     "news_last_seen_ts": 1789633149,

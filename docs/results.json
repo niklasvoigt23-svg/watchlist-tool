@@ -1,5 +1,5 @@
 {
-  "last_run_at": "2026-09-20T16:47:28.756633+00:00",
+  "last_run_at": "2026-09-21T14:04:10.135589+00:00",
   "last_run_mode": "intraday",
   "tickers": {
     "APMD": {
@@ -7,11 +7,11 @@
       "events_today": {
         "death_cross": false,
         "golden_cross": false,
-        "move": false,
-        "volume_breakout": true
+        "move": true,
+        "volume_breakout": false
       },
       "note": "",
-      "price": 29.0,
+      "price": 27.32,
       "trend_template_status": "grey"
     },
     "CBRS": {
@@ -19,11 +19,11 @@
       "events_today": {
         "death_cross": false,
         "golden_cross": false,
-        "move": false,
+        "move": true,
         "volume_breakout": false
       },
       "note": "",
-      "price": 198.37,
+      "price": 210.8,
       "trend_template_status": "grey"
     },
     "EXLS": {
@@ -35,7 +35,7 @@
         "volume_breakout": false
       },
       "note": "",
-      "price": 35.15,
+      "price": 35.22,
       "trend_template_status": "red"
     },
     "FEIM": {
@@ -47,7 +47,7 @@
         "volume_breakout": false
       },
       "note": "",
-      "price": 85.53,
+      "price": 85.845,
       "trend_template_status": "green"
     },
     "FLY": {
@@ -56,22 +56,10 @@
         "death_cross": false,
         "golden_cross": false,
         "move": false,
-        "volume_breakout": true
+        "volume_breakout": false
       },
       "note": "",
-      "price": 20.97,
-      "trend_template_status": "red"
-    },
-    "HTFL": {
-      "data_status": "ok",
-      "events_today": {
-        "death_cross": false,
-        "golden_cross": false,
-        "move": false,
-        "volume_breakout": true
-      },
-      "note": "",
-      "price": 50.75,
+      "price": 21.96,
       "trend_template_status": "red"
     },
     "INDV": {
@@ -83,7 +71,7 @@
         "volume_breakout": false
       },
       "note": "",
-      "price": 34.88,
+      "price": 35.53,
       "trend_template_status": "red"
     },
     "MMED": {
@@ -95,7 +83,7 @@
         "volume_breakout": false
       },
       "note": "",
-      "price": 21.79,
+      "price": 21.58,
       "trend_template_status": "grey"
     },
     "NEO": {
@@ -107,7 +95,7 @@
         "volume_breakout": false
       },
       "note": "",
-      "price": 19.91,
+      "price": 19.78,
       "trend_template_status": "red"
     },
     "NSIT": {
@@ -116,10 +104,10 @@
         "death_cross": false,
         "golden_cross": false,
         "move": false,
-        "volume_breakout": true
+        "volume_breakout": false
       },
       "note": "",
-      "price": 154.91,
+      "price": 157.16,
       "trend_template_status": "red"
     },
     "NWPX": {
@@ -131,7 +119,7 @@
         "volume_breakout": false
       },
       "note": "",
-      "price": 101.33,
+      "price": 100.68,
       "trend_template_status": "red"
     },
     "PDEX": {
@@ -143,7 +131,7 @@
         "volume_breakout": false
       },
       "note": "",
-      "price": 72.55,
+      "price": 73.0,
       "trend_template_status": "green"
     },
     "QBTS": {
@@ -155,7 +143,7 @@
         "volume_breakout": false
       },
       "note": "",
-      "price": 17.11,
+      "price": 17.62,
       "trend_template_status": "red"
     },
     "RDVT": {
@@ -167,7 +155,7 @@
         "volume_breakout": false
       },
       "note": "",
-      "price": 75.94,
+      "price": 76.495,
       "trend_template_status": "red"
     },
     "TWST": {
@@ -175,17 +163,12 @@
       "events_today": {
         "death_cross": false,
         "golden_cross": false,
-        "move": true,
+        "move": false,
         "volume_breakout": false
       },
       "note": "",
-      "price": 166.99001,
+      "price": 165.735,
       "trend_template_status": "red"
-    },
-    "VH2": {
-      "data_status": "error",
-      "error": "Twelve Data error: This symbol is available starting with the Pro or Venture plan. Consider upgrading now at https://twelvedata.com/pricing",
-      "note": "ACHTUNG: bei Twelve Data nur als deutsche Aktie (Friedrich Vorwerk Group SE / XETR) auffindbar - nicht US-Ticker und selbst dort nur mit bezahltem Plan. Bitte klaeren/korrigieren."
     },
     "YSWY": {
       "data_status": "ok",
@@ -196,7 +179,7 @@
         "volume_breakout": false
       },
       "note": "",
-      "price": 21.4,
+      "price": 20.95,
       "trend_template_status": "grey"
     }
   }
