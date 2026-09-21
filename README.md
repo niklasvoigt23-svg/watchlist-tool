@@ -1,8 +1,9 @@
 # Watchlist Signal-Tool
 
-Serverloses Chart-Ampel-Dashboard mit Telegram-Alarmen fuer eine Aktien-Watchlist. Rein
-technische Signale (Kurs, Volumen, News) auf Basis einer Trend-/Momentum-Strategie angelehnt
-an Mark Minervinis SEPA-Ansatz. Keine Fundamentaldaten.
+Serverloses Ampel-Dashboard mit Telegram-Alarmen fuer eine Aktien-Watchlist, angelehnt an Mark
+Minervinis SEPA-Ansatz: drei unabhaengige Ampeln (Trendstruktur, Relative Staerke, Fundamental)
+plus Einzelereignis-Alarme (Golden/Death Cross, Volumen-Breakout, Kursbewegung, 52-Wochen-Hoch,
+Pivotal News).
 
 ## Architektur
 
@@ -14,8 +15,32 @@ an Mark Minervinis SEPA-Ansatz. Keine Fundamentaldaten.
 - **Datenhaltung**: keine Datenbank, alles als Dateien im Repo (`data/watchlist.csv`,
   `data/state.json`, `docs/results.json`).
 - **Alarme**: Telegram Bot API.
-- **Datenquellen**: [Twelve Data](https://twelvedata.com) (Kurse/Volumen), [Finnhub](https://finnhub.io) (News).
+- **Datenquellen**: [Twelve Data](https://twelvedata.com) (Kurse/Volumen), [Finnhub](https://finnhub.io)
+  (News + Fundamentaldaten via `/stock/metric`).
 - **Signalberechnung**: [TA-Lib](https://ta-lib.org/) (SMA, Crossover).
+
+## Signale
+
+**Drei unabhaengige Dauer-Ampeln** (grau/gruen/rot), jede mit eigenem Status-Wechsel-Alarm, nur
+im vollen taeglichen Lauf berechnet:
+
+- **Trendstruktur**: Kurs > SMA50 > SMA150 > SMA200 (in der richtigen Reihenfolge) und SMA200
+  seit >=20 Handelstagen steigend. Braucht >=200 Handelstage Historie.
+- **Relative Staerke**: RS (ggue. SPY, 63-Tage-Fenster) > 0 und steigend ueber die letzten 20
+  Handelstage. Braucht nur ~84 Handelstage Historie -- unabhaengig von Trendstruktur, kann also
+  frueher aussagekraeftig sein.
+- **Fundamental**: EPS-Wachstum Q/YoY >= 20 %, Umsatzwachstum Q/YoY >= 15 %, Nettomarge nicht
+  ruecklaeufig ggue. Vorquartal -- alle drei ueber Finnhub Basic-Financials. Fehlt eines der drei
+  Felder, zeigt die Ampel grau statt rot (siehe "Verifizierte Annahmen" oben).
+
+**Einzelereignis-Alarme** (gededuped ueber `state.json`, pro Tag max. einmal):
+
+- Golden/Death Cross (SMA50 x SMA200), nur im vollen Lauf.
+- Volumen-Breakout (>= `VOLUME_MULTIPLIER`x 20-Tage-Durchschnitt), voller Lauf + Intraday.
+- Kursbewegung (>= `MOVE_THRESHOLD` ggue. letztem Schlusskurs), voller Lauf + Intraday.
+- Ausbruch ueber das 52-Wochen-Hoch (252 Handelstage, heute ausgeschlossen), voller Lauf +
+  Intraday.
+- Pivotal News (neue Finnhub-Company-News), voller Lauf + Intraday.
 
 ## Wichtig: Sichtbarkeit dieses Repos
 
@@ -35,29 +60,51 @@ jederzeit nachtraeglich moeglich.
 - **Finnhub-News-Endpunkt**: funktioniert auf dem kostenlosen Tarif (`company-news`), getestet
   mit TWST, QBTS, NSIT -- alle drei lieferten aktuelle Artikel. News-Feature ist aktiv
   (`ENABLE_NEWS = True` in `scripts/config.py`).
-- **Twelve Data Abdeckung** (17 Startticker geprueft):
-  - 16 von 17 Tickern liefern taegliche Kurs-/Volumenhistorie auf dem Gratis-Tarif.
-  - **VH2 ist NICHT nutzbar**: Twelve Data loest `VH2` nur als *Friedrich Vorwerk Group SE*
-    (deutsche Aktie, XETR/Frankfurt/Muenchen/Wien, EUR) auf, und selbst dieses Symbol
-    verlangt einen bezahlten Pro/Venture-Tarif ("This symbol is available starting with the
-    Pro or Venture plan"). Falls mit `VH2` ein anderer (z.B. US-OTC-) Titel gemeint war, bitte
-    Ticker in `data/watchlist.csv` korrigieren. Bis dahin zeigt das Dashboard fuer VH2 grau
-    ("keine Daten") und die Zeile ist im Code/CSV entsprechend markiert.
-  - **4 Ticker haben aktuell weniger als 200 Handelstage Historie** (zu neu gelistet), daher
-    ist SMA200 / Trend-Template dort noch nicht berechenbar (Dashboard zeigt grau,
-    "zu wenig Historie", kein Fehlzustand):
-    - CBRS (~88 Handelstage)
-    - MMED (~136 Handelstage)
-    - YSWY (~104 Handelstage)
-    - APMD (~35 Handelstage)
-
-    Das behebt sich von selbst, sobald diese Titel laenger gelistet sind.
+- **Finnhub Basic-Financials-Endpunkt** (`/stock/metric?metric=all`), fuer die Fundamental-Ampel,
+  getestet mit TWST, QBTS, NSIT sowie mehreren Micro-Caps der Watchlist:
+  - `epsGrowthQuarterlyYoy` und `revenueGrowthQuarterlyYoy` existieren im Gratis-Tarif, sind aber
+    **prozentskaliert** (z.B. `23.24` = 23,24 %) -- der Code konvertiert das intern zu
+    Dezimalbruechen, konsistent mit `EPS_GROWTH_MIN`/`REVENUE_GROWTH_MIN` in `config.py`.
+  - `epsGrowthQuarterlyYoy` ist bei verlustschreibenden Wachstumswerten (z.B. TWST, QBTS) haeufig
+    leer -- Finnhub laesst das Feld bewusst weg, wenn die Vorjahresquartals-EPS negativ/nahe null
+    war (Wachstum in % waere dort irrefuehrend). Betroffene Ticker zeigen die Fundamental-Ampel
+    korrekt grau statt rot.
+  - Fuer den Margentrend ("nicht ruecklaeufig ggue. Vorquartal") gibt es **keinen passenden
+    Einzelwert** in `metric` -- stattdessen liefert die Antwort zusaetzlich
+    `series.quarterly.netMargin` als echte Quartalszeitreihe (bereits dezimalskaliert). Der Code
+    vergleicht `netMargin[0]` (aktuelles Quartal) gegen `netMargin[1]` (Vorquartal) daraus, statt
+    der TTM-Kennzahl -- das ist die einzige Moeglichkeit, tatsaechlich "gegenueber dem Vorquartal"
+    zu vergleichen. Kleine Abweichung vom Nachtrags-Wortlaut ("aktuelle TTM-Marge"), aber
+    sachlich das, was gemeint war.
+  - Duenn abgedeckte Micro-Caps (z.B. CBRS, MMED) liefern fuer alle drei benoetigten Felder leer
+    -- Fundamental-Ampel zeigt dann grau, wie bei jedem anderen Datenausfall auch.
+- **Twelve Data Abdeckung** (Startticker geprueft):
+  - Alle verbliebenen Ticker der Watchlist liefern taegliche Kurs-/Volumenhistorie auf dem
+    Gratis-Tarif. (`VH2` und `HTFL` wurden zwischenzeitlich von dir selbst aus der Watchlist
+    entfernt -- `VH2` war ohnehin nicht nutzbar: Twelve Data loeste das Symbol nur als
+    *Friedrich Vorwerk Group SE*, eine deutsche XETRA-Aktie, auf, und selbst die haette einen
+    bezahlten Pro/Venture-Tarif gebraucht.)
+  - **Einige Ticker haben aktuell weniger als 200 Handelstage Historie** (zu neu gelistet), daher
+    ist SMA200 / Trendstruktur dort noch nicht berechenbar (Dashboard zeigt grau,
+    "zu wenig Historie", kein Fehlzustand). Die **Relative-Staerke-Ampel ist davon unabhaengig**
+    und braucht nur ~84 Handelstage -- bei einigen dieser Ticker (z.B. CBRS) ist sie bereits
+    berechenbar, obwohl Trendstruktur noch grau ist. Das ist ein direkter Vorteil der Aufteilung
+    in zwei Ampeln gegenueber der alten kombinierten Trend-Template-Ampel.
 - **Rate Limit**: Twelve Data Gratis-Tarif ist mit 8 Requests/Minute knapp bemessen. Das Skript
-  pausiert automatisch ~8s zwischen Calls und wiederholt einen 429-Fehler einmal mit laengerer
-  Pause. Bei 17-50 Tickern bleibt der Tagesverbrauch (800/Tag) trotzdem deutlich unter dem Limit.
-- **End-to-End lokal getestet**: `--mode full` und `--mode intraday` wurden mit echten API-Keys
-  gegen alle 17 Ticker durchlaufen, inkl. Dedup-Pruefung (zweiter Lauf direkt danach erzeugte
-  korrekt keine Wiederholungs-Alarme).
+  pausiert automatisch ~8s zwischen Calls und wiederholt einen 429-Fehler bis zu zweimal mit
+  laengerer Pause.
+- **github.dev-Deep-Link fuer "Ticker hinzufuegen"**: in einem frischen, nicht bei GitHub
+  angemeldeten Browser verlangt `github.dev/{owner}/{repo}/blob/...` zwingend eine GitHub-Anmeldung
+  ("Melden Sie sich bei GitHub an, um auf den Inhalt dieses Repositorys zuzugreifen") -- und zwar
+  bereits beim Oeffnen des Repos, nicht erst bei der Datei, das vorgeschlagene Fallback ohne
+  Dateipfad haette also denselben Fehler gezeigt. Ob das in deinem eigenen, bereits bei
+  github.com angemeldeten Browser reibungslos funktioniert, konnte ich von hier aus nicht
+  verifizieren. Der Link zeigt deshalb bis auf Weiteres weiter auf den einfachen
+  github.com-Zeileneditor (`/edit/main/...`), der nachweislich funktioniert -- sag Bescheid, falls
+  du github.dev in deinem Browser getestet hast und es umgestellt werden soll.
+- **End-to-End lokal getestet**: `--mode full` und `--mode intraday` inkl. Fundamental-Ampel und
+  52-Wochen-Hoch wurden mit echten API-Keys durchlaufen, inkl. Dedup-Pruefung (Folgelauf erzeugte
+  korrekt keine Wiederholungs-Alarme) und einer Migrationspruefung des alten `state.json`-Schemas.
 
 ## Setup
 
@@ -162,12 +209,14 @@ zum Editor.
 ## Konfiguration anpassen
 
 Schwellenwerte und Parameter stehen zentral in `scripts/config.py` (`VOLUME_MULTIPLIER`,
-`MOVE_THRESHOLD`, `RS_LOOKBACK` etc.) -- nichts davon ist in der Ablauflogik hart verdrahtet.
+`MOVE_THRESHOLD`, `RS_LOOKBACK`, `EPS_GROWTH_MIN`, `REVENUE_GROWTH_MIN`, `YEAR_HIGH_LOOKBACK`
+etc.) -- nichts davon ist in der Ablauflogik hart verdrahtet.
 
 ## Explizit nicht Teil dieses Tools
 
-Fundamentaldaten (EPS, Umsatz, ROE, Margen), automatische VCP-/Konsolidierungserkennung,
-automatische Order-Ausfuehrung, Portfolio-/Positionsmanagement, IBKR-Anbindung.
+Automatische VCP-/Konsolidierungserkennung, automatische Order-Ausfuehrung,
+Portfolio-/Positionsmanagement, IBKR-Anbindung. Bewusst kein ROE-Schwellenwert in der
+Fundamental-Ampel -- die gaengige 17%-Zahl stammt aus O'Neils CANSLIM, nicht aus Minervinis SEPA.
 
 ## Lokale Entwicklung
 

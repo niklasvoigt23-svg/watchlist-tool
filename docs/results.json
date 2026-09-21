@@ -1,186 +1,251 @@
 {
-  "last_run_at": "2026-09-21T20:19:16.851598+00:00",
+  "last_run_at": "2026-09-21T18:34:29.044842+00:00",
   "last_run_mode": "intraday",
   "tickers": {
     "APMD": {
       "data_status": "ok",
-      "events_today": {
-        "death_cross": false,
-        "golden_cross": false,
-        "move": true,
-        "volume_breakout": false
+      "events_today": [],
+      "fundamental": {
+        "status": "grey"
       },
       "note": "",
-      "price": 26.14,
-      "trend_template_status": "grey"
+      "price": 25.175,
+      "relative_staerke": {
+        "status": "grey"
+      },
+      "trendstruktur": {
+        "status": "grey"
+      }
     },
     "CBRS": {
       "data_status": "ok",
-      "events_today": {
-        "death_cross": false,
-        "golden_cross": false,
-        "move": true,
-        "volume_breakout": false
+      "events_today": [],
+      "fundamental": {
+        "status": "grey"
       },
       "note": "",
-      "price": 208.39,
-      "trend_template_status": "grey"
+      "price": 208.01,
+      "relative_staerke": {
+        "status": "red"
+      },
+      "trendstruktur": {
+        "status": "grey"
+      }
     },
     "EXLS": {
       "data_status": "ok",
-      "events_today": {
-        "death_cross": false,
-        "golden_cross": false,
-        "move": false,
-        "volume_breakout": false
+      "events_today": [],
+      "fundamental": {
+        "status": "red"
       },
       "note": "",
-      "price": 35.25,
-      "trend_template_status": "red"
+      "price": 35.31,
+      "relative_staerke": {
+        "status": "green"
+      },
+      "trendstruktur": {
+        "status": "red"
+      }
     },
     "FEIM": {
       "data_status": "ok",
-      "events_today": {
-        "death_cross": false,
-        "golden_cross": false,
-        "move": false,
-        "volume_breakout": false
+      "events_today": [],
+      "fundamental": {
+        "status": "green"
       },
       "note": "",
-      "price": 89.115,
-      "trend_template_status": "green"
+      "price": 88.81,
+      "relative_staerke": {
+        "status": "green"
+      },
+      "trendstruktur": {
+        "status": "green"
+      }
     },
     "FLY": {
       "data_status": "ok",
-      "events_today": {
-        "death_cross": false,
-        "golden_cross": false,
-        "move": true,
-        "volume_breakout": false
+      "events_today": [],
+      "fundamental": {
+        "status": "grey"
       },
       "note": "",
-      "price": 22.825,
-      "trend_template_status": "red"
+      "price": 22.83,
+      "relative_staerke": {
+        "status": "red"
+      },
+      "trendstruktur": {
+        "status": "red"
+      }
+    },
+    "HTFL": {
+      "data_status": "ok",
+      "events_today": [],
+      "fundamental": {
+        "status": "grey"
+      },
+      "note": "",
+      "price": 50.49,
+      "relative_staerke": {
+        "status": "red"
+      },
+      "trendstruktur": {
+        "status": "green"
+      }
     },
     "INDV": {
       "data_status": "ok",
-      "events_today": {
-        "death_cross": false,
-        "golden_cross": false,
-        "move": false,
-        "volume_breakout": false
+      "events_today": [],
+      "fundamental": {
+        "status": "red"
       },
       "note": "",
-      "price": 35.555,
-      "trend_template_status": "red"
+      "price": 35.39,
+      "relative_staerke": {
+        "status": "red"
+      },
+      "trendstruktur": {
+        "status": "red"
+      }
     },
     "MMED": {
       "data_status": "ok",
-      "events_today": {
-        "death_cross": false,
-        "golden_cross": false,
-        "move": false,
-        "volume_breakout": false
+      "events_today": [],
+      "fundamental": {
+        "status": "grey"
       },
       "note": "",
-      "price": 21.125,
-      "trend_template_status": "grey"
+      "price": 21.22,
+      "relative_staerke": {
+        "status": "red"
+      },
+      "trendstruktur": {
+        "status": "grey"
+      }
     },
     "NEO": {
       "data_status": "ok",
-      "events_today": {
-        "death_cross": false,
-        "golden_cross": false,
-        "move": false,
-        "volume_breakout": false
+      "events_today": [],
+      "fundamental": {
+        "status": "grey"
       },
       "note": "",
-      "price": 19.39,
-      "trend_template_status": "red"
+      "price": 19.5,
+      "relative_staerke": {
+        "status": "red"
+      },
+      "trendstruktur": {
+        "status": "red"
+      }
     },
     "NSIT": {
       "data_status": "ok",
-      "events_today": {
-        "death_cross": false,
-        "golden_cross": false,
-        "move": false,
-        "volume_breakout": false
+      "events_today": [],
+      "fundamental": {
+        "status": "red"
       },
       "note": "",
-      "price": 156.76,
-      "trend_template_status": "red"
+      "price": 156.425,
+      "relative_staerke": {
+        "status": "red"
+      },
+      "trendstruktur": {
+        "status": "green"
+      }
     },
     "NWPX": {
       "data_status": "ok",
-      "events_today": {
-        "death_cross": false,
-        "golden_cross": false,
-        "move": false,
-        "volume_breakout": false
+      "events_today": [],
+      "fundamental": {
+        "status": "green"
       },
       "note": "",
-      "price": 102.59,
-      "trend_template_status": "red"
+      "price": 103.18,
+      "relative_staerke": {
+        "status": "red"
+      },
+      "trendstruktur": {
+        "status": "red"
+      }
     },
     "PDEX": {
       "data_status": "ok",
-      "events_today": {
-        "death_cross": false,
-        "golden_cross": false,
-        "move": false,
-        "volume_breakout": false
+      "events_today": [],
+      "fundamental": {
+        "status": "red"
       },
       "note": "",
-      "price": 72.49,
-      "trend_template_status": "green"
+      "price": 73.14,
+      "relative_staerke": {
+        "status": "green"
+      },
+      "trendstruktur": {
+        "status": "green"
+      }
     },
     "QBTS": {
       "data_status": "ok",
-      "events_today": {
-        "death_cross": false,
-        "golden_cross": false,
-        "move": false,
-        "volume_breakout": false
+      "events_today": [],
+      "fundamental": {
+        "status": "grey"
       },
       "note": "",
-      "price": 17.695,
-      "trend_template_status": "red"
+      "price": 17.74,
+      "relative_staerke": {
+        "status": "red"
+      },
+      "trendstruktur": {
+        "status": "red"
+      }
     },
     "RDVT": {
       "data_status": "ok",
-      "events_today": {
-        "death_cross": false,
-        "golden_cross": false,
-        "move": false,
-        "volume_breakout": false
+      "events_today": [],
+      "fundamental": {
+        "status": "green"
       },
       "note": "",
-      "price": 75.41,
-      "trend_template_status": "red"
+      "price": 75.565,
+      "relative_staerke": {
+        "status": "red"
+      },
+      "trendstruktur": {
+        "status": "green"
+      }
     },
     "TWST": {
       "data_status": "ok",
-      "events_today": {
-        "death_cross": false,
-        "golden_cross": false,
-        "move": false,
-        "volume_breakout": false
+      "events_today": [],
+      "fundamental": {
+        "status": "grey"
       },
       "note": "",
-      "price": 165.79,
-      "trend_template_status": "red"
+      "price": 163.77,
+      "relative_staerke": {
+        "status": "red"
+      },
+      "trendstruktur": {
+        "status": "green"
+      }
+    },
+    "VH2": {
+      "data_status": "error",
+      "error": "Twelve Data error: This symbol is available starting with the Pro or Venture plan. Consider upgrading now at https://twelvedata.com/pricing",
+      "note": "ACHTUNG: bei Twelve Data nur als deutsche Aktie (Friedrich Vorwerk Group SE / XETR) auffindbar - nicht US-Ticker und selbst dort nur mit bezahltem Plan. Bitte klaeren/korrigieren."
     },
     "YSWY": {
       "data_status": "ok",
-      "events_today": {
-        "death_cross": false,
-        "golden_cross": false,
-        "move": false,
-        "volume_breakout": false
+      "events_today": [],
+      "fundamental": {
+        "status": "red"
       },
       "note": "",
-      "price": 20.38,
-      "trend_template_status": "grey"
+      "price": 20.53,
+      "relative_staerke": {
+        "status": "red"
+      },
+      "trendstruktur": {
+        "status": "grey"
+      }
     }
   }
 }

@@ -77,7 +77,20 @@ jobs:
           git add data/state.json docs/results.json
           if git diff --cached --quiet; then
             echo "No changes to commit."
-          else
-            git commit -m "Update watchlist data (${{ inputs.mode }} run)"
-            git push
+            exit 0
           fi
+          git commit -m "Update watchlist data (${{ inputs.mode }} run)"
+          # Overlapping runs can still race on the push (concurrency: only serializes
+          # this workflow, not a manual push or another actor). Retry a few times with a
+          # rebase against origin before giving up, instead of failing outright.
+          for attempt in 1 2 3 4 5; do
+            if git push; then
+              exit 0
+            fi
+            echo "Push rejected (attempt $attempt), rebasing onto origin/main and retrying..."
+            git fetch origin main
+            git rebase origin/main
+            sleep $((RANDOM % 5 + 1))
+          done
+          echo "::error::Could not push after multiple retries."
+          exit 1

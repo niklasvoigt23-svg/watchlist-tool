@@ -112,3 +112,47 @@ class FinnhubClient:
         if not isinstance(data, list):
             raise ProviderError(f"Finnhub returned unexpected payload: {data}")
         return data
+
+    @staticmethod
+    def _num_or_none(value):
+        return float(value) if isinstance(value, (int, float)) else None
+
+    def get_basic_financials(self, symbol):
+        """Returns dict with 'eps_growth_qoq_yoy', 'revenue_growth_qoq_yoy' (decimal
+        fractions, e.g. 0.20 = 20%, or None if Finnhub doesn't report the field for this
+        symbol), and 'net_margin_current'/'net_margin_prior_quarter' (decimal fractions
+        from the quarterly netMargin time series, or None if fewer than 2 quarters exist).
+
+        Finnhub's flat 'metric' fields (epsGrowthQuarterlyYoy, revenueGrowthQuarterlyYoy)
+        are percent-scale; the 'series.quarterly.netMargin' time series is already
+        decimal-scale. Both are normalized to decimal fractions here.
+        """
+        try:
+            resp = requests.get(
+                f"{self.BASE_URL}/stock/metric",
+                params={"symbol": symbol, "metric": "all", "token": self.api_key},
+                timeout=20,
+            )
+        except requests.RequestException as e:
+            raise ProviderError(f"Finnhub request failed: {e}") from e
+        if resp.status_code != 200:
+            raise ProviderError(f"Finnhub returned HTTP {resp.status_code}: {resp.text[:200]}")
+        try:
+            data = resp.json()
+        except ValueError as e:
+            raise ProviderError(f"Finnhub returned invalid JSON: {e}") from e
+
+        metric = data.get("metric") or {}
+        quarterly_net_margin = ((data.get("series") or {}).get("quarterly") or {}).get("netMargin") or []
+
+        eps_growth_pct = self._num_or_none(metric.get("epsGrowthQuarterlyYoy"))
+        revenue_growth_pct = self._num_or_none(metric.get("revenueGrowthQuarterlyYoy"))
+        margin_now = self._num_or_none(quarterly_net_margin[0]["v"]) if len(quarterly_net_margin) > 0 else None
+        margin_prior = self._num_or_none(quarterly_net_margin[1]["v"]) if len(quarterly_net_margin) > 1 else None
+
+        return {
+            "eps_growth_qoq_yoy": eps_growth_pct / 100 if eps_growth_pct is not None else None,
+            "revenue_growth_qoq_yoy": revenue_growth_pct / 100 if revenue_growth_pct is not None else None,
+            "net_margin_current": margin_now,
+            "net_margin_prior_quarter": margin_prior,
+        }

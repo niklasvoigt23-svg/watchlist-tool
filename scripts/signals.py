@@ -1,4 +1,5 @@
-"""Signal definitions: trend template, RS, crosses, volume breakout, move/gap."""
+"""Signal definitions: Trendstruktur, Relative Staerke, Fundamental, Crosses,
+Volume-Breakout, Move/Gap, 52-Wochen-Hoch."""
 
 import numpy as np
 import talib
@@ -36,10 +37,10 @@ def compute_rs_series(aligned_closes, aligned_bench_closes, lookback=config.RS_L
     return rs
 
 
-def evaluate_trend_template(series, bench_series):
-    """series/bench_series: dicts from providers.get_time_series (ascending dates).
+def evaluate_trendstruktur(series):
+    """series: dict from providers.get_time_series (ascending dates).
     Returns dict with at least 'status' in {"green", "red", "grey"}."""
-    dates, close = series["dates"], series["close"]
+    close = series["close"]
 
     if len(close) < config.MIN_HISTORY_DAYS:
         return {"status": "grey", "reason": "insufficient_history", "history_days": len(close)}
@@ -57,32 +58,86 @@ def evaluate_trend_template(series, bench_series):
     cond_order = sma50[-1] > sma150[-1] > sma200[-1]
     cond_sma200_rising = sma200[-1] > sma200[-1 - lookback]
 
-    aligned_close, aligned_bench = _align_by_date(dates, close, bench_series["dates"], bench_series["close"])
-    rs_series = compute_rs_series(aligned_close, aligned_bench)
-    rs_trend_lb = config.RS_TREND_LOOKBACK
-    cond_rs = False
-    rs_today = rs_trend = None
-    if len(rs_series) > rs_trend_lb:
-        rs_today_val = rs_series[-1]
-        rs_ago_val = rs_series[-1 - rs_trend_lb]
-        if not (np.isnan(rs_today_val) or np.isnan(rs_ago_val)):
-            rs_today, rs_trend = float(rs_today_val), float(rs_today_val - rs_ago_val)
-            cond_rs = rs_today > 0 and rs_trend > 0
-
-    is_green = cond_price_above and cond_order and cond_sma200_rising and cond_rs
+    is_green = cond_price_above and cond_order and cond_sma200_rising
     return {
         "status": "green" if is_green else "red",
         "price": float(price),
         "sma50": float(sma50[-1]),
         "sma150": float(sma150[-1]),
         "sma200": float(sma200[-1]),
-        "rs": rs_today,
-        "rs_trend": rs_trend,
         "conditions": {
             "price_above_smas": bool(cond_price_above),
             "sma_order": bool(cond_order),
             "sma200_rising": bool(cond_sma200_rising),
-            "rs_positive_and_rising": bool(cond_rs),
+        },
+    }
+
+
+def evaluate_relative_staerke(series, bench_series):
+    """Independent of Trendstruktur/SMA200 -- only needs RS_LOOKBACK + RS_TREND_LOOKBACK
+    trading days, so it can turn green/red well before Trendstruktur has enough history."""
+    dates, close = series["dates"], series["close"]
+
+    if len(close) < config.MIN_HISTORY_DAYS_RS:
+        return {"status": "grey", "reason": "insufficient_history", "history_days": len(close)}
+
+    aligned_close, aligned_bench = _align_by_date(dates, close, bench_series["dates"], bench_series["close"])
+    rs_series = compute_rs_series(aligned_close, aligned_bench)
+    rs_trend_lb = config.RS_TREND_LOOKBACK
+    if len(rs_series) <= rs_trend_lb:
+        return {"status": "grey", "reason": "insufficient_history", "history_days": len(close)}
+
+    rs_today_val = rs_series[-1]
+    rs_ago_val = rs_series[-1 - rs_trend_lb]
+    if np.isnan(rs_today_val) or np.isnan(rs_ago_val):
+        return {"status": "grey", "reason": "insufficient_history", "history_days": len(close)}
+
+    rs_today, rs_trend = float(rs_today_val), float(rs_today_val - rs_ago_val)
+    is_green = rs_today > 0 and rs_trend > 0
+    return {
+        "status": "green" if is_green else "red",
+        "rs": rs_today,
+        "rs_trend": rs_trend,
+        "conditions": {"rs_positive_and_rising": bool(is_green)},
+    }
+
+
+def evaluate_fundamental(financials):
+    """financials: dict from FinnhubClient.get_basic_financials, or None on provider error.
+    Grey (not red) whenever any of the three required fields is missing -- common for
+    loss-making or thinly-covered micro-caps, per the "technical gap != red" convention."""
+    if financials is None:
+        return {"status": "grey", "reason": "no_data"}
+
+    eps_growth = financials.get("eps_growth_qoq_yoy")
+    revenue_growth = financials.get("revenue_growth_qoq_yoy")
+    margin_now = financials.get("net_margin_current")
+    margin_prior = financials.get("net_margin_prior_quarter")
+
+    if eps_growth is None or revenue_growth is None or margin_now is None or margin_prior is None:
+        return {
+            "status": "grey",
+            "reason": "insufficient_fundamentals",
+            "eps_growth": eps_growth,
+            "revenue_growth": revenue_growth,
+            "net_margin_current": margin_now,
+            "net_margin_prior_quarter": margin_prior,
+        }
+
+    cond_eps = eps_growth >= config.EPS_GROWTH_MIN
+    cond_revenue = revenue_growth >= config.REVENUE_GROWTH_MIN
+    cond_margin = margin_now >= margin_prior
+    is_green = cond_eps and cond_revenue and cond_margin
+    return {
+        "status": "green" if is_green else "red",
+        "eps_growth": eps_growth,
+        "revenue_growth": revenue_growth,
+        "net_margin_current": margin_now,
+        "net_margin_prior_quarter": margin_prior,
+        "conditions": {
+            "eps_growth_ok": bool(cond_eps),
+            "revenue_growth_ok": bool(cond_revenue),
+            "margin_not_declining": bool(cond_margin),
         },
     }
 
@@ -150,3 +205,33 @@ def detect_move_intraday(quote):
         return False, None
     move_pct = abs(quote["close"] - prev) / prev
     return move_pct >= config.MOVE_THRESHOLD, move_pct
+
+
+def compute_prior_year_high(series, lookback=config.YEAR_HIGH_LOOKBACK):
+    """Highest close over the `lookback` trading days before today (today excluded).
+    None if not enough history yet."""
+    close = series["close"]
+    if len(close) < lookback + 1:
+        return None
+    return float(np.max(close[-(lookback + 1):-1]))
+
+
+def detect_year_high_breakout_full(series):
+    """Full-run version: today's close vs the highest close of the prior `lookback` days.
+    Returns (breakout: bool, pct_above: float|None, prior_high: float|None)."""
+    prior_high = compute_prior_year_high(series)
+    if prior_high is None:
+        return False, None, None
+    price = float(series["close"][-1])
+    breakout = price > prior_high
+    pct_above = (price / prior_high - 1) * 100 if breakout else None
+    return breakout, pct_above, prior_high
+
+
+def detect_year_high_breakout_intraday(price, cached_prior_high):
+    """Intraday version: live quote price vs the prior_high cached from the last full run."""
+    if not cached_prior_high:
+        return False, None
+    breakout = price > cached_prior_high
+    pct_above = (price / cached_prior_high - 1) * 100 if breakout else None
+    return breakout, pct_above

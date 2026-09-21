@@ -19,9 +19,10 @@
       <tr>
         <th>Ticker</th>
         <th>Kurs</th>
-        <th>Trend-Template</th>
+        <th>Trendstruktur</th>
+        <th>Relative Staerke</th>
+        <th>Fundamental</th>
         <th>Events heute</th>
-        <th>Notiz</th>
       </tr>
     </thead>
     <tbody id="watchlist-body">
@@ -31,24 +32,44 @@
 </main>
 
 <script>
-// Owner/Repo fuer den "Ticker hinzufuegen"-Link -- nach dem Anlegen des Repos hier eintragen.
+// Owner/Repo fuer den "Ticker hinzufuegen"-Link.
 const REPO = "niklasvoigt23-svg/watchlist-tool";
+
+const EVENT_LABELS = {
+  golden_cross: "Golden Cross",
+  death_cross: "Death Cross",
+  volume_breakout: "Volumen",
+  move: "Kursbewegung",
+  year_high: "52W-Hoch",
+};
 
 function statusLabel(status, reason) {
   if (status === "green") return { text: "GRUEN", cls: "status-green" };
   if (status === "red") return { text: "ROT", cls: "status-red" };
   if (reason === "insufficient_history") return { text: "zu wenig Historie", cls: "status-grey" };
+  if (reason === "insufficient_fundamentals") return { text: "Daten unvollst.", cls: "status-grey" };
   return { text: "keine Daten", cls: "status-grey" };
 }
 
+function statusCell(block) {
+  if (!block) return `<span class="status-dot status-grey"></span>keine Daten`;
+  const info = statusLabel(block.status, block.reason);
+  return `<span class="status-dot ${info.cls}"></span>${info.text}`;
+}
+
 function eventBadges(events) {
-  if (!events) return "";
-  const parts = [];
-  if (events.golden_cross) parts.push('<span class="badge badge-cross">Golden Cross</span>');
-  if (events.death_cross) parts.push('<span class="badge badge-cross">Death Cross</span>');
-  if (events.volume_breakout) parts.push('<span class="badge badge-volume">Volumen</span>');
-  if (events.move) parts.push('<span class="badge badge-move">Move</span>');
-  return parts.join(" ");
+  if (!events || events.length === 0) return "";
+  return events
+    .map((e) => {
+      const label = EVENT_LABELS[e.type] || e.type;
+      const text = e.value ? `${label} ${e.value}` : label;
+      const cls = e.type === "golden_cross" || e.type === "death_cross" ? "badge-cross"
+        : e.type === "volume_breakout" ? "badge-volume"
+        : e.type === "year_high" ? "badge-year-high"
+        : "badge-move";
+      return `<span class="badge ${cls}">${text}</span>`;
+    })
+    .join(" ");
 }
 
 function fmtPrice(price) {
@@ -92,14 +113,13 @@ async function load() {
     const t = tickers[ticker];
     const row = document.createElement("tr");
 
-    const statusInfo = statusLabel(t.trend_template_status, t.trend_template_reason);
-
     row.innerHTML = `
-      <td class="ticker-cell">${ticker}</td>
+      <td class="ticker-cell"><a href="https://finance.yahoo.com/quote/${encodeURIComponent(ticker)}" target="_blank" rel="noopener">${ticker}</a></td>
       <td>${t.data_status === "ok" ? fmtPrice(t.price) : "-"}</td>
-      <td><span class="status-dot ${statusInfo.cls}"></span>${statusInfo.text}</td>
+      <td>${statusCell(t.trendstruktur)}</td>
+      <td>${statusCell(t.relative_staerke)}</td>
+      <td>${statusCell(t.fundamental)}</td>
       <td>${eventBadges(t.events_today)}</td>
-      <td class="note-cell">${t.note ? t.note : ""}</td>
     `;
 
     if (t.data_status && t.data_status !== "ok") {

@@ -116,11 +116,28 @@ tr:last-child td {
 .badge-cross { background: var(--green); }
 .badge-volume { background: var(--amber); }
 .badge-move { background: var(--red); }
+.badge-year-high { background: #4fa8e0; }
 
-.note-cell {
-  color: var(--text-dim);
-  font-size: 0.85rem;
+.ticker-cell a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px dotted var(--text-dim);
 }
+
+.ticker-cell a:hover {
+  border-bottom-style: solid;
+}
+
+table {
+  table-layout: fixed;
+}
+
+th:nth-child(1), td:nth-child(1) { width: 9%; }
+th:nth-child(2), td:nth-child(2) { width: 9%; }
+th:nth-child(3), td:nth-child(3),
+th:nth-child(4), td:nth-child(4),
+th:nth-child(5), td:nth-child(5) { width: 14%; }
+th:nth-child(6), td:nth-child(6) { width: 40%; }
 
 .empty-note {
   color: var(--text-dim);

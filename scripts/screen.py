@@ -1,7 +1,7 @@
 """Main entry point. Run modes:
 
-  python screen.py --mode full      -> alle Kriterien (1-6), einmal taeglich nach US-Handelsschluss
-  python screen.py --mode intraday  -> nur Kriterien 4,5,6, viermal taeglich
+  python screen.py --mode full      -> alle Kriterien, einmal taeglich nach US-Handelsschluss
+  python screen.py --mode intraday  -> nur Volumen-Breakout, Move/Gap, 52-Wochen-Hoch, News
 
 Reads data/watchlist.csv + data/state.json, writes data/state.json + docs/results.json,
 sends a bundled Telegram message for any new (non-duplicate) alerts.
@@ -26,11 +26,24 @@ def load_watchlist(path):
         return [row for row in reader if row.get("ticker")]
 
 
+def migrate_state_entry(entry):
+    """One-time migration: the old single trend_template_status becomes the starting
+    value for both new, independent ampeln. Recalculated fresh on the next full run either
+    way, this is just a reasonable starting point instead of grey until then."""
+    if "trend_template_status" in entry:
+        old_status = entry.pop("trend_template_status")
+        entry.setdefault("trendstruktur_status", old_status)
+        entry.setdefault("relative_staerke_status", old_status)
+    entry.pop("trend_template_reason", None)
+    return entry
+
+
 def load_state(path):
     if not os.path.exists(path):
         return {}
     with open(path, encoding="utf-8") as f:
-        return json.load(f)
+        state = json.load(f)
+    return {ticker: migrate_state_entry(entry) for ticker, entry in state.items()}
 
 
 def save_state(path, state):
@@ -50,10 +63,17 @@ def save_results(path, results, mode, run_timestamp):
         f.write("\n")
 
 
-def fmt_trend_change(ticker, status):
+STATUS_LABELS = {
+    "trendstruktur_status": "Trendstruktur",
+    "relative_staerke_status": "Relative Staerke",
+    "fundamental_status": "Fundamental",
+}
+
+
+def fmt_status_change(ticker, label, status):
     icon = "\U0001F7E2" if status == "green" else "\U0001F534"
-    label = "Trend-Template GRUEN (Kriterien erfuellt)" if status == "green" else "Trend-Template ROT (Kriterien nicht mehr erfuellt)"
-    return f"{icon} {ticker}: {label}"
+    verb = "GRUEN" if status == "green" else "ROT"
+    return f"{icon} {ticker}: {label} {verb}"
 
 
 def fmt_cross(ticker, cross_type):
@@ -69,6 +89,12 @@ def fmt_volume(ticker, ratio):
 def fmt_move(ticker, move_pct, direction_sign):
     sign = "+" if direction_sign >= 0 else "-"
     return f"\U0001F7E1 {ticker}: Kursbewegung {sign}{move_pct * 100:.1f}% ggue. letztem Schlusskurs"
+
+
+def fmt_year_high(ticker, pct_above):
+    if pct_above is not None:
+        return f"\U0001F7E1 {ticker}: Ausbruch ueber 52-Wochen-Hoch (+{pct_above:.1f}%)"
+    return f"\U0001F7E1 {ticker}: Ausbruch ueber 52-Wochen-Hoch"
 
 
 def fmt_news(ticker, item):
@@ -101,61 +127,93 @@ def process_news(ticker, entry_state, new_state, fh_client, alerts):
     new_state["news_last_seen_ts"] = max(n["datetime"] for n in items) if items else last_seen
 
 
-def run_full(ticker, entry_state, td_client, spy_series, alerts):
+def apply_status_alerts(ticker, entry_state, new_state, results_out, alerts):
+    """Compares each of the three independent ampeln to its previous state and appends
+    a status-change alert (only) when it actually flipped between green and red."""
+    for status_key, status_result in results_out.items():
+        label = STATUS_LABELS[status_key]
+        prev_status = entry_state.get(status_key)
+        if status_result["status"] in ("green", "red"):
+            new_state[status_key] = status_result["status"]
+            if prev_status in ("green", "red") and prev_status != status_result["status"]:
+                alerts.append(fmt_status_change(ticker, label, status_result["status"]))
+
+
+def run_full(ticker, entry_state, td_client, fh_client, spy_series, alerts):
     """Returns (result_dict, new_state_dict)."""
     series = td_client.get_time_series(ticker)
     new_state = dict(entry_state)
     if series is None or len(series["close"]) == 0:
         return {"data_status": "no_data"}, new_state
 
-    trend = signals.evaluate_trend_template(series, spy_series)
+    trendstruktur = signals.evaluate_trendstruktur(series)
+    relative_staerke = signals.evaluate_relative_staerke(series, spy_series)
+
+    financials = None
+    if fh_client:
+        try:
+            financials = fh_client.get_basic_financials(ticker)
+        except ProviderError as e:
+            print(f"[warn] {ticker}: Finnhub basic-financials failed: {e}", file=sys.stderr)
+    fundamental = signals.evaluate_fundamental(financials)
+
+    apply_status_alerts(
+        ticker, entry_state, new_state,
+        {
+            "trendstruktur_status": trendstruktur,
+            "relative_staerke_status": relative_staerke,
+            "fundamental_status": fundamental,
+        },
+        alerts,
+    )
+
     cross = signals.detect_cross(series)
     vol_breakout, vol_ratio, vol_avg20 = signals.detect_volume_breakout_full(series)
     move_hit, move_pct = signals.detect_move_full(series)
+    year_high_hit, year_high_pct, prior_high = signals.detect_year_high_breakout_full(series)
+
     today = today_str()
     price = float(series["close"][-1])
+    events_today = []
 
     new_state["last_close"] = price
     if vol_avg20 is not None:
         new_state["volume_avg20"] = vol_avg20
-
-    prev_status = entry_state.get("trend_template_status")
-    if trend["status"] in ("green", "red"):
-        new_state["trend_template_status"] = trend["status"]
-        if prev_status in ("green", "red") and prev_status != trend["status"]:
-            alerts.append(fmt_trend_change(ticker, trend["status"]))
+    if prior_high is not None:
+        new_state["year_high_252"] = prior_high
 
     if cross:
         key = f"{cross}_last_alert_date"
         if entry_state.get(key) != today:
             alerts.append(fmt_cross(ticker, cross))
             new_state[key] = today
+            events_today.append({"type": cross, "value": None})
 
     if vol_breakout and entry_state.get("volume_breakout_last_alert_date") != today:
         alerts.append(fmt_volume(ticker, vol_ratio))
         new_state["volume_breakout_last_alert_date"] = today
+        events_today.append({"type": "volume_breakout", "value": f"{vol_ratio:.1f}x"})
 
     if move_hit and entry_state.get("move_alert_last_alert_date") != today:
         direction_sign = series["close"][-1] - series["close"][-2]
         alerts.append(fmt_move(ticker, move_pct, direction_sign))
         new_state["move_alert_last_alert_date"] = today
+        sign = "+" if direction_sign >= 0 else "-"
+        events_today.append({"type": "move", "value": f"{sign}{move_pct * 100:.1f}%"})
+
+    if year_high_hit and entry_state.get("year_high_last_alert_date") != today:
+        alerts.append(fmt_year_high(ticker, year_high_pct))
+        new_state["year_high_last_alert_date"] = today
+        value = f"+{year_high_pct:.1f}%" if year_high_pct is not None else None
+        events_today.append({"type": "year_high", "value": value})
 
     result = {
         "data_status": "ok",
         "price": price,
-        "trend_template_status": trend["status"],
-        "trend_template_reason": trend.get("reason"),
-        "sma50": trend.get("sma50"),
-        "sma150": trend.get("sma150"),
-        "sma200": trend.get("sma200"),
-        "rs": trend.get("rs"),
-        "rs_trend": trend.get("rs_trend"),
-        "events_today": {
-            "golden_cross": cross == "golden_cross",
-            "death_cross": cross == "death_cross",
-            "volume_breakout": bool(vol_breakout),
-            "move": bool(move_hit),
-        },
+        "trendstruktur": trendstruktur,
+        "relative_staerke": relative_staerke,
+        "fundamental": fundamental,
+        "events_today": events_today,
     }
     return result, new_state
 
@@ -167,31 +225,40 @@ def run_intraday(ticker, entry_state, td_client, alerts):
         return {"data_status": "no_data"}, new_state
 
     today = today_str()
+    events_today = []
+
     move_hit, move_pct = signals.detect_move_intraday(quote)
     if move_hit and entry_state.get("move_alert_last_alert_date") != today:
         direction_sign = quote["close"] - quote["previous_close"]
         alerts.append(fmt_move(ticker, move_pct, direction_sign))
         new_state["move_alert_last_alert_date"] = today
+        sign = "+" if direction_sign >= 0 else "-"
+        events_today.append({"type": "move", "value": f"{sign}{move_pct * 100:.1f}%"})
 
-    vol_breakout = False
-    vol_ratio = None
     cached_avg20 = entry_state.get("volume_avg20")
     if cached_avg20:
         vol_breakout, vol_ratio = signals.detect_volume_breakout_intraday(quote["volume"], cached_avg20)
         if vol_breakout and entry_state.get("volume_breakout_last_alert_date") != today:
             alerts.append(fmt_volume(ticker, vol_ratio))
             new_state["volume_breakout_last_alert_date"] = today
+            events_today.append({"type": "volume_breakout", "value": f"{vol_ratio:.1f}x"})
+
+    cached_year_high = entry_state.get("year_high_252")
+    if cached_year_high:
+        year_high_hit, year_high_pct = signals.detect_year_high_breakout_intraday(quote["close"], cached_year_high)
+        if year_high_hit and entry_state.get("year_high_last_alert_date") != today:
+            alerts.append(fmt_year_high(ticker, year_high_pct))
+            new_state["year_high_last_alert_date"] = today
+            value = f"+{year_high_pct:.1f}%" if year_high_pct is not None else None
+            events_today.append({"type": "year_high", "value": value})
 
     result = {
         "data_status": "ok",
         "price": quote["close"],
-        "trend_template_status": entry_state.get("trend_template_status", "grey"),
-        "events_today": {
-            "golden_cross": False,
-            "death_cross": False,
-            "volume_breakout": bool(vol_breakout),
-            "move": bool(move_hit),
-        },
+        "trendstruktur": {"status": entry_state.get("trendstruktur_status", "grey")},
+        "relative_staerke": {"status": entry_state.get("relative_staerke_status", "grey")},
+        "fundamental": {"status": entry_state.get("fundamental_status", "grey")},
+        "events_today": events_today,
     }
     return result, new_state
 
@@ -207,13 +274,10 @@ def main():
         sys.exit(1)
     td_client = TwelveDataClient(td_key)
 
-    fh_client = None
-    if config.ENABLE_NEWS:
-        fh_key = os.environ.get("FINNHUB_API_KEY")
-        if fh_key:
-            fh_client = FinnhubClient(fh_key)
-        else:
-            print("[warn] ENABLE_NEWS=True but FINNHUB_API_KEY missing, skipping news", file=sys.stderr)
+    fh_key = os.environ.get("FINNHUB_API_KEY")
+    fh_client = FinnhubClient(fh_key) if fh_key else None
+    if not fh_client:
+        print("[warn] FINNHUB_API_KEY missing: News und Fundamental-Ampel werden uebersprungen", file=sys.stderr)
 
     watchlist = load_watchlist(config.WATCHLIST_CSV)
     state = load_state(config.STATE_JSON)
@@ -237,7 +301,7 @@ def main():
         entry_state = state.get(ticker, {})
         try:
             if args.mode == "full":
-                result, new_state = run_full(ticker, entry_state, td_client, spy_series, alerts)
+                result, new_state = run_full(ticker, entry_state, td_client, fh_client, spy_series, alerts)
             else:
                 result, new_state = run_intraday(ticker, entry_state, td_client, alerts)
         except ProviderError as e:
