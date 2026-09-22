@@ -1,5 +1,5 @@
 {
-  "last_run_at": "2026-09-22T16:04:58.134417+00:00",
+  "last_run_at": "2026-09-22T18:04:12.283741+00:00",
   "last_run_mode": "intraday",
   "tickers": {
     "APMD": {
@@ -9,7 +9,7 @@
         "status": "grey"
       },
       "note": "",
-      "price": 25.175,
+      "price": 25.39,
       "relative_staerke": {
         "status": "grey"
       },
@@ -24,7 +24,7 @@
         "status": "grey"
       },
       "note": "",
-      "price": 207.93,
+      "price": 208.37,
       "relative_staerke": {
         "status": "red"
       },
@@ -39,7 +39,7 @@
         "status": "red"
       },
       "note": "",
-      "price": 34.92,
+      "price": 35.35,
       "relative_staerke": {
         "status": "green"
       },
@@ -54,7 +54,7 @@
         "status": "green"
       },
       "note": "",
-      "price": 87.0,
+      "price": 86.13,
       "relative_staerke": {
         "status": "green"
       },
@@ -69,7 +69,7 @@
         "status": "grey"
       },
       "note": "",
-      "price": 22.68,
+      "price": 22.94,
       "relative_staerke": {
         "status": "red"
       },
@@ -84,7 +84,7 @@
         "status": "red"
       },
       "note": "",
-      "price": 36.29,
+      "price": 36.125,
       "relative_staerke": {
         "status": "red"
       },
@@ -99,7 +99,7 @@
         "status": "grey"
       },
       "note": "",
-      "price": 21.12,
+      "price": 21.13,
       "relative_staerke": {
         "status": "red"
       },
@@ -114,7 +114,7 @@
         "status": "grey"
       },
       "note": "",
-      "price": 19.15,
+      "price": 19.13,
       "relative_staerke": {
         "status": "red"
       },
@@ -129,7 +129,7 @@
         "status": "red"
       },
       "note": "",
-      "price": 156.08,
+      "price": 157.97,
       "relative_staerke": {
         "status": "red"
       },
@@ -144,7 +144,7 @@
         "status": "green"
       },
       "note": "",
-      "price": 103.09,
+      "price": 102.92,
       "relative_staerke": {
         "status": "red"
       },
@@ -159,7 +159,7 @@
         "status": "red"
       },
       "note": "",
-      "price": 72.93,
+      "price": 72.705,
       "relative_staerke": {
         "status": "green"
       },
@@ -174,7 +174,7 @@
         "status": "grey"
       },
       "note": "",
-      "price": 17.295,
+      "price": 17.345,
       "relative_staerke": {
         "status": "red"
       },
@@ -189,7 +189,7 @@
         "status": "green"
       },
       "note": "",
-      "price": 72.73,
+      "price": 73.74,
       "relative_staerke": {
         "status": "red"
       },
@@ -204,7 +204,7 @@
         "status": "grey"
       },
       "note": "",
-      "price": 167.83,
+      "price": 170.02,
       "relative_staerke": {
         "status": "red"
       },
@@ -219,7 +219,7 @@
         "status": "red"
       },
       "note": "",
-      "price": 20.3,
+      "price": 20.16,
       "relative_staerke": {
         "status": "red"
       },
