@@ -9,14 +9,14 @@
   "CBRS": {
     "last_close": 208.39,
     "move_alert_last_alert_date": "2026-09-21",
-    "news_last_seen_ts": 1789977661,
+    "news_last_seen_ts": 1790003194,
     "relative_staerke_status": "red",
     "volume_avg20": 6225740.0
   },
   "EXLS": {
     "fundamental_status": "red",
     "last_close": 35.25,
-    "news_last_seen_ts": 1789806641,
+    "news_last_seen_ts": 1790083546,
     "relative_staerke_status": "green",
     "trendstruktur_status": "red",
     "volume_avg20": 1906425.0,
@@ -121,7 +121,7 @@
   "YSWY": {
     "fundamental_status": "red",
     "last_close": 20.38,
-    "news_last_seen_ts": 1789996140,
+    "news_last_seen_ts": 1790066388,
     "relative_staerke_status": "red",
     "volume_avg20": 286600.0
   }
