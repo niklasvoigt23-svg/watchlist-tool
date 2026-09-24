@@ -34,7 +34,7 @@
   },
   "FLY": {
     "last_close": 22.825,
-    "move_alert_last_alert_date": "2026-09-23",
+    "move_alert_last_alert_date": "2026-09-24",
     "news_last_seen_ts": 1790257066,
     "relative_staerke_status": "red",
     "trendstruktur_status": "red",
@@ -59,6 +59,7 @@
   },
   "NEO": {
     "last_close": 19.39,
+    "move_alert_last_alert_date": "2026-09-24",
     "news_last_seen_ts": 1790159822,
     "relative_staerke_status": "red",
     "trendstruktur_status": "red",
