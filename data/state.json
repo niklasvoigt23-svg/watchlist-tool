@@ -1,7 +1,7 @@
 {
   "APMD": {
     "last_close": 26.14,
-    "move_alert_last_alert_date": "2026-09-23",
+    "move_alert_last_alert_date": "2026-09-24",
     "news_last_seen_ts": 1790098791,
     "volume_avg20": 477195.0,
     "volume_breakout_last_alert_date": "2026-09-20"
@@ -35,7 +35,7 @@
   "FLY": {
     "last_close": 22.825,
     "move_alert_last_alert_date": "2026-09-23",
-    "news_last_seen_ts": 1790116501,
+    "news_last_seen_ts": 1790247834,
     "relative_staerke_status": "red",
     "trendstruktur_status": "red",
     "volume_avg20": 2660135.0,
