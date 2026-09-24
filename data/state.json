@@ -9,7 +9,7 @@
   "CBRS": {
     "last_close": 208.39,
     "move_alert_last_alert_date": "2026-09-21",
-    "news_last_seen_ts": 1790081400,
+    "news_last_seen_ts": 1790224277,
     "relative_staerke_status": "red",
     "volume_avg20": 6225740.0
   },
@@ -25,7 +25,7 @@
   "FEIM": {
     "fundamental_status": "green",
     "last_close": 89.115,
-    "news_last_seen_ts": 1789718400,
+    "news_last_seen_ts": 1790237305,
     "relative_staerke_status": "green",
     "trendstruktur_status": "green",
     "volume_avg20": 352265.0,
@@ -78,7 +78,7 @@
   "NWPX": {
     "fundamental_status": "green",
     "last_close": 102.59,
-    "news_last_seen_ts": 1790151182,
+    "news_last_seen_ts": 1790196000,
     "relative_staerke_status": "red",
     "trendstruktur_status": "red",
     "volume_avg20": 154895.0,
@@ -95,7 +95,7 @@
   },
   "QBTS": {
     "last_close": 17.695,
-    "news_last_seen_ts": 1790160952,
+    "news_last_seen_ts": 1790251546,
     "relative_staerke_status": "red",
     "trendstruktur_status": "red",
     "volume_avg20": 16406245.0,
@@ -104,7 +104,7 @@
   "RDVT": {
     "fundamental_status": "green",
     "last_close": 75.41,
-    "news_last_seen_ts": 1790068868,
+    "news_last_seen_ts": 1790239800,
     "relative_staerke_status": "red",
     "trendstruktur_status": "green",
     "volume_avg20": 229060.0,
@@ -112,18 +112,18 @@
   },
   "TWST": {
     "last_close": 165.79,
-    "move_alert_last_alert_date": "2026-09-20",
+    "move_alert_last_alert_date": "2026-09-24",
     "news_last_seen_ts": 1790071730,
     "relative_staerke_status": "red",
     "trendstruktur_status": "green",
     "volume_avg20": 1726365.0,
     "year_high_252": 166.99001,
-    "year_high_last_alert_date": "2026-09-22"
+    "year_high_last_alert_date": "2026-09-24"
   },
   "YSWY": {
     "fundamental_status": "red",
     "last_close": 20.38,
-    "news_last_seen_ts": 1790066388,
+    "news_last_seen_ts": 1790241660,
     "relative_staerke_status": "red",
     "volume_avg20": 286600.0
   }
