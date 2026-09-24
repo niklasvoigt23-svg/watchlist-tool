@@ -35,7 +35,7 @@
   "FLY": {
     "last_close": 22.825,
     "move_alert_last_alert_date": "2026-09-23",
-    "news_last_seen_ts": 1790247834,
+    "news_last_seen_ts": 1790257066,
     "relative_staerke_status": "red",
     "trendstruktur_status": "red",
     "volume_avg20": 2660135.0,
@@ -108,7 +108,8 @@
     "relative_staerke_status": "red",
     "trendstruktur_status": "green",
     "volume_avg20": 229060.0,
-    "year_high_252": 77.52
+    "year_high_252": 77.52,
+    "year_high_last_alert_date": "2026-09-24"
   },
   "TWST": {
     "last_close": 165.79,
