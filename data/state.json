@@ -16,7 +16,7 @@
   "EXLS": {
     "fundamental_status": "red",
     "last_close": 35.25,
-    "news_last_seen_ts": 1790155248,
+    "news_last_seen_ts": 1790345532,
     "relative_staerke_status": "green",
     "trendstruktur_status": "red",
     "volume_avg20": 1906425.0,
@@ -25,6 +25,7 @@
   "FEIM": {
     "fundamental_status": "green",
     "last_close": 89.115,
+    "move_alert_last_alert_date": "2026-09-25",
     "news_last_seen_ts": 1790237305,
     "relative_staerke_status": "green",
     "trendstruktur_status": "green",
