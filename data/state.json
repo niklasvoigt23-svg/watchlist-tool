@@ -30,12 +30,12 @@
     "trendstruktur_status": "green",
     "volume_avg20": 352265.0,
     "year_high_252": 88.38,
-    "year_high_last_alert_date": "2026-09-22"
+    "year_high_last_alert_date": "2026-09-25"
   },
   "FLY": {
     "last_close": 22.825,
-    "move_alert_last_alert_date": "2026-09-24",
-    "news_last_seen_ts": 1790257066,
+    "move_alert_last_alert_date": "2026-09-25",
+    "news_last_seen_ts": 1790258280,
     "relative_staerke_status": "red",
     "trendstruktur_status": "red",
     "volume_avg20": 2660135.0,
@@ -53,7 +53,7 @@
   },
   "MMED": {
     "last_close": 21.12,
-    "news_last_seen_ts": 1790164169,
+    "news_last_seen_ts": 1790248635,
     "relative_staerke_status": "red",
     "volume_avg20": 2397845.0
   },
@@ -96,7 +96,7 @@
   },
   "QBTS": {
     "last_close": 17.695,
-    "news_last_seen_ts": 1790272800,
+    "news_last_seen_ts": 1790328452,
     "relative_staerke_status": "red",
     "trendstruktur_status": "red",
     "volume_avg20": 16406245.0,
