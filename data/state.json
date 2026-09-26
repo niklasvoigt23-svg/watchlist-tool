@@ -9,7 +9,7 @@
   "CBRS": {
     "last_close": 208.39,
     "move_alert_last_alert_date": "2026-09-21",
-    "news_last_seen_ts": 1790283001,
+    "news_last_seen_ts": 1790413081,
     "relative_staerke_status": "red",
     "volume_avg20": 6225740.0
   },
@@ -31,12 +31,12 @@
     "trendstruktur_status": "green",
     "volume_avg20": 352265.0,
     "year_high_252": 88.38,
-    "year_high_last_alert_date": "2026-09-25"
+    "year_high_last_alert_date": "2026-09-26"
   },
   "FLY": {
     "last_close": 22.825,
-    "move_alert_last_alert_date": "2026-09-25",
-    "news_last_seen_ts": 1790258280,
+    "move_alert_last_alert_date": "2026-09-26",
+    "news_last_seen_ts": 1790409612,
     "relative_staerke_status": "red",
     "trendstruktur_status": "red",
     "volume_avg20": 2660135.0,
@@ -97,7 +97,7 @@
   },
   "QBTS": {
     "last_close": 17.695,
-    "news_last_seen_ts": 1790328452,
+    "news_last_seen_ts": 1790364000,
     "relative_staerke_status": "red",
     "trendstruktur_status": "red",
     "volume_avg20": 16406245.0,
@@ -106,27 +106,27 @@
   "RDVT": {
     "fundamental_status": "green",
     "last_close": 75.41,
-    "news_last_seen_ts": 1790254800,
+    "news_last_seen_ts": 1790327337,
     "relative_staerke_status": "red",
     "trendstruktur_status": "green",
     "volume_avg20": 229060.0,
     "year_high_252": 77.52,
-    "year_high_last_alert_date": "2026-09-25"
+    "year_high_last_alert_date": "2026-09-26"
   },
   "TWST": {
     "last_close": 165.79,
     "move_alert_last_alert_date": "2026-09-24",
-    "news_last_seen_ts": 1790071730,
+    "news_last_seen_ts": 1790375377,
     "relative_staerke_status": "red",
     "trendstruktur_status": "green",
     "volume_avg20": 1726365.0,
     "year_high_252": 166.99001,
-    "year_high_last_alert_date": "2026-09-25"
+    "year_high_last_alert_date": "2026-09-26"
   },
   "YSWY": {
     "fundamental_status": "red",
     "last_close": 20.38,
-    "news_last_seen_ts": 1790255220,
+    "news_last_seen_ts": 1790341212,
     "relative_staerke_status": "red",
     "volume_avg20": 286600.0
   }
