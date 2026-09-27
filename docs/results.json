@@ -1,8 +1,9 @@
 {
-  "last_run_at": "2026-09-27T16:04:07.833598+00:00",
+  "last_run_at": "2026-09-27T18:05:25.786802+00:00",
   "last_run_mode": "intraday",
   "tickers": {
     "APMD": {
+      "company_name": "Apnimed Inc",
       "data_status": "ok",
       "events_today": [],
       "fundamental": {
@@ -20,6 +21,7 @@
       }
     },
     "CBRS": {
+      "company_name": "Cerebras Systems Inc",
       "data_status": "ok",
       "events_today": [],
       "fundamental": {
@@ -37,6 +39,7 @@
       }
     },
     "EXLS": {
+      "company_name": "Exlservice Holdings Inc",
       "data_status": "ok",
       "events_today": [],
       "fundamental": {
@@ -54,6 +57,7 @@
       }
     },
     "FEIM": {
+      "company_name": "Frequency Electronics Inc",
       "data_status": "ok",
       "events_today": [],
       "fundamental": {
@@ -71,6 +75,7 @@
       }
     },
     "FLY": {
+      "company_name": "Firefly Aerospace Inc",
       "data_status": "ok",
       "events_today": [],
       "fundamental": {
@@ -88,6 +93,7 @@
       }
     },
     "INDV": {
+      "company_name": "Indivior Pharmaceuticals Inc",
       "data_status": "ok",
       "events_today": [],
       "fundamental": {
@@ -105,6 +111,7 @@
       }
     },
     "MMED": {
+      "company_name": "MiniMed Group Inc",
       "data_status": "ok",
       "events_today": [],
       "fundamental": {
@@ -122,6 +129,7 @@
       }
     },
     "NEO": {
+      "company_name": "Neogenomics Inc",
       "data_status": "ok",
       "events_today": [],
       "fundamental": {
@@ -139,6 +147,7 @@
       }
     },
     "NSIT": {
+      "company_name": "Insight Enterprises Inc",
       "data_status": "ok",
       "events_today": [],
       "fundamental": {
@@ -156,6 +165,7 @@
       }
     },
     "NWPX": {
+      "company_name": "NWPX Infrastructure Inc",
       "data_status": "ok",
       "events_today": [],
       "fundamental": {
@@ -173,6 +183,7 @@
       }
     },
     "PDEX": {
+      "company_name": "Pro-Dex Inc",
       "data_status": "ok",
       "events_today": [],
       "fundamental": {
@@ -190,6 +201,7 @@
       }
     },
     "QBTS": {
+      "company_name": "D-Wave Quantum Inc",
       "data_status": "ok",
       "events_today": [],
       "fundamental": {
@@ -207,6 +219,7 @@
       }
     },
     "RDVT": {
+      "company_name": "Red Violet Inc",
       "data_status": "ok",
       "events_today": [],
       "fundamental": {
@@ -224,6 +237,7 @@
       }
     },
     "TWST": {
+      "company_name": "Twist Bioscience Corp",
       "data_status": "ok",
       "events_today": [],
       "fundamental": {
@@ -241,6 +255,7 @@
       }
     },
     "YSWY": {
+      "company_name": "Yesway Inc",
       "data_status": "ok",
       "events_today": [],
       "fundamental": {
