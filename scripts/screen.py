@@ -378,6 +378,7 @@ def main():
 
         process_news(ticker, entry_state, new_state, fh_client, news_alerts)
         result["note"] = row.get("note", "")
+        result["company_name"] = row.get("company_name", "")
         results[ticker] = result
         new_state_all[ticker] = new_state
 

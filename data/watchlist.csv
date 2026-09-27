@@ -1,16 +1,16 @@
-ticker,since,note
-CBRS,2026-09-20,
-TWST,2026-09-20,
-QBTS,2026-09-20,
-MMED,2026-09-20,
-NEO,2026-09-20,
-APMD,2026-09-20,
-RDVT,2026-09-20,
-NWPX,2026-09-20,
-FLY,2026-09-20,
-PDEX,2026-09-20,
-YSWY,2026-09-20,
-INDV,2026-09-20,
-EXLS,2026-09-20,
-FEIM,2026-09-20,
-NSIT,2026-09-20,
+ticker,since,note,company_name
+CBRS,2026-09-20,,Cerebras Systems Inc
+TWST,2026-09-20,,Twist Bioscience Corp
+QBTS,2026-09-20,,D-Wave Quantum Inc
+MMED,2026-09-20,,MiniMed Group Inc
+NEO,2026-09-20,,Neogenomics Inc
+APMD,2026-09-20,,Apnimed Inc
+RDVT,2026-09-20,,Red Violet Inc
+NWPX,2026-09-20,,NWPX Infrastructure Inc
+FLY,2026-09-20,,Firefly Aerospace Inc
+PDEX,2026-09-20,,Pro-Dex Inc
+YSWY,2026-09-20,,Yesway Inc
+INDV,2026-09-20,,Indivior Pharmaceuticals Inc
+EXLS,2026-09-20,,Exlservice Holdings Inc
+FEIM,2026-09-20,,Frequency Electronics Inc
+NSIT,2026-09-20,,Insight Enterprises Inc
