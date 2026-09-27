@@ -2,8 +2,8 @@
 
 Serverloses Ampel-Dashboard mit Telegram-Alarmen fuer eine Aktien-Watchlist, angelehnt an Mark
 Minervinis SEPA-Ansatz: drei unabhaengige Ampeln (Trendstruktur, Relative Staerke, Fundamental)
-plus Einzelereignis-Alarme (Golden/Death Cross, Volumen-Breakout, Kursbewegung, 52-Wochen-Hoch,
-Pivotal News).
+plus acht Einzelereignis-Alarme (Golden/Death Cross, Volumen-Breakout, Kursbewegung, 52-Wochen-Hoch,
+Pocket Pivot, Aroon-Crossover, TTM-Squeeze-Fire, Pivotal News), jeweils mit RVOL-Volumen-Rating.
 
 ## Architektur
 
@@ -40,7 +40,55 @@ im vollen taeglichen Lauf berechnet:
 - Kursbewegung (>= `MOVE_THRESHOLD` ggue. letztem Schlusskurs), voller Lauf + Intraday.
 - Ausbruch ueber das 52-Wochen-Hoch (252 Handelstage, heute ausgeschlossen), voller Lauf +
   Intraday.
+- **Pocket Pivot** (Morales/Kacher): Up-Tag mit Volumen ueber dem groessten Down-Tag-Volumen der
+  letzten 10 Handelstage, zusaetzlich Close > SMA50. Nur voller Lauf (braucht taegliche Historie).
+- **Aroon-Crossover** (Chande, 25 Perioden): Aroon-Up kreuzt Aroon-Down von unten (bullisch) oder
+  umgekehrt (bearisch), nur wenn die kreuzende Linie dabei > 50 liegt. Nur voller Lauf.
+- **TTM Squeeze Fire** (Carter): Bollinger Bands(20,2) verlassen den Keltner Channel
+  (EMA20 +/- 1.5x ATR20) nach einer Squeeze-Phase. Richtung nach Lage des Schlusskurses zur
+  Bollinger-Mittellinie. Naeherung fuer eine Vola-Kontraktion, ersetzt NICHT die offene
+  VCP-Chartmuster-Frage. Nur voller Lauf.
 - Pivotal News (neue Finnhub-Company-News), voller Lauf + Intraday.
+
+**Nur Dashboard, kein Alarm:**
+
+- **NR4/NR7** (Crabel): heutige Tagesspanne ist die kleinste der letzten 4 bzw. 7 Handelstage.
+  Reine Vorwarnung auf Volatilitaetskontraktion, wuerde bei jeder ruhigen Konsolidierung spammen
+  -- deshalb nur als kleines Tag neben dem Ticker, kein Telegram-Push. Nur voller Lauf, im
+  Intraday-Check unveraendert aus dem letzten vollen Lauf uebernommen.
+
+## RVOL-Tier (Volumen-Rating)
+
+Jedes ausgeloeste Einzelereignis-Signal bekommt zusaetzlich ein RVOL-Tier: heutiges Volumen
+(voller Lauf: Tagesvolumen; Intraday: bisheriges Session-Volumen aus dem `/quote`-Call) geteilt
+durch den 20-Tage-Durchschnitt.
+
+| Tier | RVOL |
+|---|---|
+| Dead | < 0,5x |
+| Below Avg | 0,5x - 1,0x |
+| Above Avg | 1,0x - 2,0x |
+| High | 2,0x - 3,0x |
+| Extreme | >= 3,0x |
+
+Bekannte Einschraenkung: bei den vier Intraday-Checks ist RVOL nicht Time-of-day-normalisiert --
+ein Check um 16 Uhr zeigt systematisch niedrigere Werte als einer um 22 Uhr, selbst bei gleicher
+Handelsintensität. Akzeptiert als Naeherung, wie im Nachtrag vorgegeben.
+
+## Telegram-Format (v3)
+
+Jedes Einzelereignis-Signal ist eine **eigene** Telegram-Nachricht (nicht mehr gebuendelt wie
+zuvor), eine Zeile im Format:
+
+```
+{Ampel-Emoji} {TICKER} | {Signalname} | RVOL {Wert}x ({Tier}) | {Zusatzwert}
+```
+
+Ampel-Emoji-Logik (nur fuer Einzelereignis-Signale, die drei Dauer-Ampeln bleiben binaer
+gruen/rot): 🟢 bullisches Signal + RVOL High/Extreme, 🟡 bullisches Signal + RVOL Above Avg oder
+darunter, 🔴 bearisches Signal unabhaengig vom RVOL-Tier. Volumen-Breakout und 52-Wochen-Hoch
+gelten dabei immer als bullisch. Status-Wechsel der drei Dauer-Ampeln und Pivotal News bleiben
+wie zuvor in einer gebuendelten Nachricht.
 
 ## Wichtig: Sichtbarkeit dieses Repos
 
@@ -105,6 +153,14 @@ jederzeit nachtraeglich moeglich.
 - **End-to-End lokal getestet**: `--mode full` und `--mode intraday` inkl. Fundamental-Ampel und
   52-Wochen-Hoch wurden mit echten API-Keys durchlaufen, inkl. Dedup-Pruefung (Folgelauf erzeugte
   korrekt keine Wiederholungs-Alarme) und einer Migrationspruefung des alten `state.json`-Schemas.
+- **Pocket Pivot, Sonderfall keine Down-Tage im Fenster**: gibt es in den letzten 10 Handelstagen
+  keinen einzigen Down-Tag (reiner Aufwaertslauf), ist "Volumen ueber dem groessten Down-Tag"
+  unauswertbar. Entscheidung: Signal feuert dann bewusst NICHT (statt vacuously wahr), um keine
+  Falsch-Positiven in reinen Rallye-Phasen zu erzeugen. Nicht explizit im Nachtrag festgelegt --
+  sag Bescheid, falls die gegenteilige Interpretation gewuenscht ist.
+- **High/Low-Daten**: `providers.py` hat bisher nur Close/Volumen aus Twelve Data extrahiert.
+  Fuer NR4/NR7, Aroon und den Keltner-Channel-Teil von TTM Squeeze werden High/Low gebraucht --
+  ergaenzt, ohne zusaetzlichen API-Call (steckt bereits in derselben `time_series`-Antwort).
 
 ## Setup
 
@@ -209,8 +265,9 @@ zum Editor.
 ## Konfiguration anpassen
 
 Schwellenwerte und Parameter stehen zentral in `scripts/config.py` (`VOLUME_MULTIPLIER`,
-`MOVE_THRESHOLD`, `RS_LOOKBACK`, `EPS_GROWTH_MIN`, `REVENUE_GROWTH_MIN`, `YEAR_HIGH_LOOKBACK`
-etc.) -- nichts davon ist in der Ablauflogik hart verdrahtet.
+`MOVE_THRESHOLD`, `RS_LOOKBACK`, `EPS_GROWTH_MIN`, `REVENUE_GROWTH_MIN`, `YEAR_HIGH_LOOKBACK`,
+`AROON_PERIOD`, `BB_STDDEV`, `KELTNER_ATR_MULTIPLIER`, `RVOL_*_MAX` etc.) -- nichts davon ist in
+der Ablauflogik hart verdrahtet.
 
 ## Explizit nicht Teil dieses Tools
 

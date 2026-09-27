@@ -3,8 +3,12 @@
   python screen.py --mode full      -> alle Kriterien, einmal taeglich nach US-Handelsschluss
   python screen.py --mode intraday  -> nur Volumen-Breakout, Move/Gap, 52-Wochen-Hoch, News
 
-Reads data/watchlist.csv + data/state.json, writes data/state.json + docs/results.json,
-sends a bundled Telegram message for any new (non-duplicate) alerts.
+Reads data/watchlist.csv + data/state.json, writes data/state.json + docs/results.json.
+
+Telegram: die drei Ampel-Status-Wechsel (Trendstruktur/Relative Staerke/Fundamental) werden
+weiterhin in EINER gebuendelten Nachricht verschickt (unveraendert seit v2). Jedes ausgeloeste
+Einzelereignis-Signal (Cross, Volumen-Breakout, Move, 52W-Hoch, Pocket Pivot, Aroon-Crossover,
+TTM-Squeeze-Fire) wird dagegen als EIGENE Telegram-Nachricht verschickt, nicht gebuendelt (v3).
 """
 
 import argparse
@@ -76,31 +80,43 @@ def fmt_status_change(ticker, label, status):
     return f"{icon} {ticker}: {label} {verb}"
 
 
-def fmt_cross(ticker, cross_type):
-    if cross_type == "golden_cross":
-        return f"\U0001F7E2 {ticker}: Golden Cross (SMA50 > SMA200)"
-    return f"\U0001F534 {ticker}: Death Cross (SMA50 < SMA200)"
-
-
-def fmt_volume(ticker, ratio):
-    return f"\U0001F7E1 {ticker}: Volumen-Breakout ({ratio:.1f}x 20-Tage-Durchschnitt)"
-
-
-def fmt_move(ticker, move_pct, direction_sign):
-    sign = "+" if direction_sign >= 0 else "-"
-    return f"\U0001F7E1 {ticker}: Kursbewegung {sign}{move_pct * 100:.1f}% ggue. letztem Schlusskurs"
-
-
-def fmt_year_high(ticker, pct_above):
-    if pct_above is not None:
-        return f"\U0001F7E1 {ticker}: Ausbruch ueber 52-Wochen-Hoch (+{pct_above:.1f}%)"
-    return f"\U0001F7E1 {ticker}: Ausbruch ueber 52-Wochen-Hoch"
-
-
 def fmt_news(ticker, item):
     headline = item.get("headline", "").strip()
     url = item.get("url", "")
     return f"\U0001F4F0 {ticker}: {headline} {url}".strip()
+
+
+def fmt_pct_signed(value_fraction):
+    """value_fraction: signed fraction, e.g. 0.068 -> '+6.8%'."""
+    sign = "+" if value_fraction >= 0 else ""
+    return f"{sign}{value_fraction * 100:.1f}%"
+
+
+def fmt_signal(ticker, label, direction, rvol_ratio, extra=None):
+    """Builds one Telegram-ready line for a single event-signal, per the v3 format:
+    {Ampel-Emoji} {TICKER} | {Signalname} | RVOL {Wert}x ({Tier}) | {Zusatzwert}
+    direction: 'bullish' or 'bearish'. Bearish is always red, regardless of RVOL-Tier."""
+    tier = signals.rvol_tier(rvol_ratio)
+    if direction == "bearish":
+        emoji = "\U0001F534"
+    else:
+        emoji = "\U0001F7E2" if tier in ("High", "Extreme") else "\U0001F7E1"
+    rvol_text = f"RVOL {rvol_ratio:.1f}x ({tier})" if rvol_ratio is not None else "RVOL n/a"
+    line = f"{emoji} {ticker} | {label} | {rvol_text}"
+    if extra:
+        line += f" | {extra}"
+    return line
+
+
+def event_entry(type_, label, direction, value, rvol_ratio):
+    return {
+        "type": type_,
+        "label": label,
+        "direction": direction,
+        "value": value,
+        "rvol_ratio": rvol_ratio,
+        "rvol_tier": signals.rvol_tier(rvol_ratio),
+    }
 
 
 def today_str():
@@ -127,7 +143,7 @@ def process_news(ticker, entry_state, new_state, fh_client, alerts):
     new_state["news_last_seen_ts"] = max(n["datetime"] for n in items) if items else last_seen
 
 
-def apply_status_alerts(ticker, entry_state, new_state, results_out, alerts):
+def apply_status_alerts(ticker, entry_state, new_state, results_out, status_alerts):
     """Compares each of the three independent ampeln to its previous state and appends
     a status-change alert (only) when it actually flipped between green and red."""
     for status_key, status_result in results_out.items():
@@ -136,10 +152,10 @@ def apply_status_alerts(ticker, entry_state, new_state, results_out, alerts):
         if status_result["status"] in ("green", "red"):
             new_state[status_key] = status_result["status"]
             if prev_status in ("green", "red") and prev_status != status_result["status"]:
-                alerts.append(fmt_status_change(ticker, label, status_result["status"]))
+                status_alerts.append(fmt_status_change(ticker, label, status_result["status"]))
 
 
-def run_full(ticker, entry_state, td_client, fh_client, spy_series, alerts):
+def run_full(ticker, entry_state, td_client, fh_client, spy_series, status_alerts, event_alerts):
     """Returns (result_dict, new_state_dict)."""
     series = td_client.get_time_series(ticker)
     new_state = dict(entry_state)
@@ -164,48 +180,85 @@ def run_full(ticker, entry_state, td_client, fh_client, spy_series, alerts):
             "relative_staerke_status": relative_staerke,
             "fundamental_status": fundamental,
         },
-        alerts,
+        status_alerts,
     )
-
-    cross = signals.detect_cross(series)
-    vol_breakout, vol_ratio, vol_avg20 = signals.detect_volume_breakout_full(series)
-    move_hit, move_pct = signals.detect_move_full(series)
-    year_high_hit, year_high_pct, prior_high = signals.detect_year_high_breakout_full(series)
 
     today = today_str()
     price = float(series["close"][-1])
     events_today = []
 
+    vol_avg20 = signals.compute_volume_avg20(series)
+    rvol_ratio = signals.compute_rvol(float(series["volume"][-1]), vol_avg20)
+    move_signed_pct = (
+        (series["close"][-1] - series["close"][-2]) / series["close"][-2]
+        if len(series["close"]) >= 2 and series["close"][-2] != 0
+        else None
+    )
+
     new_state["last_close"] = price
     if vol_avg20 is not None:
         new_state["volume_avg20"] = vol_avg20
-    if prior_high is not None:
-        new_state["year_high_252"] = prior_high
 
+    cross = signals.detect_cross(series)
     if cross:
         key = f"{cross}_last_alert_date"
         if entry_state.get(key) != today:
-            alerts.append(fmt_cross(ticker, cross))
+            direction = "bullish" if cross == "golden_cross" else "bearish"
+            label = "Golden Cross 50/200" if cross == "golden_cross" else "Death Cross 50/200"
+            event_alerts.append(fmt_signal(ticker, label, direction, rvol_ratio))
             new_state[key] = today
-            events_today.append({"type": cross, "value": None})
+            events_today.append(event_entry(cross, label, direction, None, rvol_ratio))
 
+    vol_breakout, vol_ratio, _ = signals.detect_volume_breakout_full(series)
     if vol_breakout and entry_state.get("volume_breakout_last_alert_date") != today:
-        alerts.append(fmt_volume(ticker, vol_ratio))
+        extra = fmt_pct_signed(move_signed_pct) if move_signed_pct is not None else None
+        event_alerts.append(fmt_signal(ticker, "Volumen-Breakout", "bullish", rvol_ratio, extra))
         new_state["volume_breakout_last_alert_date"] = today
-        events_today.append({"type": "volume_breakout", "value": f"{vol_ratio:.1f}x"})
+        events_today.append(event_entry("volume_breakout", "Volumen-Breakout", "bullish", extra, rvol_ratio))
 
+    move_hit, move_pct = signals.detect_move_full(series)
     if move_hit and entry_state.get("move_alert_last_alert_date") != today:
-        direction_sign = series["close"][-1] - series["close"][-2]
-        alerts.append(fmt_move(ticker, move_pct, direction_sign))
+        direction = "bullish" if move_signed_pct >= 0 else "bearish"
+        value = fmt_pct_signed(move_signed_pct)
+        event_alerts.append(fmt_signal(ticker, "Kursbewegung", direction, rvol_ratio, value))
         new_state["move_alert_last_alert_date"] = today
-        sign = "+" if direction_sign >= 0 else "-"
-        events_today.append({"type": "move", "value": f"{sign}{move_pct * 100:.1f}%"})
+        events_today.append(event_entry("move", "Kursbewegung", direction, value, rvol_ratio))
 
+    year_high_hit, year_high_pct, prior_high = signals.detect_year_high_breakout_full(series)
+    if prior_high is not None:
+        new_state["year_high_252"] = prior_high
     if year_high_hit and entry_state.get("year_high_last_alert_date") != today:
-        alerts.append(fmt_year_high(ticker, year_high_pct))
-        new_state["year_high_last_alert_date"] = today
         value = f"+{year_high_pct:.1f}%" if year_high_pct is not None else None
-        events_today.append({"type": "year_high", "value": value})
+        event_alerts.append(fmt_signal(ticker, "52-Wochen-Hoch", "bullish", rvol_ratio, value))
+        new_state["year_high_last_alert_date"] = today
+        events_today.append(event_entry("year_high", "52-Wochen-Hoch", "bullish", value, rvol_ratio))
+
+    if signals.detect_pocket_pivot(series) and entry_state.get("pocket_pivot_last_alert_date") != today:
+        event_alerts.append(fmt_signal(ticker, "Pocket Pivot", "bullish", rvol_ratio))
+        new_state["pocket_pivot_last_alert_date"] = today
+        events_today.append(event_entry("pocket_pivot", "Pocket Pivot", "bullish", None, rvol_ratio))
+
+    aroon_cross = signals.detect_aroon_crossover(series)
+    if aroon_cross:
+        key = f"aroon_{'bull' if aroon_cross == 'bullish' else 'bear'}_last_alert_date"
+        if entry_state.get(key) != today:
+            label = f"Aroon-Crossover ({'bullisch' if aroon_cross == 'bullish' else 'bearisch'})"
+            event_alerts.append(fmt_signal(ticker, label, aroon_cross, rvol_ratio))
+            new_state[key] = today
+            events_today.append(event_entry(f"aroon_{aroon_cross}", label, aroon_cross, None, rvol_ratio))
+
+    squeeze_fire = signals.detect_ttm_squeeze_fire(series)
+    if squeeze_fire:
+        key = f"squeeze_{'bull' if squeeze_fire == 'bullish' else 'bear'}_last_alert_date"
+        if entry_state.get(key) != today:
+            label = f"TTM Squeeze Fire ({'bullisch' if squeeze_fire == 'bullish' else 'bearisch'})"
+            event_alerts.append(fmt_signal(ticker, label, squeeze_fire, rvol_ratio))
+            new_state[key] = today
+            events_today.append(event_entry(f"squeeze_{squeeze_fire}", label, squeeze_fire, None, rvol_ratio))
+
+    nr_flags = signals.compute_narrow_range_flags(series)
+    new_state["nr4_active"] = nr_flags["nr4"]
+    new_state["nr7_active"] = nr_flags["nr7"]
 
     result = {
         "data_status": "ok",
@@ -213,12 +266,14 @@ def run_full(ticker, entry_state, td_client, fh_client, spy_series, alerts):
         "trendstruktur": trendstruktur,
         "relative_staerke": relative_staerke,
         "fundamental": fundamental,
+        "nr4_active": nr_flags["nr4"],
+        "nr7_active": nr_flags["nr7"],
         "events_today": events_today,
     }
     return result, new_state
 
 
-def run_intraday(ticker, entry_state, td_client, alerts):
+def run_intraday(ticker, entry_state, td_client, event_alerts):
     quote = td_client.get_quote(ticker)
     new_state = dict(entry_state)
     if quote is None:
@@ -227,30 +282,37 @@ def run_intraday(ticker, entry_state, td_client, alerts):
     today = today_str()
     events_today = []
 
+    cached_avg20 = entry_state.get("volume_avg20")
+    rvol_ratio = signals.compute_rvol(quote["volume"], cached_avg20)
+    move_signed_pct = (
+        (quote["close"] - quote["previous_close"]) / quote["previous_close"]
+        if quote["previous_close"] else None
+    )
+
     move_hit, move_pct = signals.detect_move_intraday(quote)
     if move_hit and entry_state.get("move_alert_last_alert_date") != today:
-        direction_sign = quote["close"] - quote["previous_close"]
-        alerts.append(fmt_move(ticker, move_pct, direction_sign))
+        direction = "bullish" if move_signed_pct >= 0 else "bearish"
+        value = fmt_pct_signed(move_signed_pct)
+        event_alerts.append(fmt_signal(ticker, "Kursbewegung", direction, rvol_ratio, value))
         new_state["move_alert_last_alert_date"] = today
-        sign = "+" if direction_sign >= 0 else "-"
-        events_today.append({"type": "move", "value": f"{sign}{move_pct * 100:.1f}%"})
+        events_today.append(event_entry("move", "Kursbewegung", direction, value, rvol_ratio))
 
-    cached_avg20 = entry_state.get("volume_avg20")
     if cached_avg20:
         vol_breakout, vol_ratio = signals.detect_volume_breakout_intraday(quote["volume"], cached_avg20)
         if vol_breakout and entry_state.get("volume_breakout_last_alert_date") != today:
-            alerts.append(fmt_volume(ticker, vol_ratio))
+            extra = fmt_pct_signed(move_signed_pct) if move_signed_pct is not None else None
+            event_alerts.append(fmt_signal(ticker, "Volumen-Breakout", "bullish", rvol_ratio, extra))
             new_state["volume_breakout_last_alert_date"] = today
-            events_today.append({"type": "volume_breakout", "value": f"{vol_ratio:.1f}x"})
+            events_today.append(event_entry("volume_breakout", "Volumen-Breakout", "bullish", extra, rvol_ratio))
 
     cached_year_high = entry_state.get("year_high_252")
     if cached_year_high:
         year_high_hit, year_high_pct = signals.detect_year_high_breakout_intraday(quote["close"], cached_year_high)
         if year_high_hit and entry_state.get("year_high_last_alert_date") != today:
-            alerts.append(fmt_year_high(ticker, year_high_pct))
-            new_state["year_high_last_alert_date"] = today
             value = f"+{year_high_pct:.1f}%" if year_high_pct is not None else None
-            events_today.append({"type": "year_high", "value": value})
+            event_alerts.append(fmt_signal(ticker, "52-Wochen-Hoch", "bullish", rvol_ratio, value))
+            new_state["year_high_last_alert_date"] = today
+            events_today.append(event_entry("year_high", "52-Wochen-Hoch", "bullish", value, rvol_ratio))
 
     result = {
         "data_status": "ok",
@@ -258,6 +320,8 @@ def run_intraday(ticker, entry_state, td_client, alerts):
         "trendstruktur": {"status": entry_state.get("trendstruktur_status", "grey")},
         "relative_staerke": {"status": entry_state.get("relative_staerke_status", "grey")},
         "fundamental": {"status": entry_state.get("fundamental_status", "grey")},
+        "nr4_active": entry_state.get("nr4_active", False),
+        "nr7_active": entry_state.get("nr7_active", False),
         "events_today": events_today,
     }
     return result, new_state
@@ -281,7 +345,9 @@ def main():
 
     watchlist = load_watchlist(config.WATCHLIST_CSV)
     state = load_state(config.STATE_JSON)
-    alerts = []
+    status_alerts = []  # Ampel-Statuswechsel: eine gebuendelte Nachricht
+    event_alerts = []    # Einzelereignis-Signale: eine Nachricht PRO Signal (v3)
+    news_alerts = []
     results = {}
 
     spy_series = None
@@ -301,14 +367,16 @@ def main():
         entry_state = state.get(ticker, {})
         try:
             if args.mode == "full":
-                result, new_state = run_full(ticker, entry_state, td_client, fh_client, spy_series, alerts)
+                result, new_state = run_full(
+                    ticker, entry_state, td_client, fh_client, spy_series, status_alerts, event_alerts
+                )
             else:
-                result, new_state = run_intraday(ticker, entry_state, td_client, alerts)
+                result, new_state = run_intraday(ticker, entry_state, td_client, event_alerts)
         except ProviderError as e:
             print(f"[warn] {ticker}: {e}", file=sys.stderr)
             result, new_state = {"data_status": "error", "error": str(e)}, entry_state
 
-        process_news(ticker, entry_state, new_state, fh_client, alerts)
+        process_news(ticker, entry_state, new_state, fh_client, news_alerts)
         result["note"] = row.get("note", "")
         results[ticker] = result
         new_state_all[ticker] = new_state
@@ -316,19 +384,36 @@ def main():
     save_state(config.STATE_JSON, new_state_all)
     save_results(config.RESULTS_JSON, results, args.mode, datetime.datetime.now(datetime.timezone.utc).isoformat())
 
-    if alerts:
-        bot_token = os.environ.get("TELEGRAM_BOT_TOKEN")
-        chat_id = os.environ.get("TELEGRAM_CHAT_ID")
-        message = "\n".join(alerts)
-        print(message)
-        if bot_token and chat_id:
-            try:
-                telegram.send_message(bot_token, chat_id, message)
-            except telegram.TelegramError as e:
-                print(f"[error] Telegram send failed: {e}", file=sys.stderr)
-        else:
+    bot_token = os.environ.get("TELEGRAM_BOT_TOKEN")
+    chat_id = os.environ.get("TELEGRAM_CHAT_ID")
+    # Ampel-Statuswechsel + News bleiben wie vor v3 in einer gebuendelten Nachricht
+    # (von diesem Nachtrag nicht betroffen). Einzelereignis-Signale sind neu je eine
+    # eigene Nachricht (siehe fmt_signal/event_alerts).
+    bundled = status_alerts + news_alerts
+
+    if not (bot_token and chat_id):
+        if bundled or event_alerts:
             print("[warn] TELEGRAM_BOT_TOKEN/TELEGRAM_CHAT_ID missing, alerts not sent", file=sys.stderr)
-    else:
+        for line in bundled + event_alerts:
+            print(line)
+        if not (bundled or event_alerts):
+            print("No new alerts this run.")
+        return
+
+    if bundled:
+        try:
+            telegram.send_message(bot_token, chat_id, "\n".join(bundled))
+        except telegram.TelegramError as e:
+            print(f"[error] Telegram send failed (status/news): {e}", file=sys.stderr)
+
+    # v3: ein Einzelereignis-Signal = eine eigene Telegram-Nachricht, nicht gebuendelt.
+    for line in event_alerts:
+        try:
+            telegram.send_message(bot_token, chat_id, line)
+        except telegram.TelegramError as e:
+            print(f"[error] Telegram send failed ({line}): {e}", file=sys.stderr)
+
+    if not (bundled or event_alerts):
         print("No new alerts this run.")
 
 

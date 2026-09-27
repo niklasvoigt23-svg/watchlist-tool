@@ -235,3 +235,125 @@ def detect_year_high_breakout_intraday(price, cached_prior_high):
     breakout = price > cached_prior_high
     pct_above = (price / cached_prior_high - 1) * 100 if breakout else None
     return breakout, pct_above
+
+
+# --- RVOL-Tier: Volumen-Rating an jedem Einzelereignis-Signal (v3) ---
+
+def compute_rvol(current_volume, avg20):
+    if not avg20:
+        return None
+    return current_volume / avg20
+
+
+def rvol_tier(ratio):
+    if ratio is None:
+        return None
+    if ratio < config.RVOL_DEAD_MAX:
+        return "Dead"
+    if ratio < config.RVOL_BELOW_AVG_MAX:
+        return "Below Avg"
+    if ratio < config.RVOL_ABOVE_AVG_MAX:
+        return "Above Avg"
+    if ratio < config.RVOL_HIGH_MAX:
+        return "High"
+    return "Extreme"
+
+
+# --- Neue Einzelereignis-Signale (v3), alle nur im vollen Lauf (brauchen taegliche OHLCV-Historie) ---
+
+def detect_pocket_pivot(series):
+    """Up-Tag mit Volumen > groesstem Down-Tag-Volumen der letzten
+    POCKET_PIVOT_DOWNDAY_LOOKBACK Handelstage, zusaetzlich Close > SMA50.
+    Gibt es in diesem Fenster keinen einzigen Down-Tag, ist die Bedingung nicht
+    auswertbar (kein Vergleichswert) -- das Signal feuert dann bewusst nicht,
+    statt vacuously wahr zu sein."""
+    close = series["close"]
+    volume = series["volume"]
+    lookback = config.POCKET_PIVOT_DOWNDAY_LOOKBACK
+    min_len = max(config.POCKET_PIVOT_MIN_SMA, lookback) + 2
+    if len(close) < min_len:
+        return False
+
+    if close[-1] <= close[-2]:
+        return False
+
+    sma = talib.SMA(close, timeperiod=config.POCKET_PIVOT_MIN_SMA)
+    if np.isnan(sma[-1]) or close[-1] <= sma[-1]:
+        return False
+
+    down_day_volumes = [
+        volume[i] for i in range(-(lookback + 1), -1) if close[i] < close[i - 1]
+    ]
+    if not down_day_volumes:
+        return False
+    return bool(volume[-1] > max(down_day_volumes))
+
+
+def compute_narrow_range_flags(series):
+    """NR4/NR7 (Toby Crabel): heutige Tagesspanne ist die kleinste der letzten 4 bzw. 7
+    Handelstage inklusive heute. Reine Dashboard-Markierung, kein Telegram-Alarm."""
+    high, low = series["high"], series["low"]
+    result = {"nr4": False, "nr7": False}
+    if len(high) >= config.NR4_LOOKBACK:
+        ranges = high[-config.NR4_LOOKBACK:] - low[-config.NR4_LOOKBACK:]
+        result["nr4"] = bool(ranges[-1] <= np.min(ranges))
+    if len(high) >= config.NR7_LOOKBACK:
+        ranges = high[-config.NR7_LOOKBACK:] - low[-config.NR7_LOOKBACK:]
+        result["nr7"] = bool(ranges[-1] <= np.min(ranges))
+    return result
+
+
+def detect_aroon_crossover(series):
+    """Aroon(25): bullischer Crossover wenn Aroon-Up von unten nach oben ueber Aroon-Down
+    kreuzt UND dabei > AROON_CROSS_THRESHOLD liegt (und spiegelbildlich fuer bearisch).
+    Returns 'bullish', 'bearish' oder None."""
+    high, low = series["high"], series["low"]
+    period = config.AROON_PERIOD
+    if len(high) < period + 2:
+        return None
+    aroondown, aroonup = talib.AROON(high, low, timeperiod=period)
+    if np.isnan(aroonup[-2]) or np.isnan(aroondown[-2]) or np.isnan(aroonup[-1]) or np.isnan(aroondown[-1]):
+        return None
+
+    up_prev, down_prev = aroonup[-2], aroondown[-2]
+    up_now, down_now = aroonup[-1], aroondown[-1]
+    threshold = config.AROON_CROSS_THRESHOLD
+
+    if up_prev <= down_prev and up_now > down_now and up_now > threshold:
+        return "bullish"
+    if down_prev <= up_prev and down_now > up_now and down_now > threshold:
+        return "bearish"
+    return None
+
+
+def detect_ttm_squeeze_fire(series):
+    """TTM Squeeze (John Carter): Bollinger Bands(20,2) vollstaendig innerhalb des Keltner
+    Channel(EMA20 +/- 1.5*ATR20) = Squeeze-on. Feuert beim Uebergang Squeeze-on -> Squeeze-off
+    am aktuellen Tag. Richtung: bullisch wenn Close ueber der Bollinger-Mittellinie, sonst
+    bearisch. Returns 'bullish', 'bearish' oder None."""
+    close, high, low = series["close"], series["high"], series["low"]
+    needed = max(config.BB_PERIOD, config.KELTNER_EMA_PERIOD, config.KELTNER_ATR_PERIOD) + 2
+    if len(close) < needed:
+        return None
+
+    upper_bb, mid_bb, lower_bb = talib.BBANDS(
+        close, timeperiod=config.BB_PERIOD, nbdevup=config.BB_STDDEV, nbdevdn=config.BB_STDDEV
+    )
+    kc_mid = talib.EMA(close, timeperiod=config.KELTNER_EMA_PERIOD)
+    atr = talib.ATR(high, low, close, timeperiod=config.KELTNER_ATR_PERIOD)
+    kc_upper = kc_mid + config.KELTNER_ATR_MULTIPLIER * atr
+    kc_lower = kc_mid - config.KELTNER_ATR_MULTIPLIER * atr
+
+    def squeeze_on(i):
+        values = (upper_bb[i], lower_bb[i], kc_upper[i], kc_lower[i])
+        if any(np.isnan(v) for v in values):
+            return None
+        return upper_bb[i] < kc_upper[i] and lower_bb[i] > kc_lower[i]
+
+    on_prev = squeeze_on(-2)
+    on_now = squeeze_on(-1)
+    if on_prev is None or on_now is None:
+        return None
+    if on_prev and not on_now:
+        return "bullish" if close[-1] > mid_bb[-1] else "bearish"
+    return None

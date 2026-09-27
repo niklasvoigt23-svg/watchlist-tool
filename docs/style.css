@@ -106,17 +106,20 @@ tr:last-child td {
 
 .badge {
   display: inline-block;
-  padding: 2px 8px;
-  border-radius: 999px;
+  padding: 3px 9px;
+  border-radius: 12px;
   font-size: 0.75rem;
   margin-right: 4px;
+  margin-bottom: 4px;
   color: #0f1216;
+  max-width: 100%;
 }
 
-.badge-cross { background: var(--green); }
-.badge-volume { background: var(--amber); }
-.badge-move { background: var(--red); }
-.badge-year-high { background: #4fa8e0; }
+/* Gleiche 3-Farb-Logik wie bei den Telegram-Nachrichten: bearisch immer rot,
+   bullisch + RVOL High/Extreme gruen, bullisch sonst gelb. */
+.badge-bullish-strong { background: var(--green); }
+.badge-bullish-weak { background: var(--amber); }
+.badge-bearish { background: var(--red); }
 
 .ticker-cell a {
   color: inherit;
@@ -126,6 +129,17 @@ tr:last-child td {
 
 .ticker-cell a:hover {
   border-bottom-style: solid;
+}
+
+.nr-tag {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 1px 5px;
+  border-radius: 4px;
+  border: 1px solid var(--text-dim);
+  color: var(--text-dim);
+  vertical-align: middle;
 }
 
 table {

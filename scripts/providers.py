@@ -57,8 +57,8 @@ class TwelveDataClient:
         return data
 
     def get_time_series(self, symbol, outputsize=config.TIME_SERIES_OUTPUTSIZE):
-        """Returns dict with ascending-ordered 'dates' (list[str]), 'close' (np.ndarray),
-        'volume' (np.ndarray). Returns None if the symbol has no data at all."""
+        """Returns dict with ascending-ordered 'dates' (list[str]), 'close', 'high', 'low',
+        'volume' (np.ndarray each). Returns None if the symbol has no data at all."""
         data = self._get(
             "time_series",
             {"symbol": symbol, "interval": "1day", "outputsize": outputsize},
@@ -69,8 +69,10 @@ class TwelveDataClient:
         values = list(reversed(values))  # Twelve Data returns newest-first; we want ascending
         dates = [v["datetime"] for v in values]
         close = np.array([float(v["close"]) for v in values], dtype=float)
+        high = np.array([float(v["high"]) for v in values], dtype=float)
+        low = np.array([float(v["low"]) for v in values], dtype=float)
         volume = np.array([float(v["volume"]) for v in values], dtype=float)
-        return {"dates": dates, "close": close, "volume": volume}
+        return {"dates": dates, "close": close, "high": high, "low": low, "volume": volume}
 
     def get_quote(self, symbol):
         """Returns dict with 'close', 'previous_close', 'volume', or None if unavailable."""

@@ -33,14 +33,6 @@
 // Owner/Repo fuer den "Ticker hinzufuegen"-Link.
 const REPO = "niklasvoigt23-svg/watchlist-tool";
 
-const EVENT_LABELS = {
-  golden_cross: "Golden Cross",
-  death_cross: "Death Cross",
-  volume_breakout: "Volumen",
-  move: "Kursbewegung",
-  year_high: "52W-Hoch",
-};
-
 function statusLabel(status, reason) {
   if (status === "green") return { text: "GRUEN", cls: "status-green" };
   if (status === "red") return { text: "ROT", cls: "status-red" };
@@ -86,19 +78,34 @@ function signalCell(t) {
   `;
 }
 
+// Gleiche Ampel-Logik wie bei den Telegram-Nachrichten (fmt_signal in screen.py):
+// bearisch immer rot, bullisch + RVOL High/Extreme gruen, bullisch sonst gelb.
+function eventBadgeClass(e) {
+  if (e.direction === "bearish") return "badge-bearish";
+  if (e.rvol_tier === "High" || e.rvol_tier === "Extreme") return "badge-bullish-strong";
+  return "badge-bullish-weak";
+}
+
+function rvolText(e) {
+  if (e.rvol_ratio === null || e.rvol_ratio === undefined) return "RVOL n/a";
+  return `RVOL ${e.rvol_ratio.toFixed(1)}x (${e.rvol_tier})`;
+}
+
 function eventBadges(events) {
   if (!events || events.length === 0) return "";
   return events
     .map((e) => {
-      const label = EVENT_LABELS[e.type] || e.type;
-      const text = e.value ? `${label} ${e.value}` : label;
-      const cls = e.type === "golden_cross" || e.type === "death_cross" ? "badge-cross"
-        : e.type === "volume_breakout" ? "badge-volume"
-        : e.type === "year_high" ? "badge-year-high"
-        : "badge-move";
-      return `<span class="badge ${cls}">${text}</span>`;
+      const head = e.value ? `${e.label} ${e.value}` : e.label;
+      const text = `${head} · ${rvolText(e)}`;
+      return `<span class="badge ${eventBadgeClass(e)}">${text}</span>`;
     })
     .join(" ");
+}
+
+function narrowRangeTag(t) {
+  if (t.nr7_active) return '<span class="nr-tag" title="Narrow Range 7: heutige Tagesspanne die kleinste der letzten 7 Handelstage">NR7</span>';
+  if (t.nr4_active) return '<span class="nr-tag" title="Narrow Range 4: heutige Tagesspanne die kleinste der letzten 4 Handelstage">NR4</span>';
+  return "";
 }
 
 function fmtPrice(price) {
@@ -143,7 +150,7 @@ async function load() {
     const row = document.createElement("tr");
 
     row.innerHTML = `
-      <td class="ticker-cell"><a href="https://finance.yahoo.com/quote/${encodeURIComponent(ticker)}" target="_blank" rel="noopener">${ticker}</a></td>
+      <td class="ticker-cell"><a href="https://finance.yahoo.com/quote/${encodeURIComponent(ticker)}" target="_blank" rel="noopener">${ticker}</a> ${narrowRangeTag(t)}</td>
       <td>${t.data_status === "ok" ? fmtPrice(t.price) : "-"}</td>
       <td class="signal-cell">${signalCell(t)}</td>
       <td>${eventBadges(t.events_today)}</td>
