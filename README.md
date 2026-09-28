@@ -48,7 +48,9 @@ im vollen taeglichen Lauf berechnet:
   (EMA20 +/- 1.5x ATR20) nach einer Squeeze-Phase. Richtung nach Lage des Schlusskurses zur
   Bollinger-Mittellinie. Naeherung fuer eine Vola-Kontraktion, ersetzt NICHT die offene
   VCP-Chartmuster-Frage. Nur voller Lauf.
-- Pivotal News (neue Finnhub-Company-News), voller Lauf + Intraday.
+- Pivotal News (neue Finnhub-Company-News), voller Lauf + Intraday. **Aktuell per
+  `ENABLE_NEWS = False` deaktiviert** -- auf Wunsch, Telegram soll nur trockene
+  Signal-Alarme schicken, keine Artikel. Auf `True` setzen, um es wieder einzuschalten.
 
 **Nur Dashboard, kein Alarm:**
 
@@ -106,8 +108,9 @@ jederzeit nachtraeglich moeglich.
 ## Verifizierte Annahmen (vor dem Bau geprueft)
 
 - **Finnhub-News-Endpunkt**: funktioniert auf dem kostenlosen Tarif (`company-news`), getestet
-  mit TWST, QBTS, NSIT -- alle drei lieferten aktuelle Artikel. News-Feature ist aktiv
-  (`ENABLE_NEWS = True` in `scripts/config.py`).
+  mit TWST, QBTS, NSIT -- alle drei lieferten aktuelle Artikel. Feature ist aber aktuell
+  **deaktiviert** (`ENABLE_NEWS = False` in `scripts/config.py`) -- Telegram soll nur trockene
+  Signal-Alarme schicken, keine News-Artikel.
 - **Finnhub Basic-Financials-Endpunkt** (`/stock/metric?metric=all`), fuer die Fundamental-Ampel,
   getestet mit TWST, QBTS, NSIT sowie mehreren Micro-Caps der Watchlist:
   - `epsGrowthQuarterlyYoy` und `revenueGrowthQuarterlyYoy` existieren im Gratis-Tarif, sind aber

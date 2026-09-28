@@ -48,7 +48,9 @@ RVOL_ABOVE_AVG_MAX = 2.0     # 1.0x - 2.0x   -> "Above Avg"
 RVOL_HIGH_MAX = 3.0          # 2.0x - 3.0x   -> "High", sonst "Extreme"
 
 # --- News ---
-ENABLE_NEWS = True            # Feature-Flag; auf False setzen falls Finnhub-Endpunkt nicht verfuegbar
+ENABLE_NEWS = False           # Auf Wunsch deaktiviert: Telegram soll nur trockene Signal-Alarme
+                               # schicken, keine News-Artikel. Auf True setzen, um es wieder
+                               # einzuschalten -- der Rest des Codes bleibt unveraendert.
 NEWS_LOOKBACK_DAYS = 3         # wie weit pro Lauf zurueckgeschaut wird (Dedup laeuft ueber state.json)
 
 # --- Data provider ---
