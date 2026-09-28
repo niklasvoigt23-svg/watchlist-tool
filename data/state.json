@@ -8,7 +8,7 @@
   },
   "CBRS": {
     "last_close": 208.39,
-    "move_alert_last_alert_date": "2026-09-21",
+    "move_alert_last_alert_date": "2026-09-28",
     "news_last_seen_ts": 1790601300,
     "relative_staerke_status": "red",
     "volume_avg20": 6225740.0
@@ -111,12 +111,12 @@
     "trendstruktur_status": "green",
     "volume_avg20": 229060.0,
     "year_high_252": 77.52,
-    "year_high_last_alert_date": "2026-09-27"
+    "year_high_last_alert_date": "2026-09-28"
   },
   "TWST": {
     "last_close": 165.79,
     "move_alert_last_alert_date": "2026-09-24",
-    "news_last_seen_ts": 1790451905,
+    "news_last_seen_ts": 1790589330,
     "relative_staerke_status": "red",
     "trendstruktur_status": "green",
     "volume_avg20": 1726365.0,

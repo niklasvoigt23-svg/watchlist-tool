@@ -1,5 +1,5 @@
 {
-  "last_run_at": "2026-09-28T14:04:21.561174+00:00",
+  "last_run_at": "2026-09-28T16:04:13.827487+00:00",
   "last_run_mode": "intraday",
   "tickers": {
     "APMD": {
@@ -12,7 +12,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 20.17,
+      "price": 21.06,
       "relative_staerke": {
         "status": "grey"
       },
@@ -23,14 +23,23 @@
     "CBRS": {
       "company_name": "Cerebras Systems Inc",
       "data_status": "ok",
-      "events_today": [],
+      "events_today": [
+        {
+          "direction": "bearish",
+          "label": "Kursbewegung",
+          "rvol_ratio": 0.009318892212010139,
+          "rvol_tier": "Dead",
+          "type": "move",
+          "value": "-5.5%"
+        }
+      ],
       "fundamental": {
         "status": "grey"
       },
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 202.22,
+      "price": 195.335,
       "relative_staerke": {
         "status": "red"
       },
@@ -48,7 +57,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 34.365,
+      "price": 34.21,
       "relative_staerke": {
         "status": "green"
       },
@@ -66,7 +75,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 87.56,
+      "price": 86.08,
       "relative_staerke": {
         "status": "green"
       },
@@ -84,7 +93,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 24.76,
+      "price": 24.42,
       "relative_staerke": {
         "status": "red"
       },
@@ -102,7 +111,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 35.69,
+      "price": 36.42,
       "relative_staerke": {
         "status": "red"
       },
@@ -120,7 +129,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 20.13,
+      "price": 20.27,
       "relative_staerke": {
         "status": "red"
       },
@@ -138,7 +147,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 19.435,
+      "price": 19.235,
       "relative_staerke": {
         "status": "red"
       },
@@ -156,7 +165,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 155.67,
+      "price": 155.195,
       "relative_staerke": {
         "status": "red"
       },
@@ -174,7 +183,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 102.8,
+      "price": 101.375,
       "relative_staerke": {
         "status": "red"
       },
@@ -192,7 +201,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 72.59,
+      "price": 71.355,
       "relative_staerke": {
         "status": "green"
       },
@@ -210,7 +219,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 17.18,
+      "price": 17.26,
       "relative_staerke": {
         "status": "red"
       },
@@ -221,14 +230,23 @@
     "RDVT": {
       "company_name": "Red Violet Inc",
       "data_status": "ok",
-      "events_today": [],
+      "events_today": [
+        {
+          "direction": "bullish",
+          "label": "52-Wochen-Hoch",
+          "rvol_ratio": 0.00581070461887715,
+          "rvol_tier": "Dead",
+          "type": "year_high",
+          "value": "+1.5%"
+        }
+      ],
       "fundamental": {
         "status": "green"
       },
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 77.385,
+      "price": 78.67,
       "relative_staerke": {
         "status": "red"
       },
@@ -239,23 +257,14 @@
     "TWST": {
       "company_name": "Twist Bioscience Corp",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bullish",
-          "label": "52-Wochen-Hoch",
-          "rvol_ratio": 0.007671031328832547,
-          "rvol_tier": "Dead",
-          "type": "year_high",
-          "value": "+11.6%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "grey"
       },
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 186.34,
+      "price": 181.0,
       "relative_staerke": {
         "status": "red"
       },
@@ -273,7 +282,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 19.59,
+      "price": 19.36,
       "relative_staerke": {
         "status": "red"
       },
