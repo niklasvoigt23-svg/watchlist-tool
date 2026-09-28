@@ -9,7 +9,7 @@
   "CBRS": {
     "last_close": 208.39,
     "move_alert_last_alert_date": "2026-09-21",
-    "news_last_seen_ts": 1790413081,
+    "news_last_seen_ts": 1790601300,
     "relative_staerke_status": "red",
     "volume_avg20": 6225740.0
   },
@@ -54,7 +54,7 @@
   },
   "MMED": {
     "last_close": 21.12,
-    "news_last_seen_ts": 1790344854,
+    "news_last_seen_ts": 1790600580,
     "relative_staerke_status": "red",
     "volume_avg20": 2397845.0
   },
@@ -97,7 +97,7 @@
   },
   "QBTS": {
     "last_close": 17.695,
-    "news_last_seen_ts": 1790432991,
+    "news_last_seen_ts": 1790590920,
     "relative_staerke_status": "red",
     "trendstruktur_status": "red",
     "volume_avg20": 16406245.0,
@@ -121,7 +121,7 @@
     "trendstruktur_status": "green",
     "volume_avg20": 1726365.0,
     "year_high_252": 166.99001,
-    "year_high_last_alert_date": "2026-09-27"
+    "year_high_last_alert_date": "2026-09-28"
   },
   "YSWY": {
     "fundamental_status": "red",
