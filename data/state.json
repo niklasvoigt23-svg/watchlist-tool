@@ -43,7 +43,7 @@
   },
   "FLY": {
     "last_close": 24.36,
-    "move_alert_last_alert_date": "2026-09-27",
+    "move_alert_last_alert_date": "2026-09-29",
     "news_last_seen_ts": 1790409612,
     "nr4_active": true,
     "nr7_active": false,
@@ -146,7 +146,7 @@
     "trendstruktur_status": "green",
     "volume_avg20": 226465.0,
     "year_high_252": 79.059998,
-    "year_high_last_alert_date": "2026-09-28"
+    "year_high_last_alert_date": "2026-09-29"
   },
   "TTMI": {
     "fundamental_status": "green",

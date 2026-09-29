@@ -1,5 +1,5 @@
 {
-  "last_run_at": "2026-09-29T18:04:31.343315+00:00",
+  "last_run_at": "2026-09-29T20:19:03.395839+00:00",
   "last_run_mode": "intraday",
   "tickers": {
     "APMD": {
@@ -12,7 +12,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 24.16,
+      "price": 23.94,
       "relative_staerke": {
         "status": "grey"
       },
@@ -30,7 +30,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 205.93,
+      "price": 195.13,
       "relative_staerke": {
         "status": "red"
       },
@@ -48,7 +48,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 34.3,
+      "price": 34.57,
       "relative_staerke": {
         "status": "green"
       },
@@ -66,7 +66,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 84.92,
+      "price": 84.27,
       "relative_staerke": {
         "status": "green"
       },
@@ -77,14 +77,23 @@
     "FLY": {
       "company_name": "Firefly Aerospace Inc",
       "data_status": "ok",
-      "events_today": [],
+      "events_today": [
+        {
+          "direction": "bearish",
+          "label": "Kursbewegung",
+          "rvol_ratio": 0.04647810786082228,
+          "rvol_tier": "Dead",
+          "type": "move",
+          "value": "-5.2%"
+        }
+      ],
       "fundamental": {
         "status": "grey"
       },
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 23.42,
+      "price": 22.86,
       "relative_staerke": {
         "status": "red"
       },
@@ -102,7 +111,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 36.27,
+      "price": 36.59,
       "relative_staerke": {
         "status": "red"
       },
@@ -120,7 +129,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 19.76,
+      "price": 20.055,
       "relative_staerke": {
         "status": "red"
       },
@@ -138,7 +147,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 18.71,
+      "price": 18.75,
       "relative_staerke": {
         "status": "red"
       },
@@ -156,7 +165,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 155.27,
+      "price": 155.585,
       "relative_staerke": {
         "status": "red"
       },
@@ -174,7 +183,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 17.165,
+      "price": 17.275,
       "relative_staerke": {
         "status": "green"
       },
@@ -192,7 +201,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 102.72,
+      "price": 102.5,
       "relative_staerke": {
         "status": "red"
       },
@@ -210,7 +219,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 69.75,
+      "price": 70.43,
       "relative_staerke": {
         "status": "green"
       },
@@ -228,7 +237,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 16.44,
+      "price": 16.45,
       "relative_staerke": {
         "status": "red"
       },
@@ -239,14 +248,23 @@
     "RDVT": {
       "company_name": "Red Violet Inc",
       "data_status": "ok",
-      "events_today": [],
+      "events_today": [
+        {
+          "direction": "bullish",
+          "label": "52-Wochen-Hoch",
+          "rvol_ratio": 0.029660212394851303,
+          "rvol_tier": "Dead",
+          "type": "year_high",
+          "value": "+0.4%"
+        }
+      ],
       "fundamental": {
         "status": "green"
       },
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 79.05,
+      "price": 79.38,
       "relative_staerke": {
         "status": "red"
       },
@@ -264,7 +282,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 120.28,
+      "price": 122.77,
       "relative_staerke": {
         "status": "red"
       },
@@ -275,23 +293,14 @@
     "TWST": {
       "company_name": "Twist Bioscience Corp",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bullish",
-          "label": "52-Wochen-Hoch",
-          "rvol_ratio": 0.027647769623119094,
-          "rvol_tier": "Dead",
-          "type": "year_high",
-          "value": "+0.3%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "grey"
       },
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 184.66,
+      "price": 186.09,
       "relative_staerke": {
         "status": "red"
       },
@@ -309,7 +318,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 19.805,
+      "price": 20.08,
       "relative_staerke": {
         "status": "red"
       },
