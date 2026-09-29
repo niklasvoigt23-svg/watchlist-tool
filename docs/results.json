@@ -1,5 +1,5 @@
 {
-  "last_run_at": "2026-09-28T20:19:19.869895+00:00",
+  "last_run_at": "2026-09-29T14:04:54.219918+00:00",
   "last_run_mode": "intraday",
   "tickers": {
     "APMD": {
@@ -12,7 +12,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 21.74,
+      "price": 22.075,
       "relative_staerke": {
         "status": "grey"
       },
@@ -23,14 +23,23 @@
     "CBRS": {
       "company_name": "Cerebras Systems Inc",
       "data_status": "ok",
-      "events_today": [],
+      "events_today": [
+        {
+          "direction": "bullish",
+          "label": "Kursbewegung",
+          "rvol_ratio": 0.00519655994410423,
+          "rvol_tier": "Dead",
+          "type": "move",
+          "value": "+5.3%"
+        }
+      ],
       "fundamental": {
         "status": "grey"
       },
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 196.62,
+      "price": 207.19,
       "relative_staerke": {
         "status": "red"
       },
@@ -48,7 +57,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 34.61,
+      "price": 34.53,
       "relative_staerke": {
         "status": "green"
       },
@@ -59,23 +68,14 @@
     "FEIM": {
       "company_name": "Frequency Electronics Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bearish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 0.029979155326013356,
-          "rvol_tier": "Dead",
-          "type": "move",
-          "value": "-6.7%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "green"
       },
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 82.47,
+      "price": 84.555,
       "relative_staerke": {
         "status": "green"
       },
@@ -93,7 +93,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 24.12,
+      "price": 23.8,
       "relative_staerke": {
         "status": "red"
       },
@@ -111,7 +111,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 36.9,
+      "price": 36.625,
       "relative_staerke": {
         "status": "red"
       },
@@ -129,7 +129,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 20.495,
+      "price": 20.025,
       "relative_staerke": {
         "status": "red"
       },
@@ -147,7 +147,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 19.29,
+      "price": 19.055,
       "relative_staerke": {
         "status": "red"
       },
@@ -165,7 +165,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 156.059998,
+      "price": 155.34,
       "relative_staerke": {
         "status": "red"
       },
@@ -183,7 +183,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 17.86,
+      "price": 17.63,
       "relative_staerke": {
         "status": "green"
       },
@@ -201,7 +201,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 103.29,
+      "price": 104.18,
       "relative_staerke": {
         "status": "red"
       },
@@ -219,7 +219,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 71.52,
+      "price": 71.685,
       "relative_staerke": {
         "status": "green"
       },
@@ -237,7 +237,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 16.78,
+      "price": 16.74,
       "relative_staerke": {
         "status": "red"
       },
@@ -255,7 +255,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 78.74,
+      "price": 78.96,
       "relative_staerke": {
         "status": "red"
       },
@@ -273,7 +273,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 124.18,
+      "price": 126.55,
       "relative_staerke": {
         "status": "red"
       },
@@ -291,7 +291,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 179.61,
+      "price": 180.45,
       "relative_staerke": {
         "status": "red"
       },
@@ -309,7 +309,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 19.39,
+      "price": 19.8,
       "relative_staerke": {
         "status": "red"
       },
