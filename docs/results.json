@@ -1,27 +1,18 @@
 {
-  "last_run_at": "2026-09-29T16:04:34.690601+00:00",
+  "last_run_at": "2026-09-29T18:04:31.343315+00:00",
   "last_run_mode": "intraday",
   "tickers": {
     "APMD": {
       "company_name": "Apnimed Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bullish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 0.026371926042472554,
-          "rvol_tier": "Dead",
-          "type": "move",
-          "value": "+6.8%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "grey"
       },
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 23.15,
+      "price": 24.16,
       "relative_staerke": {
         "status": "grey"
       },
@@ -39,7 +30,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 211.755,
+      "price": 205.93,
       "relative_staerke": {
         "status": "red"
       },
@@ -57,7 +48,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 34.44,
+      "price": 34.3,
       "relative_staerke": {
         "status": "green"
       },
@@ -75,7 +66,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 82.86,
+      "price": 84.92,
       "relative_staerke": {
         "status": "green"
       },
@@ -93,7 +84,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 23.43,
+      "price": 23.42,
       "relative_staerke": {
         "status": "red"
       },
@@ -111,7 +102,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 36.515,
+      "price": 36.27,
       "relative_staerke": {
         "status": "red"
       },
@@ -129,7 +120,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 19.92,
+      "price": 19.76,
       "relative_staerke": {
         "status": "red"
       },
@@ -147,7 +138,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 18.69,
+      "price": 18.71,
       "relative_staerke": {
         "status": "red"
       },
@@ -165,7 +156,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 154.8,
+      "price": 155.27,
       "relative_staerke": {
         "status": "red"
       },
@@ -183,7 +174,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 17.33,
+      "price": 17.165,
       "relative_staerke": {
         "status": "green"
       },
@@ -201,7 +192,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 102.21,
+      "price": 102.72,
       "relative_staerke": {
         "status": "red"
       },
@@ -219,7 +210,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 70.19,
+      "price": 69.75,
       "relative_staerke": {
         "status": "green"
       },
@@ -237,7 +228,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 16.515,
+      "price": 16.44,
       "relative_staerke": {
         "status": "red"
       },
@@ -255,7 +246,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 78.76,
+      "price": 79.05,
       "relative_staerke": {
         "status": "red"
       },
@@ -273,7 +264,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 122.28,
+      "price": 120.28,
       "relative_staerke": {
         "status": "red"
       },
@@ -284,14 +275,23 @@
     "TWST": {
       "company_name": "Twist Bioscience Corp",
       "data_status": "ok",
-      "events_today": [],
+      "events_today": [
+        {
+          "direction": "bullish",
+          "label": "52-Wochen-Hoch",
+          "rvol_ratio": 0.027647769623119094,
+          "rvol_tier": "Dead",
+          "type": "year_high",
+          "value": "+0.3%"
+        }
+      ],
       "fundamental": {
         "status": "grey"
       },
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 182.085,
+      "price": 184.66,
       "relative_staerke": {
         "status": "red"
       },
@@ -309,7 +309,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 19.545,
+      "price": 19.805,
       "relative_staerke": {
         "status": "red"
       },
