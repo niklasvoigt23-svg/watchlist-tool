@@ -1,5 +1,5 @@
 {
-  "last_run_at": "2026-09-30T16:04:28.055070+00:00",
+  "last_run_at": "2026-09-30T18:04:26.431265+00:00",
   "last_run_mode": "intraday",
   "tickers": {
     "APMD": {
@@ -12,7 +12,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 22.3,
+      "price": 22.045,
       "relative_staerke": {
         "status": "grey"
       },
@@ -30,7 +30,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 180.985,
+      "price": 179.75,
       "relative_staerke": {
         "status": "red"
       },
@@ -48,7 +48,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 34.58,
+      "price": 34.5,
       "relative_staerke": {
         "status": "green"
       },
@@ -66,7 +66,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 86.49,
+      "price": 86.09,
       "relative_staerke": {
         "status": "green"
       },
@@ -84,7 +84,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 23.91,
+      "price": 24.01,
       "relative_staerke": {
         "status": "red"
       },
@@ -102,7 +102,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 36.3,
+      "price": 36.18,
       "relative_staerke": {
         "status": "red"
       },
@@ -120,7 +120,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 19.77,
+      "price": 19.7,
       "relative_staerke": {
         "status": "red"
       },
@@ -138,7 +138,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 18.58,
+      "price": 18.51,
       "relative_staerke": {
         "status": "red"
       },
@@ -156,7 +156,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 155.49,
+      "price": 155.88,
       "relative_staerke": {
         "status": "red"
       },
@@ -174,7 +174,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 17.505,
+      "price": 17.41,
       "relative_staerke": {
         "status": "green"
       },
@@ -192,7 +192,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 101.37,
+      "price": 101.785,
       "relative_staerke": {
         "status": "red"
       },
@@ -210,7 +210,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 68.88,
+      "price": 68.7,
       "relative_staerke": {
         "status": "green"
       },
@@ -228,7 +228,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 16.675,
+      "price": 16.655,
       "relative_staerke": {
         "status": "red"
       },
@@ -246,7 +246,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 80.31,
+      "price": 78.94,
       "relative_staerke": {
         "status": "red"
       },
@@ -264,7 +264,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 120.15,
+      "price": 121.16,
       "relative_staerke": {
         "status": "red"
       },
@@ -275,14 +275,23 @@
     "TWST": {
       "company_name": "Twist Bioscience Corp",
       "data_status": "ok",
-      "events_today": [],
+      "events_today": [
+        {
+          "direction": "bullish",
+          "label": "Kursbewegung",
+          "rvol_ratio": 0.05507014843740063,
+          "rvol_tier": "Dead",
+          "type": "move",
+          "value": "+5.1%"
+        }
+      ],
       "fundamental": {
         "status": "grey"
       },
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 193.58,
+      "price": 195.625,
       "relative_staerke": {
         "status": "red"
       },
@@ -300,7 +309,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 19.99,
+      "price": 20.09,
       "relative_staerke": {
         "status": "red"
       },
