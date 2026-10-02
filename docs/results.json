@@ -1,5 +1,5 @@
 {
-  "last_run_at": "2026-10-02T18:04:24.561439+00:00",
+  "last_run_at": "2026-10-02T20:19:08.614468+00:00",
   "last_run_mode": "intraday",
   "tickers": {
     "APMD": {
@@ -12,7 +12,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 21.485,
+      "price": 21.535,
       "relative_staerke": {
         "status": "grey"
       },
@@ -30,7 +30,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 168.04,
+      "price": 166.45,
       "relative_staerke": {
         "status": "red"
       },
@@ -48,7 +48,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 35.86,
+      "price": 35.75,
       "relative_staerke": {
         "status": "green"
       },
@@ -66,7 +66,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 86.52,
+      "price": 85.85,
       "relative_staerke": {
         "status": "green"
       },
@@ -84,7 +84,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 23.69,
+      "price": 23.32,
       "relative_staerke": {
         "status": "red"
       },
@@ -102,7 +102,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 35.675,
+      "price": 35.725,
       "relative_staerke": {
         "status": "red"
       },
@@ -120,7 +120,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 19.49,
+      "price": 19.7,
       "relative_staerke": {
         "status": "red"
       },
@@ -138,7 +138,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 18.235,
+      "price": 18.47,
       "relative_staerke": {
         "status": "red"
       },
@@ -156,7 +156,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 161.59,
+      "price": 160.58,
       "relative_staerke": {
         "status": "red"
       },
@@ -174,7 +174,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 17.975,
+      "price": 17.74,
       "relative_staerke": {
         "status": "green"
       },
@@ -192,7 +192,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 106.065,
+      "price": 105.99,
       "relative_staerke": {
         "status": "red"
       },
@@ -210,7 +210,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 64.755,
+      "price": 64.21,
       "relative_staerke": {
         "status": "green"
       },
@@ -228,7 +228,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 16.395,
+      "price": 15.77,
       "relative_staerke": {
         "status": "red"
       },
@@ -246,7 +246,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 79.74,
+      "price": 79.345,
       "relative_staerke": {
         "status": "red"
       },
@@ -264,7 +264,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 131.71,
+      "price": 131.78,
       "relative_staerke": {
         "status": "red"
       },
@@ -282,7 +282,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 186.0,
+      "price": 188.605,
       "relative_staerke": {
         "status": "red"
       },
@@ -300,7 +300,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 20.28,
+      "price": 20.59,
       "relative_staerke": {
         "status": "red"
       },
