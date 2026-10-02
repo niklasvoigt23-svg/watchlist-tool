@@ -147,7 +147,7 @@
     "trendstruktur_status": "green",
     "volume_avg20": 226465.0,
     "year_high_252": 79.059998,
-    "year_high_last_alert_date": "2026-10-01"
+    "year_high_last_alert_date": "2026-10-02"
   },
   "TTMI": {
     "fundamental_status": "green",
@@ -170,7 +170,7 @@
     "trendstruktur_status": "green",
     "volume_avg20": 1965475.0,
     "year_high_252": 184.029999,
-    "year_high_last_alert_date": "2026-10-01"
+    "year_high_last_alert_date": "2026-10-02"
   },
   "YSWY": {
     "fundamental_status": "red",
