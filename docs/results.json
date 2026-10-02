@@ -1,5 +1,5 @@
 {
-  "last_run_at": "2026-10-02T16:04:31.020930+00:00",
+  "last_run_at": "2026-10-02T18:04:24.561439+00:00",
   "last_run_mode": "intraday",
   "tickers": {
     "APMD": {
@@ -12,7 +12,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 21.84,
+      "price": 21.485,
       "relative_staerke": {
         "status": "grey"
       },
@@ -30,7 +30,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 168.495,
+      "price": 168.04,
       "relative_staerke": {
         "status": "red"
       },
@@ -48,7 +48,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 36.035,
+      "price": 35.86,
       "relative_staerke": {
         "status": "green"
       },
@@ -66,7 +66,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 86.63,
+      "price": 86.52,
       "relative_staerke": {
         "status": "green"
       },
@@ -84,7 +84,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 23.075,
+      "price": 23.69,
       "relative_staerke": {
         "status": "red"
       },
@@ -102,7 +102,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 35.72,
+      "price": 35.675,
       "relative_staerke": {
         "status": "red"
       },
@@ -120,7 +120,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 19.5,
+      "price": 19.49,
       "relative_staerke": {
         "status": "red"
       },
@@ -138,7 +138,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 18.61,
+      "price": 18.235,
       "relative_staerke": {
         "status": "red"
       },
@@ -156,7 +156,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 161.965,
+      "price": 161.59,
       "relative_staerke": {
         "status": "red"
       },
@@ -174,7 +174,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 18.08,
+      "price": 17.975,
       "relative_staerke": {
         "status": "green"
       },
@@ -192,7 +192,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 106.55,
+      "price": 106.065,
       "relative_staerke": {
         "status": "red"
       },
@@ -210,7 +210,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 65.0,
+      "price": 64.755,
       "relative_staerke": {
         "status": "green"
       },
@@ -228,7 +228,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 16.45,
+      "price": 16.395,
       "relative_staerke": {
         "status": "red"
       },
@@ -246,7 +246,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 79.45,
+      "price": 79.74,
       "relative_staerke": {
         "status": "red"
       },
@@ -257,23 +257,14 @@
     "TTMI": {
       "company_name": "TTM Technologies Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bullish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 0.02303489791861885,
-          "rvol_tier": "Dead",
-          "type": "move",
-          "value": "+6.1%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "green"
       },
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 134.25,
+      "price": 131.71,
       "relative_staerke": {
         "status": "red"
       },
@@ -291,7 +282,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 190.74,
+      "price": 186.0,
       "relative_staerke": {
         "status": "red"
       },
@@ -309,7 +300,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 19.845,
+      "price": 20.28,
       "relative_staerke": {
         "status": "red"
       },
