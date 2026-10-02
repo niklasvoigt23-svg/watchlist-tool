@@ -1,5 +1,5 @@
 {
-  "last_run_at": "2026-10-02T14:04:19.038237+00:00",
+  "last_run_at": "2026-10-02T16:04:31.020930+00:00",
   "last_run_mode": "intraday",
   "tickers": {
     "APMD": {
@@ -12,7 +12,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 21.765,
+      "price": 21.84,
       "relative_staerke": {
         "status": "grey"
       },
@@ -30,7 +30,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 170.05,
+      "price": 168.495,
       "relative_staerke": {
         "status": "red"
       },
@@ -48,7 +48,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 36.145,
+      "price": 36.035,
       "relative_staerke": {
         "status": "green"
       },
@@ -66,7 +66,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 88.0,
+      "price": 86.63,
       "relative_staerke": {
         "status": "green"
       },
@@ -84,7 +84,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 23.36,
+      "price": 23.075,
       "relative_staerke": {
         "status": "red"
       },
@@ -102,7 +102,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 35.795,
+      "price": 35.72,
       "relative_staerke": {
         "status": "red"
       },
@@ -120,7 +120,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 19.525,
+      "price": 19.5,
       "relative_staerke": {
         "status": "red"
       },
@@ -138,7 +138,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 18.33,
+      "price": 18.61,
       "relative_staerke": {
         "status": "red"
       },
@@ -156,7 +156,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 162.71,
+      "price": 161.965,
       "relative_staerke": {
         "status": "red"
       },
@@ -174,7 +174,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 18.18,
+      "price": 18.08,
       "relative_staerke": {
         "status": "green"
       },
@@ -192,7 +192,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 106.3,
+      "price": 106.55,
       "relative_staerke": {
         "status": "red"
       },
@@ -210,7 +210,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 64.12,
+      "price": 65.0,
       "relative_staerke": {
         "status": "green"
       },
@@ -228,7 +228,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 16.76,
+      "price": 16.45,
       "relative_staerke": {
         "status": "red"
       },
@@ -239,23 +239,14 @@
     "RDVT": {
       "company_name": "Red Violet Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bullish",
-          "label": "52-Wochen-Hoch",
-          "rvol_ratio": 0.0013732806393924005,
-          "rvol_tier": "Dead",
-          "type": "year_high",
-          "value": "+1.6%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "green"
       },
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 80.3,
+      "price": 79.45,
       "relative_staerke": {
         "status": "red"
       },
@@ -266,14 +257,23 @@
     "TTMI": {
       "company_name": "TTM Technologies Inc",
       "data_status": "ok",
-      "events_today": [],
+      "events_today": [
+        {
+          "direction": "bullish",
+          "label": "Kursbewegung",
+          "rvol_ratio": 0.02303489791861885,
+          "rvol_tier": "Dead",
+          "type": "move",
+          "value": "+6.1%"
+        }
+      ],
       "fundamental": {
         "status": "green"
       },
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 130.29,
+      "price": 134.25,
       "relative_staerke": {
         "status": "red"
       },
@@ -284,23 +284,14 @@
     "TWST": {
       "company_name": "Twist Bioscience Corp",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bullish",
-          "label": "52-Wochen-Hoch",
-          "rvol_ratio": 0.004230020732901716,
-          "rvol_tier": "Dead",
-          "type": "year_high",
-          "value": "+4.0%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "grey"
       },
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 191.36,
+      "price": 190.74,
       "relative_staerke": {
         "status": "red"
       },
@@ -318,7 +309,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 19.82,
+      "price": 19.845,
       "relative_staerke": {
         "status": "red"
       },
