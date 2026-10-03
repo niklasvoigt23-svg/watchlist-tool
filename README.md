@@ -334,5 +334,6 @@ $env:FINNHUB_API_KEY = "..."
 Tests (nur Standardbibliothek, keine zusaetzlichen Pakete): `python -m unittest discover -s tests -v`
 
 `TA-Lib` hat fertige Wheels fuer Windows/macOS/Linux auf PyPI, lokal ist i.d.R. kein manueller
-C-Build noetig. Auf dem GitHub-Actions-Runner (Ubuntu) baut der Workflow die TA-Lib-C-Bibliothek
-einmalig aus dem Quellcode und cached sie.
+C-Build noetig. Das gilt auch auf dem GitHub-Actions-Runner (`ubuntu-24.04`, fest gepinnt): pip
+nimmt das manylinux-Wheel, das die C-Bibliothek mitbringt. Der Workflow braucht daher weder
+apt, noch einen Build aus dem Quellcode, noch einen Cache.

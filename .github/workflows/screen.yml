@@ -25,40 +25,21 @@ concurrency:
 
 jobs:
   screen:
-    runs-on: ubuntu-latest
+    # Fest gepinnt statt ubuntu-latest: ubuntu-latest wechselt am 19.10.2026 auf Ubuntu 26.
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: "3.12"
 
-      - name: Cache TA-Lib C library
-        id: cache-talib
-        uses: actions/cache@v4
-        with:
-          path: /usr/local/lib/libta_lib*
-          key: talib-c-lib-${{ runner.os }}-0.4.0
-
-      - name: Build TA-Lib C library
-        if: steps.cache-talib.outputs.cache-hit != 'true'
-        run: |
-          sudo apt-get update -y
-          sudo apt-get install -y build-essential wget
-          wget -q https://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-src.tar.gz
-          tar -xzf ta-lib-0.4.0-src.tar.gz
-          cd ta-lib
-          ./configure --prefix=/usr/local
-          make
-          sudo make install
-          sudo ldconfig
-
-      - name: Ensure TA-Lib C library is registered (cache-hit case)
-        if: steps.cache-talib.outputs.cache-hit == 'true'
-        run: sudo ldconfig
-
+      # TA-Lib kommt als manylinux-Wheel mit eingebauter C-Bibliothek (libta-lib-*.so im
+      # Wheel). Kein apt, kein Build aus dem Quellcode und kein Cache noetig. Der fruehere
+      # Cache-Restore nach /usr/local/lib scheiterte ohnehin an fehlenden Schreibrechten
+      # (tar exit code 2) und war fuer das Wheel wirkungslos.
       - name: Install Python dependencies
         run: pip install -r requirements.txt
 
