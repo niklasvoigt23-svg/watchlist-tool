@@ -13,7 +13,8 @@ Pocket Pivot, Aroon-Crossover, TTM-Squeeze-Fire, Pivotal News), jeweils mit RVOL
   extern per authentifiziertem POST den `workflow_dispatch`-Trigger aus.
 - **Frontend**: statische Seite auf GitHub Pages (`docs/index.html`), liest `docs/results.json`.
 - **Datenhaltung**: keine Datenbank, alles als Dateien im Repo (`data/watchlist.csv`,
-  `data/state.json`, `docs/results.json`).
+  `data/state.json`, `docs/results.json`). Die Watchlist selbst kommt aus einem Google Sheet,
+  `data/watchlist.csv` ist dessen Abbild und Fallback (siehe "Watchlist pflegen").
 - **Alarme**: Telegram Bot API.
 - **Datenquellen**: [Twelve Data](https://twelvedata.com) (Kurse/Volumen), [Finnhub](https://finnhub.io)
   (News + Fundamentaldaten via `/stock/metric`).
@@ -150,9 +151,9 @@ jederzeit nachtraeglich moeglich.
   bereits beim Oeffnen des Repos, nicht erst bei der Datei, das vorgeschlagene Fallback ohne
   Dateipfad haette also denselben Fehler gezeigt. Ob das in deinem eigenen, bereits bei
   github.com angemeldeten Browser reibungslos funktioniert, konnte ich von hier aus nicht
-  verifizieren. Der Link zeigt deshalb bis auf Weiteres weiter auf den einfachen
-  github.com-Zeileneditor (`/edit/main/...`), der nachweislich funktioniert -- sag Bescheid, falls
-  du github.dev in deinem Browser getestet hast und es umgestellt werden soll.
+  verifizieren. Der Link zeigte deshalb auf den einfachen github.com-Zeileneditor
+  (`/edit/main/...`). Inzwischen ersetzt durch den Link auf das Google Sheet; der GitHub-Editor
+  bleibt nur noch Fallback, wenn `WATCHLIST_SHEET_EDIT_URL` nicht gesetzt ist.
 - **End-to-End lokal getestet**: `--mode full` und `--mode intraday` inkl. Fundamental-Ampel und
   52-Wochen-Hoch wurden mit echten API-Keys durchlaufen, inkl. Dedup-Pruefung (Folgelauf erzeugte
   korrekt keine Wiederholungs-Alarme) und einer Migrationspruefung des alten `state.json`-Schemas.
@@ -182,6 +183,9 @@ Unter **Settings -> Secrets and variables -> Actions -> New repository secret** 
 | `FINNHUB_API_KEY` | dein Finnhub-API-Key (finnhub.io/dashboard) |
 | `TELEGRAM_BOT_TOKEN` | siehe Telegram-Setup unten |
 | `TELEGRAM_CHAT_ID` | siehe Telegram-Setup unten |
+| `WATCHLIST_CSV_URL` | als CSV veroeffentlichte Sheet-URL, siehe "Watchlist pflegen" |
+
+Zusaetzlich unter *Variables* (nicht Secrets): `WATCHLIST_SHEET_EDIT_URL`, siehe "Watchlist pflegen".
 
 ### 3. GitHub Pages aktivieren
 
@@ -261,9 +265,48 @@ zeigt Daten, und falls Alarme ausgeloest wurden, kam eine Telegram-Nachricht an.
 
 ## Watchlist pflegen
 
-`data/watchlist.csv` direkt ueber GitHubs Web-Editor bearbeiten (Spalten `ticker,since,note`),
-auch vom Handy aus moeglich. Auf dem Dashboard fuehrt der Button "Ticker hinzufuegen" direkt
-zum Editor.
+Die Watchlist wird im **Google Sheet "Watchlist Tool - Master"** gepflegt (Spalten
+`ticker,since,note,company_name`, erstes Tabellenblatt). Das Sheet kann auch ueber den
+Google-Connector von Claude bearbeitet werden, ohne dass dein Rechner laeuft. Der Button
+"+ Ticker hinzufuegen" im Dashboard oeffnet das Sheet.
+
+### Einrichtung
+
+1. Sheet: **Datei -> Freigeben -> Im Web veroeffentlichen**, Tabellenblatt 1, Format **CSV**,
+   veroeffentlichen. Die erzeugte URL als **Repository-Secret `WATCHLIST_CSV_URL`** ablegen
+   (Settings -> Secrets and variables -> Actions -> Secrets). Die URL gibt jedem mit Link
+   Lesezugriff auf die Watchlist, deshalb ein Secret und nicht im Repo; sie wird nie geloggt.
+2. Die normale Sheet-Adresse (`https://docs.google.com/spreadsheets/d/.../edit`) als
+   **Repository-Variable `WATCHLIST_SHEET_EDIT_URL`** ablegen (Reiter *Variables*, kein
+   Secret). Sie landet ueber `docs/results.json` im Dashboard-Button. Ohne Variable zeigt der
+   Button wie frueher auf den GitHub-Editor fuer `data/watchlist.csv`.
+   Hinweis: Das Repo ist oeffentlich, die Sheet-ID wird dadurch ebenfalls oeffentlich sichtbar.
+   Das Sheet selbst darf deshalb **nicht per Link geteilt** sein (nur eingeladene Konten).
+
+### Verhalten
+
+- Jeder Lauf laedt die CSV (Timeout 15 s, 2 Retries). Kopfzeile muss `ticker` enthalten.
+  Ticker werden getrimmt, gross geschrieben und gegen `^[A-Z0-9.\-]{1,10}$` geprueft, Duplikate
+  und Leerzeilen fallen weg. `since` wird als `2026-10-03` oder `03.10.2026` gelesen.
+- Der normalisierte Stand wird nach `data/watchlist.csv` zurueckgeschrieben und mit dem
+  Bot-Commit mitgepusht. **Nicht mehr direkt in der Repo-CSV editieren**, der naechste Lauf
+  ueberschreibt sie mit dem Sheet-Stand.
+- **Fallback**: Ist `WATCHLIST_CSV_URL` leer, nicht erreichbar oder der Inhalt unbrauchbar
+  (z.B. HTML statt CSV, keine gueltigen Ticker), laeuft der Lauf mit der letzten
+  `data/watchlist.csv` weiter und schreibt eine `[warn]`-Zeile ins Actions-Log. Ist auch die
+  Repo-CSV unbrauchbar, bricht der Lauf mit Fehler ab, nie mit leerer Watchlist.
+  Der Fallback meldet sich **nicht** per Telegram: Aenderungen im Sheet wirken dann einfach
+  nicht, bis es wieder klappt (Log pruefen).
+- Google veroeffentlicht Aenderungen mit einigen Minuten Verzoegerung.
+- **Neue Ticker** (ohne abgeschlossenen vollen Lauf im State) werden auch in Intraday-Laeufen
+  voll analysiert, erscheinen also mit Ampeln im Dashboard, ohne auf den vollen Lauf um 22:15
+  zu warten. Im Intraday-Lauf basiert das auf den Tagesdaten von Twelve Data (letzter Balken
+  evtl. noch der laufende Tag), der volle Lauf rechnet danach regulaer nach. Ein Ticker, den
+  Twelve Data nicht liefert, kostet dadurch pro Intraday-Lauf zwei Requests extra
+  (Zeitreihe statt Quote plus SPY) statt einem.
+- **Entfernte Ticker** verschwinden aus `results.json` und Dashboard. Ihr Eintrag in
+  `state.json` bleibt als `inactive` erhalten (Dedup-Historie); kommt der Ticker zurueck,
+  wird er wieder voll analysiert.
 
 ## Konfiguration anpassen
 
@@ -287,6 +330,8 @@ $env:TWELVEDATA_API_KEY = "..."
 $env:FINNHUB_API_KEY = "..."
 .venv\Scripts\python scripts\screen.py --mode full
 ```
+
+Tests (nur Standardbibliothek, keine zusaetzlichen Pakete): `python -m unittest discover -s tests -v`
 
 `TA-Lib` hat fertige Wheels fuer Windows/macOS/Linux auf PyPI, lokal ist i.d.R. kein manueller
 C-Build noetig. Auf dem GitHub-Actions-Runner (Ubuntu) baut der Workflow die TA-Lib-C-Bibliothek

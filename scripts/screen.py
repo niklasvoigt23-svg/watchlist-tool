@@ -3,7 +3,10 @@
   python screen.py --mode full      -> alle Kriterien, einmal taeglich nach US-Handelsschluss
   python screen.py --mode intraday  -> nur Volumen-Breakout, Move/Gap, 52-Wochen-Hoch, News
 
-Reads data/watchlist.csv + data/state.json, writes data/state.json + docs/results.json.
+Reads the watchlist (Google Sheet via WATCHLIST_CSV_URL, Fallback data/watchlist.csv, see
+watchlist_source.py) + data/state.json, writes data/state.json + docs/results.json (und
+data/watchlist.csv mit dem normalisierten Sheet-Stand). Ticker ohne vollen Lauf im State
+werden auch im Intraday-Modus voll analysiert.
 
 Telegram: die drei Ampel-Status-Wechsel (Trendstruktur/Relative Staerke/Fundamental) werden
 weiterhin in EINER gebuendelten Nachricht verschickt (unveraendert seit v2). Jedes ausgeloeste
@@ -12,7 +15,6 @@ TTM-Squeeze-Fire) wird dagegen als EIGENE Telegram-Nachricht verschickt, nicht g
 """
 
 import argparse
-import csv
 import datetime
 import json
 import os
@@ -21,13 +23,25 @@ import sys
 import config
 import signals
 import telegram
+import watchlist_source
 from providers import FinnhubClient, ProviderError, TwelveDataClient
 
 
-def load_watchlist(path):
-    with open(path, newline="", encoding="utf-8") as f:
-        reader = csv.DictReader(f)
-        return [row for row in reader if row.get("ticker")]
+def needs_full_analysis(entry_state):
+    """Ticker ohne abgeschlossenen vollen Lauf (kein last_close im State) oder wieder neu in
+    die Watchlist aufgenommene Ticker bekommen die volle Analyse auch in einem Intraday-Lauf."""
+    return bool(entry_state.get("inactive")) or "last_close" not in entry_state
+
+
+def carry_over_inactive_state(state, active_tickers):
+    """State-Eintraege von Tickern, die nicht mehr in der Watchlist stehen, bleiben erhalten
+    (Dedup-Historie), werden aber als inactive markiert. Kommt der Ticker spaeter zurueck,
+    laeuft er dadurch wieder durch die volle Analyse statt mit veralteten Cache-Werten."""
+    return {
+        ticker: {**entry, "inactive": True}
+        for ticker, entry in state.items()
+        if ticker not in active_tickers
+    }
 
 
 def migrate_state_entry(entry):
@@ -56,10 +70,11 @@ def save_state(path, state):
         f.write("\n")
 
 
-def save_results(path, results, mode, run_timestamp):
+def save_results(path, results, mode, run_timestamp, watchlist_edit_url=""):
     payload = {
         "last_run_at": run_timestamp,
         "last_run_mode": mode,
+        "watchlist_edit_url": watchlist_edit_url,
         "tickers": results,
     }
     with open(path, "w", encoding="utf-8") as f:
@@ -343,30 +358,54 @@ def main():
     if not fh_client:
         print("[warn] FINNHUB_API_KEY missing: News und Fundamental-Ampel werden uebersprungen", file=sys.stderr)
 
-    watchlist = load_watchlist(config.WATCHLIST_CSV)
+    try:
+        watchlist, watchlist_origin = watchlist_source.load_watchlist(
+            os.environ.get("WATCHLIST_CSV_URL", ""),
+            config.WATCHLIST_CSV,
+            timeout=config.WATCHLIST_CSV_TIMEOUT_S,
+            retries=config.WATCHLIST_CSV_RETRIES,
+        )
+    except watchlist_source.WatchlistSourceError as e:
+        print(f"[error] Keine brauchbare Watchlist: {e}", file=sys.stderr)
+        sys.exit(1)
+    print(f"[info] Watchlist: {len(watchlist)} Ticker aus {'Google Sheet' if watchlist_origin == 'sheet' else config.WATCHLIST_CSV}")
+
     state = load_state(config.STATE_JSON)
     status_alerts = []  # Ampel-Statuswechsel: eine gebuendelte Nachricht
     event_alerts = []    # Einzelereignis-Signale: eine Nachricht PRO Signal (v3)
     news_alerts = []
     results = {}
 
+    active_tickers = {row["ticker"] for row in watchlist}
+    # Neue (bzw. wieder aufgenommene) Ticker bekommen auch im Intraday-Lauf die volle Analyse.
+    full_candidates = {
+        row["ticker"] for row in watchlist if needs_full_analysis(state.get(row["ticker"], {}))
+    }
+
     spy_series = None
-    if args.mode == "full":
+    if args.mode == "full" or full_candidates:
         try:
             spy_series = td_client.get_time_series(config.BENCHMARK_SYMBOL)
         except ProviderError as e:
-            print(f"[error] Could not fetch benchmark {config.BENCHMARK_SYMBOL}: {e}", file=sys.stderr)
-            sys.exit(1)
-        if spy_series is None:
+            if args.mode == "full":
+                print(f"[error] Could not fetch benchmark {config.BENCHMARK_SYMBOL}: {e}", file=sys.stderr)
+                sys.exit(1)
+            print(f"[warn] Benchmark {config.BENCHMARK_SYMBOL} nicht ladbar ({e}), neue Ticker "
+                  "laufen in diesem Intraday-Lauf nur im Intraday-Umfang", file=sys.stderr)
+        if spy_series is None and args.mode == "full":
             print(f"[error] Benchmark {config.BENCHMARK_SYMBOL} returned no data", file=sys.stderr)
             sys.exit(1)
 
-    new_state_all = {}
+    # Entfernte Ticker fallen aus results.json heraus, ihr State-Eintrag bleibt (Dedup-Historie).
+    new_state_all = carry_over_inactive_state(state, active_tickers)
     for row in watchlist:
-        ticker = row["ticker"].strip()
+        ticker = row["ticker"]
         entry_state = state.get(ticker, {})
+        use_full = args.mode == "full" or (spy_series is not None and ticker in full_candidates)
+        if use_full and args.mode != "full":
+            print(f"[info] {ticker}: neu in der Watchlist, volle Analyse im Intraday-Lauf")
         try:
-            if args.mode == "full":
+            if use_full:
                 result, new_state = run_full(
                     ticker, entry_state, td_client, fh_client, spy_series, status_alerts, event_alerts
                 )
@@ -374,8 +413,9 @@ def main():
                 result, new_state = run_intraday(ticker, entry_state, td_client, event_alerts)
         except ProviderError as e:
             print(f"[warn] {ticker}: {e}", file=sys.stderr)
-            result, new_state = {"data_status": "error", "error": str(e)}, entry_state
+            result, new_state = {"data_status": "error", "error": str(e)}, dict(entry_state)
 
+        new_state.pop("inactive", None)
         process_news(ticker, entry_state, new_state, fh_client, news_alerts)
         result["note"] = row.get("note", "")
         result["company_name"] = row.get("company_name", "")
@@ -383,7 +423,13 @@ def main():
         new_state_all[ticker] = new_state
 
     save_state(config.STATE_JSON, new_state_all)
-    save_results(config.RESULTS_JSON, results, args.mode, datetime.datetime.now(datetime.timezone.utc).isoformat())
+    save_results(
+        config.RESULTS_JSON,
+        results,
+        args.mode,
+        datetime.datetime.now(datetime.timezone.utc).isoformat(),
+        config.WATCHLIST_SHEET_EDIT_URL,
+    )
 
     bot_token = os.environ.get("TELEGRAM_BOT_TOKEN")
     chat_id = os.environ.get("TELEGRAM_CHAT_ID")

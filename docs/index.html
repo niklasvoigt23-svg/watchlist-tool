@@ -121,6 +121,8 @@ function fmtTimestamp(iso) {
 
 async function load() {
   const addLink = document.getElementById("add-ticker-link");
+  // Fallback: GitHub-Editor fuer die Repo-CSV. Mit gesetzter WATCHLIST_SHEET_EDIT_URL
+  // (kommt ueber results.json) zeigt der Button auf das Google Sheet.
   addLink.href = `https://github.com/${REPO}/edit/main/data/watchlist.csv`;
 
   let data;
@@ -130,6 +132,10 @@ async function load() {
   } catch (e) {
     document.getElementById("meta").textContent = "Fehler beim Laden von results.json: " + e;
     return;
+  }
+
+  if (typeof data.watchlist_edit_url === "string" && data.watchlist_edit_url.startsWith("https://")) {
+    addLink.href = data.watchlist_edit_url;
   }
 
   document.getElementById("meta").textContent =

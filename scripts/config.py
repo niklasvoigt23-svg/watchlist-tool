@@ -1,5 +1,7 @@
 """Configuration and thresholds. Adjust here, not hardcoded in logic."""
 
+import os
+
 # --- Signal thresholds ---
 VOLUME_MULTIPLIER = 3.0       # Kriterium 4: Tagesvolumen >= VOLUME_MULTIPLIER x 20-Tage-Durchschnitt
 MOVE_THRESHOLD = 0.05         # Kriterium 5: |Bewegung| >= MOVE_THRESHOLD ggue letztem Schlusskurs
@@ -56,6 +58,15 @@ NEWS_LOOKBACK_DAYS = 3         # wie weit pro Lauf zurueckgeschaut wird (Dedup l
 # --- Data provider ---
 TWELVEDATA_MIN_SECONDS_BETWEEN_CALLS = 8.0   # 8 Requests/Minute im Gratis-Tarif
 TIME_SERIES_OUTPUTSIZE = 260                  # > 200 fuer SMA200 + 20 Tage Puffer
+
+# --- Watchlist-Quelle (Google Sheet, als CSV veroeffentlicht) ---
+# Die CSV-URL selbst steht als Secret WATCHLIST_CSV_URL (nicht hier). data/watchlist.csv ist
+# Fallback und wird nach jedem erfolgreichen Laden mit dem Sheet-Stand ueberschrieben.
+WATCHLIST_CSV_TIMEOUT_S = 15
+WATCHLIST_CSV_RETRIES = 2
+# Ziel des "+ Ticker hinzufuegen"-Buttons im Dashboard (Repository-Variable, kein Secret).
+# Leer -> Dashboard faellt auf den GitHub-Editor fuer data/watchlist.csv zurueck.
+WATCHLIST_SHEET_EDIT_URL = os.environ.get("WATCHLIST_SHEET_EDIT_URL", "").strip()
 
 # --- Paths ---
 WATCHLIST_CSV = "data/watchlist.csv"
