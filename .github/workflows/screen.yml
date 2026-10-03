@@ -43,6 +43,9 @@ jobs:
       - name: Install Python dependencies
         run: pip install -r requirements.txt
 
+      - name: Verify TA-Lib
+        run: python -c "import numpy, talib; print('TA-Lib', talib.__version__, 'SMA check:', talib.SMA(numpy.arange(10.0), 3)[-1])"
+
       - name: Run screening
         env:
           TWELVEDATA_API_KEY: ${{ secrets.TWELVEDATA_API_KEY }}
