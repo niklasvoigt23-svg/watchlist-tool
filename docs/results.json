@@ -1,5 +1,5 @@
 {
-  "last_run_at": "2026-10-04T14:04:01.487087+00:00",
+  "last_run_at": "2026-10-04T16:03:21.647664+00:00",
   "last_run_mode": "intraday",
   "tickers": {
     "APMD": {
@@ -257,16 +257,7 @@
     "RBRK": {
       "company_name": "Rubrik Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bullish",
-          "label": "52-Wochen-Hoch",
-          "rvol_ratio": 1.0035120994639428,
-          "rvol_tier": "Above Avg",
-          "type": "year_high",
-          "value": "+2.6%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "grey"
       },
