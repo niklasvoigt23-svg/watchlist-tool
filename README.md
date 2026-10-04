@@ -308,6 +308,46 @@ Google-Connector von Claude bearbeitet werden, ohne dass dein Rechner laeuft. De
   `state.json` bleibt als `inactive` erhalten (Dedup-Historie); kommt der Ticker zurueck,
   wird er wieder voll analysiert.
 
+## Wochenblick und Sheet-Drehscheibe
+
+Das **Wochenblick**-Artifact (claude.ai, links in der Seitenleiste angepinnt) zeigt pro Titel die
+drei Ampeln, die Signale der letzten 7 Tage und ein regelbasiertes Fazit. Mit dem Button "Laden"
+holt es sich den aktuellen Stand ueber den **Google-Sheets-Connector** aus dem Sheet, ohne
+eigenes Hosting. Artifacts duerfen keine beliebigen Webseiten nachladen, deshalb liegen die
+Ergebnisse als Tabs im Sheet:
+
+| Tab | Inhalt |
+|---|---|
+| `Results` | eine Zeile je Ticker: Kurs, drei Ampeln (mit Grund bei grau), NR4/NR7 |
+| `Signal-Log` | ein Eintrag je Datum, Ticker und Signaltyp (45 Tage Verlauf); Werte als reine Zahl |
+| `Meta` | Zeit des letzten Abrufs, Status, Zeit und Modus des Screener-Laufs |
+
+Befuellt werden sie vom Apps-Script `tools/apps-script/Code.gs`. Es laeuft bei Google, liest nur
+die oeffentlichen Dateien `results.json` (GitHub Pages) und `state.json` (raw.githubusercontent)
+und braucht weder Passwoerter noch Schluessel.
+
+### Einrichtung (einmalig, ca. 5 Minuten)
+
+1. Sheet "Watchlist Tool - Master" oeffnen, **Erweiterungen -> Apps Script**.
+2. Den Inhalt von `tools/apps-script/Code.gs` einfuegen (vorhandenen Beispielcode ersetzen), speichern.
+3. Oben die Funktion `refreshWatchlistData` waehlen, **Ausfuehren**, Zugriff autorisieren
+   (Google warnt vor einer "nicht verifizierten App": **Erweitert -> Weiter**, das ist dein eigenes
+   Script). Danach sind die Tabs `Results`, `Signal-Log` und `Meta` aktuell.
+4. Funktion `installHourlyTrigger` einmal ausfuehren: Das Script ruft sich danach stuendlich auf.
+   (Alternativ nach dem Neuladen des Sheets im Menue "Watchlist-Daten".)
+
+Die Tabs enthalten bereits einen Startstand aus der Git-Historie; `Meta` zeigt `script_version =
+seed`, bis das Script zum ersten Mal gelaufen ist. Im Artifact steht bis dahin ein Hinweis-Banner.
+
+### Hinweise
+
+- Das Artifact liest nur. Es zeigt die Daten so aktuell wie der letzte Abruf (hoechstens eine
+  Stunde alt) und warnt, wenn dieser laenger als 6 Stunden zurueckliegt.
+- Pro Geraet bestaetigst du den Connector-Zugriff einmalig; der Google-Sheets-Connector muss in
+  claude.ai verbunden sein.
+- Aenderst du Tab-Namen oder Spalten, muss `Code.gs` und das Artifact angepasst werden.
+- Ereignisse, die der Screener an Wochenenden unter neuem Datum wiederholt, blendet das Artifact aus.
+
 ## Konfiguration anpassen
 
 Schwellenwerte und Parameter stehen zentral in `scripts/config.py` (`VOLUME_MULTIPLIER`,
