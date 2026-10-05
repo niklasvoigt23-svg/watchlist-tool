@@ -1,5 +1,5 @@
 {
-  "last_run_at": "2026-10-05T14:03:38.641565+00:00",
+  "last_run_at": "2026-10-05T16:03:24.174152+00:00",
   "last_run_mode": "intraday",
   "tickers": {
     "APMD": {
@@ -12,7 +12,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 21.5,
+      "price": 21.71,
       "relative_staerke": {
         "status": "grey"
       },
@@ -23,23 +23,14 @@
     "CBRS": {
       "company_name": "Cerebras Systems Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bullish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 0.02242824139131524,
-          "rvol_tier": "Dead",
-          "type": "move",
-          "value": "+7.5%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "grey"
       },
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 178.98,
+      "price": 181.6,
       "relative_staerke": {
         "status": "red"
       },
@@ -57,7 +48,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 35.98,
+      "price": 35.73,
       "relative_staerke": {
         "status": "green"
       },
@@ -75,7 +66,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 85.74,
+      "price": 84.745,
       "relative_staerke": {
         "status": "green"
       },
@@ -93,7 +84,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 22.535,
+      "price": 22.54,
       "relative_staerke": {
         "status": "red"
       },
@@ -111,7 +102,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 212.12,
+      "price": 215.13,
       "relative_staerke": {
         "status": "red"
       },
@@ -129,7 +120,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 36.01,
+      "price": 35.98,
       "relative_staerke": {
         "status": "red"
       },
@@ -147,7 +138,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 19.665,
+      "price": 19.825,
       "relative_staerke": {
         "status": "red"
       },
@@ -165,7 +156,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 18.72,
+      "price": 18.81,
       "relative_staerke": {
         "status": "red"
       },
@@ -183,7 +174,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 160.855,
+      "price": 160.67,
       "relative_staerke": {
         "status": "green"
       },
@@ -201,7 +192,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 18.06,
+      "price": 18.045,
       "relative_staerke": {
         "status": "green"
       },
@@ -219,7 +210,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 104.73,
+      "price": 106.64,
       "relative_staerke": {
         "status": "red"
       },
@@ -237,7 +228,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 64.07,
+      "price": 64.23,
       "relative_staerke": {
         "status": "green"
       },
@@ -255,7 +246,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 15.285,
+      "price": 15.575,
       "relative_staerke": {
         "status": "red"
       },
@@ -266,23 +257,14 @@
     "RBRK": {
       "company_name": "Rubrik Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bullish",
-          "label": "52-Wochen-Hoch",
-          "rvol_ratio": 0.00580581385069157,
-          "rvol_tier": "Dead",
-          "type": "year_high",
-          "value": "+5.1%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "grey"
       },
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 121.44,
+      "price": 122.17,
       "relative_staerke": {
         "status": "green"
       },
@@ -293,14 +275,23 @@
     "RDVT": {
       "company_name": "Red Violet Inc",
       "data_status": "ok",
-      "events_today": [],
+      "events_today": [
+        {
+          "direction": "bullish",
+          "label": "52-Wochen-Hoch",
+          "rvol_ratio": 0.009184485210809248,
+          "rvol_tier": "Dead",
+          "type": "year_high",
+          "value": "+0.2%"
+        }
+      ],
       "fundamental": {
         "status": "green"
       },
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 80.145,
+      "price": 80.4,
       "relative_staerke": {
         "status": "red"
       },
@@ -318,7 +309,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 135.39,
+      "price": 135.565,
       "relative_staerke": {
         "status": "red"
       },
@@ -329,31 +320,14 @@
     "TWST": {
       "company_name": "Twist Bioscience Corp",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bullish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 0.010581761912573878,
-          "rvol_tier": "Dead",
-          "type": "move",
-          "value": "+7.6%"
-        },
-        {
-          "direction": "bullish",
-          "label": "52-Wochen-Hoch",
-          "rvol_ratio": 0.010581761912573878,
-          "rvol_tier": "Dead",
-          "type": "year_high",
-          "value": "+5.1%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "grey"
       },
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 203.005,
+      "price": 199.91,
       "relative_staerke": {
         "status": "green"
       },
@@ -371,7 +345,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 20.18,
+      "price": 20.17,
       "relative_staerke": {
         "status": "red"
       },
@@ -382,23 +356,14 @@
     "ZETA": {
       "company_name": "Zeta Global Holdings Corp",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bullish",
-          "label": "52-Wochen-Hoch",
-          "rvol_ratio": 0.022360677946966598,
-          "rvol_tier": "Dead",
-          "type": "year_high",
-          "value": "+3.6%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "grey"
       },
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 33.87,
+      "price": 33.345,
       "relative_staerke": {
         "status": "green"
       },
