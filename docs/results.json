@@ -1,27 +1,18 @@
 {
-  "last_run_at": "2026-10-06T16:03:29.132407+00:00",
+  "last_run_at": "2026-10-06T18:03:29.930933+00:00",
   "last_run_mode": "intraday",
   "tickers": {
     "APMD": {
       "company_name": "Apnimed Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bearish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 0.0065249168385205555,
-          "rvol_tier": "Dead",
-          "type": "move",
-          "value": "-7.1%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "grey"
       },
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 20.2,
+      "price": 19.11,
       "relative_staerke": {
         "status": "grey"
       },
@@ -39,7 +30,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 176.595,
+      "price": 176.23,
       "relative_staerke": {
         "status": "red"
       },
@@ -57,7 +48,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 36.0,
+      "price": 35.66,
       "relative_staerke": {
         "status": "green"
       },
@@ -75,7 +66,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 86.27,
+      "price": 87.885,
       "relative_staerke": {
         "status": "green"
       },
@@ -93,7 +84,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 22.71,
+      "price": 22.91,
       "relative_staerke": {
         "status": "red"
       },
@@ -111,7 +102,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 223.04,
+      "price": 224.18,
       "relative_staerke": {
         "status": "red"
       },
@@ -129,7 +120,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 35.5,
+      "price": 35.39,
       "relative_staerke": {
         "status": "red"
       },
@@ -147,7 +138,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 19.695,
+      "price": 19.57,
       "relative_staerke": {
         "status": "red"
       },
@@ -165,7 +156,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 16.99,
+      "price": 16.73,
       "relative_staerke": {
         "status": "red"
       },
@@ -183,7 +174,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 160.38,
+      "price": 159.68,
       "relative_staerke": {
         "status": "red"
       },
@@ -201,7 +192,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 19.9,
+      "price": 19.62,
       "relative_staerke": {
         "status": "green"
       },
@@ -219,7 +210,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 104.365,
+      "price": 105.38,
       "relative_staerke": {
         "status": "red"
       },
@@ -237,7 +228,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 64.94,
+      "price": 65.175,
       "relative_staerke": {
         "status": "red"
       },
@@ -255,7 +246,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 15.765,
+      "price": 15.795,
       "relative_staerke": {
         "status": "red"
       },
@@ -273,7 +264,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 126.63,
+      "price": 126.26,
       "relative_staerke": {
         "status": "green"
       },
@@ -291,7 +282,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 79.04,
+      "price": 78.51,
       "relative_staerke": {
         "status": "red"
       },
@@ -309,7 +300,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 134.39,
+      "price": 133.88,
       "relative_staerke": {
         "status": "red"
       },
@@ -320,23 +311,14 @@
     "TWST": {
       "company_name": "Twist Bioscience Corp",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bearish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 0.08967946994597126,
-          "rvol_tier": "Dead",
-          "type": "move",
-          "value": "-13.2%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "grey"
       },
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 177.935,
+      "price": 173.83,
       "relative_staerke": {
         "status": "green"
       },
@@ -354,7 +336,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 20.235,
+      "price": 20.22,
       "relative_staerke": {
         "status": "red"
       },
@@ -372,7 +354,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 33.31,
+      "price": 32.895,
       "relative_staerke": {
         "status": "green"
       },
