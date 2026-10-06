@@ -1,7 +1,7 @@
 {
   "APMD": {
     "last_close": 21.73,
-    "move_alert_last_alert_date": "2026-10-01",
+    "move_alert_last_alert_date": "2026-10-06",
     "news_last_seen_ts": 1790098791,
     "nr4_active": true,
     "nr7_active": true,
@@ -188,7 +188,7 @@
   },
   "TWST": {
     "last_close": 204.94,
-    "move_alert_last_alert_date": "2026-10-05",
+    "move_alert_last_alert_date": "2026-10-06",
     "news_last_seen_ts": 1790589330,
     "nr4_active": false,
     "nr7_active": false,

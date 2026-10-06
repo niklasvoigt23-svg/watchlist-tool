@@ -1,18 +1,27 @@
 {
-  "last_run_at": "2026-10-06T14:03:42.742901+00:00",
+  "last_run_at": "2026-10-06T16:03:29.132407+00:00",
   "last_run_mode": "intraday",
   "tickers": {
     "APMD": {
       "company_name": "Apnimed Inc",
       "data_status": "ok",
-      "events_today": [],
+      "events_today": [
+        {
+          "direction": "bearish",
+          "label": "Kursbewegung",
+          "rvol_ratio": 0.0065249168385205555,
+          "rvol_tier": "Dead",
+          "type": "move",
+          "value": "-7.1%"
+        }
+      ],
       "fundamental": {
         "status": "grey"
       },
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 21.5,
+      "price": 20.2,
       "relative_staerke": {
         "status": "grey"
       },
@@ -30,7 +39,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 182.36,
+      "price": 176.595,
       "relative_staerke": {
         "status": "red"
       },
@@ -48,7 +57,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 36.01,
+      "price": 36.0,
       "relative_staerke": {
         "status": "green"
       },
@@ -66,7 +75,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 87.49,
+      "price": 86.27,
       "relative_staerke": {
         "status": "green"
       },
@@ -77,23 +86,14 @@
     "FLY": {
       "company_name": "Firefly Aerospace Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bullish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 0.005981549765166429,
-          "rvol_tier": "Dead",
-          "type": "move",
-          "value": "+5.8%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "grey"
       },
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 23.905,
+      "price": 22.71,
       "relative_staerke": {
         "status": "red"
       },
@@ -104,23 +104,14 @@
     "GNRC": {
       "company_name": "Generac Holdings Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bullish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 0.006329504543116749,
-          "rvol_tier": "Dead",
-          "type": "move",
-          "value": "+5.1%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "red"
       },
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 226.085,
+      "price": 223.04,
       "relative_staerke": {
         "status": "red"
       },
@@ -138,7 +129,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 35.86,
+      "price": 35.5,
       "relative_staerke": {
         "status": "red"
       },
@@ -156,7 +147,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 19.825,
+      "price": 19.695,
       "relative_staerke": {
         "status": "red"
       },
@@ -167,23 +158,14 @@
     "NEO": {
       "company_name": "Neogenomics Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bearish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 0.014201945788804281,
-          "rvol_tier": "Dead",
-          "type": "move",
-          "value": "-5.2%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "grey"
       },
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 18.14,
+      "price": 16.99,
       "relative_staerke": {
         "status": "red"
       },
@@ -201,7 +183,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 160.275,
+      "price": 160.38,
       "relative_staerke": {
         "status": "red"
       },
@@ -212,23 +194,14 @@
     "NTSK": {
       "company_name": "Netskope Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bullish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 0.011458507193644224,
-          "rvol_tier": "Dead",
-          "type": "move",
-          "value": "+9.3%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "grey"
       },
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 20.14,
+      "price": 19.9,
       "relative_staerke": {
         "status": "green"
       },
@@ -246,7 +219,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 106.31,
+      "price": 104.365,
       "relative_staerke": {
         "status": "red"
       },
@@ -264,7 +237,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 66.26,
+      "price": 64.94,
       "relative_staerke": {
         "status": "red"
       },
@@ -282,7 +255,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 16.08,
+      "price": 15.765,
       "relative_staerke": {
         "status": "red"
       },
@@ -293,23 +266,14 @@
     "RBRK": {
       "company_name": "Rubrik Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bullish",
-          "label": "52-Wochen-Hoch",
-          "rvol_ratio": 0.0034883171978856513,
-          "rvol_tier": "Dead",
-          "type": "year_high",
-          "value": "+6.6%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "grey"
       },
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 126.4,
+      "price": 126.63,
       "relative_staerke": {
         "status": "green"
       },
@@ -327,7 +291,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 79.86,
+      "price": 79.04,
       "relative_staerke": {
         "status": "red"
       },
@@ -345,7 +309,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 134.25,
+      "price": 134.39,
       "relative_staerke": {
         "status": "red"
       },
@@ -358,12 +322,12 @@
       "data_status": "ok",
       "events_today": [
         {
-          "direction": "bullish",
-          "label": "52-Wochen-Hoch",
-          "rvol_ratio": 0.017787423358107346,
+          "direction": "bearish",
+          "label": "Kursbewegung",
+          "rvol_ratio": 0.08967946994597126,
           "rvol_tier": "Dead",
-          "type": "year_high",
-          "value": "+7.8%"
+          "type": "move",
+          "value": "-13.2%"
         }
       ],
       "fundamental": {
@@ -372,7 +336,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 208.37,
+      "price": 177.935,
       "relative_staerke": {
         "status": "green"
       },
@@ -390,7 +354,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 20.02,
+      "price": 20.235,
       "relative_staerke": {
         "status": "red"
       },
@@ -401,23 +365,14 @@
     "ZETA": {
       "company_name": "Zeta Global Holdings Corp",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bullish",
-          "label": "52-Wochen-Hoch",
-          "rvol_ratio": 0.011839633970712872,
-          "rvol_tier": "Dead",
-          "type": "year_high",
-          "value": "+2.1%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "grey"
       },
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 33.37,
+      "price": 33.31,
       "relative_staerke": {
         "status": "green"
       },
