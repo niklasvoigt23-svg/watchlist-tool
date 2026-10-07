@@ -177,7 +177,7 @@
   "TTMI": {
     "fundamental_status": "green",
     "last_close": 132.63,
-    "move_alert_last_alert_date": "2026-10-02",
+    "move_alert_last_alert_date": "2026-10-07",
     "news_last_seen_ts": 1790615449,
     "nr4_active": true,
     "nr7_active": true,
@@ -219,6 +219,6 @@
     "trendstruktur_status": "green",
     "volume_avg20": 5641150.0,
     "year_high_252": 32.88,
-    "year_high_last_alert_date": "2026-10-06"
+    "year_high_last_alert_date": "2026-10-07"
   }
 }

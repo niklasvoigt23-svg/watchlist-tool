@@ -1,5 +1,5 @@
 {
-  "last_run_at": "2026-10-07T14:03:52.411824+00:00",
+  "last_run_at": "2026-10-07T16:03:25.303058+00:00",
   "last_run_mode": "intraday",
   "tickers": {
     "APMD": {
@@ -12,7 +12,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 18.58,
+      "price": 18.67,
       "relative_staerke": {
         "status": "grey"
       },
@@ -30,7 +30,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 173.755,
+      "price": 174.81,
       "relative_staerke": {
         "status": "red"
       },
@@ -66,7 +66,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 85.9,
+      "price": 83.145,
       "relative_staerke": {
         "status": "green"
       },
@@ -77,23 +77,14 @@
     "FLY": {
       "company_name": "Firefly Aerospace Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bearish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 0.005390746495040974,
-          "rvol_tier": "Dead",
-          "type": "move",
-          "value": "-5.3%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "grey"
       },
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 21.61,
+      "price": 21.39,
       "relative_staerke": {
         "status": "red"
       },
@@ -111,7 +102,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 217.59,
+      "price": 215.75,
       "relative_staerke": {
         "status": "red"
       },
@@ -129,7 +120,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 35.96,
+      "price": 36.17,
       "relative_staerke": {
         "status": "red"
       },
@@ -147,7 +138,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 19.395,
+      "price": 19.29,
       "relative_staerke": {
         "status": "red"
       },
@@ -165,7 +156,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 16.44,
+      "price": 16.295,
       "relative_staerke": {
         "status": "red"
       },
@@ -183,7 +174,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 159.17,
+      "price": 160.6,
       "relative_staerke": {
         "status": "red"
       },
@@ -201,7 +192,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 19.23,
+      "price": 19.22,
       "relative_staerke": {
         "status": "green"
       },
@@ -219,7 +210,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 103.47,
+      "price": 101.05,
       "relative_staerke": {
         "status": "red"
       },
@@ -237,7 +228,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 64.92,
+      "price": 63.22,
       "relative_staerke": {
         "status": "green"
       },
@@ -255,7 +246,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 15.11,
+      "price": 15.005,
       "relative_staerke": {
         "status": "red"
       },
@@ -266,23 +257,14 @@
     "RBRK": {
       "company_name": "Rubrik Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bullish",
-          "label": "52-Wochen-Hoch",
-          "rvol_ratio": 0.007427155171734647,
-          "rvol_tier": "Dead",
-          "type": "year_high",
-          "value": "+0.6%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "grey"
       },
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 123.405,
+      "price": 124.23,
       "relative_staerke": {
         "status": "green"
       },
@@ -300,7 +282,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 77.25,
+      "price": 77.54,
       "relative_staerke": {
         "status": "red"
       },
@@ -311,14 +293,23 @@
     "TTMI": {
       "company_name": "TTM Technologies Inc",
       "data_status": "ok",
-      "events_today": [],
+      "events_today": [
+        {
+          "direction": "bearish",
+          "label": "Kursbewegung",
+          "rvol_ratio": 0.032947744835491045,
+          "rvol_tier": "Dead",
+          "type": "move",
+          "value": "-5.1%"
+        }
+      ],
       "fundamental": {
         "status": "green"
       },
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 126.465,
+      "price": 125.92,
       "relative_staerke": {
         "status": "red"
       },
@@ -329,23 +320,14 @@
     "TWST": {
       "company_name": "Twist Bioscience Corp",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bearish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 0.028831373715097527,
-          "rvol_tier": "Dead",
-          "type": "move",
-          "value": "-5.7%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "grey"
       },
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 157.42,
+      "price": 159.95,
       "relative_staerke": {
         "status": "green"
       },
@@ -363,7 +345,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 20.51,
+      "price": 20.545,
       "relative_staerke": {
         "status": "red"
       },
@@ -374,14 +356,23 @@
     "ZETA": {
       "company_name": "Zeta Global Holdings Corp",
       "data_status": "ok",
-      "events_today": [],
+      "events_today": [
+        {
+          "direction": "bullish",
+          "label": "52-Wochen-Hoch",
+          "rvol_ratio": 0.024729354830132153,
+          "rvol_tier": "Dead",
+          "type": "year_high",
+          "value": "+1.5%"
+        }
+      ],
       "fundamental": {
         "status": "grey"
       },
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 32.73,
+      "price": 33.37,
       "relative_staerke": {
         "status": "green"
       },
