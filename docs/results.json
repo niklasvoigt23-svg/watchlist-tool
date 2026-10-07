@@ -1,5 +1,5 @@
 {
-  "last_run_at": "2026-10-07T16:03:25.303058+00:00",
+  "last_run_at": "2026-10-07T18:03:24.299562+00:00",
   "last_run_mode": "intraday",
   "tickers": {
     "APMD": {
@@ -12,7 +12,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 18.67,
+      "price": 18.39,
       "relative_staerke": {
         "status": "grey"
       },
@@ -30,7 +30,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 174.81,
+      "price": 172.41,
       "relative_staerke": {
         "status": "red"
       },
@@ -48,7 +48,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 35.53,
+      "price": 35.55,
       "relative_staerke": {
         "status": "green"
       },
@@ -59,14 +59,23 @@
     "FEIM": {
       "company_name": "Frequency Electronics Inc",
       "data_status": "ok",
-      "events_today": [],
+      "events_today": [
+        {
+          "direction": "bearish",
+          "label": "Kursbewegung",
+          "rvol_ratio": 0.00647458266528341,
+          "rvol_tier": "Dead",
+          "type": "move",
+          "value": "-8.5%"
+        }
+      ],
       "fundamental": {
         "status": "green"
       },
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 83.145,
+      "price": 79.745,
       "relative_staerke": {
         "status": "green"
       },
@@ -84,7 +93,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 21.39,
+      "price": 21.195,
       "relative_staerke": {
         "status": "red"
       },
@@ -102,7 +111,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 215.75,
+      "price": 218.14,
       "relative_staerke": {
         "status": "red"
       },
@@ -120,7 +129,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 36.17,
+      "price": 36.14,
       "relative_staerke": {
         "status": "red"
       },
@@ -138,7 +147,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 19.29,
+      "price": 19.36,
       "relative_staerke": {
         "status": "red"
       },
@@ -156,7 +165,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 16.295,
+      "price": 16.035,
       "relative_staerke": {
         "status": "red"
       },
@@ -174,7 +183,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 160.6,
+      "price": 161.0,
       "relative_staerke": {
         "status": "red"
       },
@@ -192,7 +201,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 19.22,
+      "price": 19.34,
       "relative_staerke": {
         "status": "green"
       },
@@ -210,7 +219,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 101.05,
+      "price": 101.74,
       "relative_staerke": {
         "status": "red"
       },
@@ -228,7 +237,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 63.22,
+      "price": 63.35,
       "relative_staerke": {
         "status": "green"
       },
@@ -246,7 +255,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 15.005,
+      "price": 15.095,
       "relative_staerke": {
         "status": "red"
       },
@@ -264,7 +273,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 124.23,
+      "price": 124.62,
       "relative_staerke": {
         "status": "green"
       },
@@ -282,7 +291,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 77.54,
+      "price": 77.63,
       "relative_staerke": {
         "status": "red"
       },
@@ -293,23 +302,14 @@
     "TTMI": {
       "company_name": "TTM Technologies Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bearish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 0.032947744835491045,
-          "rvol_tier": "Dead",
-          "type": "move",
-          "value": "-5.1%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "green"
       },
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 125.92,
+      "price": 128.225,
       "relative_staerke": {
         "status": "red"
       },
@@ -327,7 +327,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 159.95,
+      "price": 158.17,
       "relative_staerke": {
         "status": "green"
       },
@@ -345,7 +345,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 20.545,
+      "price": 20.43,
       "relative_staerke": {
         "status": "red"
       },
@@ -356,23 +356,14 @@
     "ZETA": {
       "company_name": "Zeta Global Holdings Corp",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bullish",
-          "label": "52-Wochen-Hoch",
-          "rvol_ratio": 0.024729354830132153,
-          "rvol_tier": "Dead",
-          "type": "year_high",
-          "value": "+1.5%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "grey"
       },
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 33.37,
+      "price": 33.34,
       "relative_staerke": {
         "status": "green"
       },
