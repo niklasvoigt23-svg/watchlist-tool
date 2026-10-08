@@ -1,5 +1,5 @@
 {
-  "last_run_at": "2026-10-08T16:03:24.933292+00:00",
+  "last_run_at": "2026-10-08T18:03:21.346310+00:00",
   "last_run_mode": "intraday",
   "tickers": {
     "APMD": {
@@ -12,7 +12,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 18.26,
+      "price": 18.38,
       "relative_staerke": {
         "status": "grey"
       },
@@ -23,14 +23,23 @@
     "CBRS": {
       "company_name": "Cerebras Systems Inc",
       "data_status": "ok",
-      "events_today": [],
+      "events_today": [
+        {
+          "direction": "bearish",
+          "label": "Kursbewegung",
+          "rvol_ratio": 0.02106451294449342,
+          "rvol_tier": "Dead",
+          "type": "move",
+          "value": "-6.7%"
+        }
+      ],
       "fundamental": {
         "status": "grey"
       },
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 168.87,
+      "price": 163.29,
       "relative_staerke": {
         "status": "red"
       },
@@ -48,7 +57,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 35.55,
+      "price": 36.35,
       "relative_staerke": {
         "status": "green"
       },
@@ -66,7 +75,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 76.96,
+      "price": 75.51,
       "relative_staerke": {
         "status": "green"
       },
@@ -84,7 +93,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 20.52,
+      "price": 20.49,
       "relative_staerke": {
         "status": "red"
       },
@@ -102,7 +111,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 226.09,
+      "price": 222.45,
       "relative_staerke": {
         "status": "red"
       },
@@ -120,7 +129,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 34.94,
+      "price": 35.345,
       "relative_staerke": {
         "status": "red"
       },
@@ -138,7 +147,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 19.52,
+      "price": 19.68,
       "relative_staerke": {
         "status": "red"
       },
@@ -156,7 +165,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 15.505,
+      "price": 15.66,
       "relative_staerke": {
         "status": "red"
       },
@@ -174,7 +183,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 161.03,
+      "price": 162.02,
       "relative_staerke": {
         "status": "red"
       },
@@ -210,7 +219,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 101.025,
+      "price": 100.805,
       "relative_staerke": {
         "status": "red"
       },
@@ -228,7 +237,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 60.92,
+      "price": 61.23,
       "relative_staerke": {
         "status": "red"
       },
@@ -239,14 +248,23 @@
     "QBTS": {
       "company_name": "D-Wave Quantum Inc",
       "data_status": "ok",
-      "events_today": [],
+      "events_today": [
+        {
+          "direction": "bearish",
+          "label": "Kursbewegung",
+          "rvol_ratio": 0.0343615108578801,
+          "rvol_tier": "Dead",
+          "type": "move",
+          "value": "-5.7%"
+        }
+      ],
       "fundamental": {
         "status": "grey"
       },
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 14.53,
+      "price": 14.36,
       "relative_staerke": {
         "status": "red"
       },
@@ -264,7 +282,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 120.29,
+      "price": 120.79,
       "relative_staerke": {
         "status": "green"
       },
@@ -282,7 +300,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 78.68,
+      "price": 79.195,
       "relative_staerke": {
         "status": "red"
       },
@@ -293,14 +311,23 @@
     "TTMI": {
       "company_name": "TTM Technologies Inc",
       "data_status": "ok",
-      "events_today": [],
+      "events_today": [
+        {
+          "direction": "bearish",
+          "label": "Kursbewegung",
+          "rvol_ratio": 0.03356204004242054,
+          "rvol_tier": "Dead",
+          "type": "move",
+          "value": "-6.3%"
+        }
+      ],
       "fundamental": {
         "status": "green"
       },
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 126.875,
+      "price": 120.155,
       "relative_staerke": {
         "status": "red"
       },
@@ -318,7 +345,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 150.455,
+      "price": 149.605,
       "relative_staerke": {
         "status": "red"
       },
@@ -336,7 +363,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 20.73,
+      "price": 20.835,
       "relative_staerke": {
         "status": "red"
       },
@@ -354,7 +381,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 32.73,
+      "price": 32.445,
       "relative_staerke": {
         "status": "green"
       },
