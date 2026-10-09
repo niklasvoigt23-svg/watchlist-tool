@@ -1,5 +1,5 @@
 {
-  "last_run_at": "2026-10-09T14:03:32.510917+00:00",
+  "last_run_at": "2026-10-09T16:03:28.968197+00:00",
   "last_run_mode": "intraday",
   "tickers": {
     "APMD": {
@@ -12,7 +12,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 18.62,
+      "price": 18.74,
       "relative_staerke": {
         "status": "grey"
       },
@@ -30,7 +30,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 163.18,
+      "price": 165.22,
       "relative_staerke": {
         "status": "red"
       },
@@ -48,7 +48,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 36.88,
+      "price": 36.97,
       "relative_staerke": {
         "status": "green"
       },
@@ -66,7 +66,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 73.65,
+      "price": 75.94,
       "relative_staerke": {
         "status": "green"
       },
@@ -84,7 +84,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 20.1,
+      "price": 19.9,
       "relative_staerke": {
         "status": "red"
       },
@@ -102,7 +102,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 223.59,
+      "price": 223.07,
       "relative_staerke": {
         "status": "red"
       },
@@ -120,7 +120,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 35.83,
+      "price": 35.96,
       "relative_staerke": {
         "status": "red"
       },
@@ -138,7 +138,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 20.09,
+      "price": 19.56,
       "relative_staerke": {
         "status": "red"
       },
@@ -156,7 +156,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 16.45,
+      "price": 16.43,
       "relative_staerke": {
         "status": "red"
       },
@@ -174,7 +174,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 161.55,
+      "price": 163.0,
       "relative_staerke": {
         "status": "red"
       },
@@ -192,7 +192,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 19.805,
+      "price": 20.125,
       "relative_staerke": {
         "status": "red"
       },
@@ -210,7 +210,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 99.955,
+      "price": 101.61,
       "relative_staerke": {
         "status": "red"
       },
@@ -228,7 +228,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 63.3,
+      "price": 62.425,
       "relative_staerke": {
         "status": "red"
       },
@@ -246,7 +246,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 14.37,
+      "price": 14.35,
       "relative_staerke": {
         "status": "red"
       },
@@ -264,7 +264,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 120.56,
+      "price": 122.23,
       "relative_staerke": {
         "status": "green"
       },
@@ -282,7 +282,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 80.1,
+      "price": 79.695,
       "relative_staerke": {
         "status": "red"
       },
@@ -300,7 +300,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 120.71,
+      "price": 121.14,
       "relative_staerke": {
         "status": "red"
       },
@@ -311,23 +311,14 @@
     "TWST": {
       "company_name": "Twist Bioscience Corp",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bullish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 0.006569292549411485,
-          "rvol_tier": "Dead",
-          "type": "move",
-          "value": "+6.2%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "grey"
       },
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 161.475,
+      "price": 161.04,
       "relative_staerke": {
         "status": "red"
       },
@@ -345,7 +336,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 20.86,
+      "price": 20.65,
       "relative_staerke": {
         "status": "red"
       },
@@ -363,7 +354,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 33.57,
+      "price": 33.63,
       "relative_staerke": {
         "status": "green"
       },
