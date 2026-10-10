@@ -1,5 +1,5 @@
 {
-  "last_run_at": "2026-10-10T14:04:35.330157+00:00",
+  "last_run_at": "2026-10-10T16:04:18.791678+00:00",
   "last_run_mode": "intraday",
   "tickers": {
     "APMD": {
@@ -43,11 +43,6 @@
       "data_status": "ok",
       "events_today": [],
       "fundamental": {
-        "eps_growth": null,
-        "net_margin_current": 0.8385,
-        "net_margin_prior_quarter": 0.0239,
-        "reason": "insufficient_fundamentals",
-        "revenue_growth": 0.5223,
         "status": "grey"
       },
       "note": "Case noch pr\u00fcfen",
@@ -55,23 +50,9 @@
       "nr7_active": false,
       "price": 63.67,
       "relative_staerke": {
-        "conditions": {
-          "rs_positive_and_rising": true
-        },
-        "rs": 1.1302406295364653,
-        "rs_trend": 0.07971742266512738,
         "status": "green"
       },
       "trendstruktur": {
-        "conditions": {
-          "price_above_smas": true,
-          "sma200_rising": true,
-          "sma_order": true
-        },
-        "price": 63.67,
-        "sma150": 33.33063327333335,
-        "sma200": 29.883199950000012,
-        "sma50": 53.04969993999994,
         "status": "green"
       }
     },
@@ -134,15 +115,6 @@
       "data_status": "ok",
       "events_today": [],
       "fundamental": {
-        "conditions": {
-          "eps_growth_ok": true,
-          "margin_not_declining": true,
-          "revenue_growth_ok": true
-        },
-        "eps_growth": 5.0247,
-        "net_margin_current": 0.2177,
-        "net_margin_prior_quarter": 0.0901,
-        "revenue_growth": 0.3189,
         "status": "green"
       },
       "note": "Einstieg \u00fcber ca. 151 (13W-Hoch)",
@@ -150,23 +122,9 @@
       "nr7_active": false,
       "price": 139.67,
       "relative_staerke": {
-        "conditions": {
-          "rs_positive_and_rising": true
-        },
-        "rs": 0.21845730542540198,
-        "rs_trend": 0.3664928039373878,
         "status": "green"
       },
       "trendstruktur": {
-        "conditions": {
-          "price_above_smas": true,
-          "sma200_rising": true,
-          "sma_order": false
-        },
-        "price": 139.67,
-        "sma150": 121.04059986000003,
-        "sma200": 110.67074990000003,
-        "sma50": 119.79879985999996,
         "status": "red"
       }
     },
@@ -209,16 +167,7 @@
     "MMED": {
       "company_name": "MiniMed Group Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bullish",
-          "label": "Volumen-Breakout",
-          "rvol_ratio": 3.196440734511183,
-          "rvol_tier": "Extreme",
-          "type": "volume_breakout",
-          "value": "-0.5%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "grey"
       },
@@ -238,15 +187,6 @@
       "data_status": "ok",
       "events_today": [],
       "fundamental": {
-        "conditions": {
-          "eps_growth_ok": true,
-          "margin_not_declining": true,
-          "revenue_growth_ok": true
-        },
-        "eps_growth": 0.5241,
-        "net_margin_current": 0.0631,
-        "net_margin_prior_quarter": 0.0352,
-        "revenue_growth": 0.42219999999999996,
         "status": "green"
       },
       "note": "Strong Watch, Base abwarten",
@@ -254,23 +194,9 @@
       "nr7_active": false,
       "price": 280.45001,
       "relative_staerke": {
-        "conditions": {
-          "rs_positive_and_rising": true
-        },
-        "rs": 0.09365663971926641,
-        "rs_trend": 0.08320402173539865,
         "status": "green"
       },
       "trendstruktur": {
-        "conditions": {
-          "price_above_smas": true,
-          "sma200_rising": true,
-          "sma_order": true
-        },
-        "price": 280.45001,
-        "sma150": 223.33353286666673,
-        "sma200": 203.67569940750002,
-        "sma50": 259.4418007199998,
         "status": "green"
       }
     },
@@ -313,16 +239,7 @@
     "NTSK": {
       "company_name": "Netskope Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bullish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 0.8598793001611551,
-          "rvol_tier": "Below Avg",
-          "type": "move",
-          "value": "+5.8%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "grey"
       },
@@ -376,26 +293,8 @@
     "PENG": {
       "company_name": "Penguin Solutions Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bullish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 1.6444776496039717,
-          "rvol_tier": "Above Avg",
-          "type": "move",
-          "value": "+6.6%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
-        "conditions": {
-          "eps_growth_ok": true,
-          "margin_not_declining": true,
-          "revenue_growth_ok": true
-        },
-        "eps_growth": 7.403,
-        "net_margin_current": 0.1645,
-        "net_margin_prior_quarter": 0.0934,
-        "revenue_growth": 0.677,
         "status": "green"
       },
       "note": "",
@@ -403,23 +302,9 @@
       "nr7_active": false,
       "price": 76.28,
       "relative_staerke": {
-        "conditions": {
-          "rs_positive_and_rising": false
-        },
-        "rs": -0.049351806218231986,
-        "rs_trend": 0.1829793246742344,
         "status": "red"
       },
       "trendstruktur": {
-        "conditions": {
-          "price_above_smas": true,
-          "sma200_rising": true,
-          "sma_order": true
-        },
-        "price": 76.28,
-        "sma150": 48.08573337333333,
-        "sma200": 40.96297503500001,
-        "sma50": 55.185400140000056,
         "status": "green"
       }
     },
@@ -428,15 +313,6 @@
       "data_status": "ok",
       "events_today": [],
       "fundamental": {
-        "conditions": {
-          "eps_growth_ok": true,
-          "margin_not_declining": true,
-          "revenue_growth_ok": false
-        },
-        "eps_growth": 1.0403,
-        "net_margin_current": 0.0613,
-        "net_margin_prior_quarter": 0.0582,
-        "revenue_growth": 0.1057,
         "status": "red"
       },
       "note": "",
@@ -444,23 +320,9 @@
       "nr7_active": false,
       "price": 93.84,
       "relative_staerke": {
-        "conditions": {
-          "rs_positive_and_rising": true
-        },
-        "rs": 0.20846431719688963,
-        "rs_trend": 0.1934012453414642,
         "status": "green"
       },
       "trendstruktur": {
-        "conditions": {
-          "price_above_smas": true,
-          "sma200_rising": true,
-          "sma_order": true
-        },
-        "price": 93.84,
-        "sma150": 75.04973329333332,
-        "sma200": 70.71394998499999,
-        "sma50": 86.44519991999998,
         "status": "green"
       }
     },
@@ -539,16 +401,7 @@
     "TWST": {
       "company_name": "Twist Bioscience Corp",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bullish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 1.135911488749984,
-          "rvol_tier": "Above Avg",
-          "type": "move",
-          "value": "+5.1%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "grey"
       },
@@ -568,15 +421,6 @@
       "data_status": "ok",
       "events_today": [],
       "fundamental": {
-        "conditions": {
-          "eps_growth_ok": false,
-          "margin_not_declining": true,
-          "revenue_growth_ok": true
-        },
-        "eps_growth": 0.1417,
-        "net_margin_current": 0.3472,
-        "net_margin_prior_quarter": 0.1829,
-        "revenue_growth": 0.4925,
         "status": "red"
       },
       "note": "Strong Watch, Base abwarten",
@@ -584,45 +428,17 @@
       "nr7_active": false,
       "price": 266.070007,
       "relative_staerke": {
-        "conditions": {
-          "rs_positive_and_rising": true
-        },
-        "rs": 0.01531878337460002,
-        "rs_trend": 0.37437345062625416,
         "status": "green"
       },
       "trendstruktur": {
-        "conditions": {
-          "price_above_smas": true,
-          "sma200_rising": true,
-          "sma_order": false
-        },
-        "price": 266.070007,
-        "sma150": 242.6706675100001,
-        "sma200": 220.99245043999997,
-        "sma50": 227.94779999999983,
         "status": "red"
       }
     },
     "XMTR": {
       "company_name": "Xometry Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bullish",
-          "label": "52-Wochen-Hoch",
-          "rvol_ratio": 0.5245266268986348,
-          "rvol_tier": "Below Avg",
-          "type": "year_high",
-          "value": "+0.4%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
-        "eps_growth": null,
-        "net_margin_current": -0.0232,
-        "net_margin_prior_quarter": -0.0257,
-        "reason": "insufficient_fundamentals",
-        "revenue_growth": 0.4105,
         "status": "grey"
       },
       "note": "",
@@ -630,23 +446,9 @@
       "nr7_active": false,
       "price": 111.07,
       "relative_staerke": {
-        "conditions": {
-          "rs_positive_and_rising": true
-        },
-        "rs": 0.10557382683186978,
-        "rs_trend": 0.14073393285011027,
         "status": "green"
       },
       "trendstruktur": {
-        "conditions": {
-          "price_above_smas": true,
-          "sma200_rising": true,
-          "sma_order": true
-        },
-        "price": 111.07,
-        "sma150": 78.52006662666673,
-        "sma200": 73.59322493500004,
-        "sma50": 94.35379996000002,
         "status": "green"
       }
     },
