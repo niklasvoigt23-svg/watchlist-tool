@@ -55,6 +55,35 @@ class SignalLineTests(unittest.TestCase):
         self.assertEqual(line, "\U0001F7E2 " + screen.ticker_link("EXLS") + ": Trendstruktur GRUEN")
 
 
+class CompanyNameTests(unittest.TestCase):
+    def setUp(self):
+        screen.set_company_names([
+            {"ticker": "FLY", "company_name": "Firefly Aerospace Inc"},
+            {"ticker": "T", "company_name": "AT&T Inc"},
+            {"ticker": "NONAME", "company_name": ""},
+        ])
+        self.addCleanup(screen.set_company_names, [])
+
+    def test_signal_line_has_link_then_full_company_name(self):
+        line = screen.fmt_signal("FLY", "Kursbewegung", "bullish", 1.5, "+5.5%")
+        self.assertEqual(
+            line,
+            "\U0001F7E1 " + screen.ticker_link("FLY") + " (Firefly Aerospace Inc)"
+            " | Kursbewegung | RVOL 1.5x (Above Avg) | +5.5%",
+        )
+
+    def test_status_change_has_company_name(self):
+        line = screen.fmt_status_change("FLY", "Fundamental", "red")
+        self.assertEqual(line, "\U0001F534 " + screen.ticker_link("FLY") + " (Firefly Aerospace Inc): Fundamental ROT")
+
+    def test_company_name_is_html_escaped(self):
+        self.assertIn("(AT&amp;T Inc)", screen.fmt_signal("T", "Pocket Pivot", "bullish", 2.4))
+
+    def test_missing_or_empty_name_falls_back_to_plain_link(self):
+        self.assertEqual(screen.ticker_label("NONAME"), screen.ticker_link("NONAME"))
+        self.assertEqual(screen.ticker_label("UNKNOWN"), screen.ticker_link("UNKNOWN"))
+
+
 class SendMessageTests(unittest.TestCase):
     URL = "https://api.telegram.org/botTOKEN/sendMessage"
 

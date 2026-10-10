@@ -99,16 +99,32 @@ def ticker_link(ticker):
     return f'<a href="{html.escape(url, quote=True)}">{html.escape(ticker)}</a>'
 
 
+_company_names = {}
+
+
+def set_company_names(watchlist):
+    """Firmennamen aus der Watchlist (Spalte company_name) fuer die Telegram-Texte merken."""
+    _company_names.clear()
+    _company_names.update({row["ticker"]: row.get("company_name", "") for row in watchlist})
+
+
+def ticker_label(ticker):
+    """Ticker als Link, dahinter der volle Firmenname in Klammern (falls bekannt)."""
+    name = _company_names.get(ticker, "")
+    link = ticker_link(ticker)
+    return f"{link} ({html.escape(name)})" if name else link
+
+
 def fmt_status_change(ticker, label, status):
     icon = "\U0001F7E2" if status == "green" else "\U0001F534"
     verb = "GRUEN" if status == "green" else "ROT"
-    return f"{icon} {ticker_link(ticker)}: {html.escape(label)} {verb}"
+    return f"{icon} {ticker_label(ticker)}: {html.escape(label)} {verb}"
 
 
 def fmt_news(ticker, item):
     headline = html.escape(item.get("headline", "").strip())
     url = html.escape(item.get("url", ""))
-    return f"\U0001F4F0 {ticker_link(ticker)}: {headline} {url}".strip()
+    return f"\U0001F4F0 {ticker_label(ticker)}: {headline} {url}".strip()
 
 
 def fmt_pct_signed(value_fraction):
@@ -127,7 +143,7 @@ def fmt_signal(ticker, label, direction, rvol_ratio, extra=None):
     else:
         emoji = "\U0001F7E2" if tier in ("High", "Extreme") else "\U0001F7E1"
     rvol_text = f"RVOL {rvol_ratio:.1f}x ({tier})" if rvol_ratio is not None else "RVOL n/a"
-    line = f"{emoji} {ticker_link(ticker)} | {html.escape(label)} | {rvol_text}"
+    line = f"{emoji} {ticker_label(ticker)} | {html.escape(label)} | {rvol_text}"
     if extra:
         line += f" | {html.escape(extra)}"
     return line
@@ -378,6 +394,7 @@ def main():
     except watchlist_source.WatchlistSourceError as e:
         print(f"[error] Keine brauchbare Watchlist: {e}", file=sys.stderr)
         sys.exit(1)
+    set_company_names(watchlist)
     print(f"[info] Watchlist: {len(watchlist)} Ticker aus {'Google Sheet' if watchlist_origin == 'sheet' else config.WATCHLIST_CSV}")
 
     state = load_state(config.STATE_JSON)
