@@ -93,6 +93,13 @@ darunter, 🔴 bearisches Signal unabhaengig vom RVOL-Tier. Volumen-Breakout und
 gelten dabei immer als bullisch. Status-Wechsel der drei Dauer-Ampeln und Pivotal News bleiben
 wie zuvor in einer gebuendelten Nachricht.
 
+**Ticker als Link:** In jeder Nachricht (Einzelsignale und Ampel-Wechsel) ist der Ticker ein
+Link auf die Chart-Seite, per Default `https://finance.yahoo.com/quote/{ticker}` (Klassen-Ticker
+wie `BRK.B` als `BRK-B`). Ziel aendern: `CHART_URL_TEMPLATE` in `scripts/config.py`. Die
+Nachrichten gehen als Telegram-HTML raus, die Link-Vorschau ist abgeschaltet, damit es bei der
+einen trockenen Zeile bleibt. Lehnt Telegram die Formatierung ab (HTTP 400), wird dieselbe
+Nachricht einmal als reiner Text ohne Link nachgeschickt, ein Alarm geht also nicht verloren.
+
 ## Wichtig: Sichtbarkeit dieses Repos
 
 Dieses Repo ist bewusst **oeffentlich**, weil GitHub Pages auf einem kostenlosen persoenlichen

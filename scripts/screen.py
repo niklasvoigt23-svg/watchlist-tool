@@ -16,9 +16,11 @@ TTM-Squeeze-Fire) wird dagegen als EIGENE Telegram-Nachricht verschickt, nicht g
 
 import argparse
 import datetime
+import html
 import json
 import os
 import sys
+import urllib.parse
 
 import config
 import signals
@@ -89,16 +91,24 @@ STATUS_LABELS = {
 }
 
 
+def ticker_link(ticker):
+    """Ticker als Telegram-HTML-Link auf die Chart-Seite (config.CHART_URL_TEMPLATE).
+    Yahoo schreibt Klassen-Ticker mit Bindestrich (BRK.B -> BRK-B)."""
+    symbol = urllib.parse.quote(ticker.replace(".", "-"), safe="")
+    url = config.CHART_URL_TEMPLATE.format(ticker=symbol)
+    return f'<a href="{html.escape(url, quote=True)}">{html.escape(ticker)}</a>'
+
+
 def fmt_status_change(ticker, label, status):
     icon = "\U0001F7E2" if status == "green" else "\U0001F534"
     verb = "GRUEN" if status == "green" else "ROT"
-    return f"{icon} {ticker}: {label} {verb}"
+    return f"{icon} {ticker_link(ticker)}: {html.escape(label)} {verb}"
 
 
 def fmt_news(ticker, item):
-    headline = item.get("headline", "").strip()
-    url = item.get("url", "")
-    return f"\U0001F4F0 {ticker}: {headline} {url}".strip()
+    headline = html.escape(item.get("headline", "").strip())
+    url = html.escape(item.get("url", ""))
+    return f"\U0001F4F0 {ticker_link(ticker)}: {headline} {url}".strip()
 
 
 def fmt_pct_signed(value_fraction):
@@ -117,9 +127,9 @@ def fmt_signal(ticker, label, direction, rvol_ratio, extra=None):
     else:
         emoji = "\U0001F7E2" if tier in ("High", "Extreme") else "\U0001F7E1"
     rvol_text = f"RVOL {rvol_ratio:.1f}x ({tier})" if rvol_ratio is not None else "RVOL n/a"
-    line = f"{emoji} {ticker} | {label} | {rvol_text}"
+    line = f"{emoji} {ticker_link(ticker)} | {html.escape(label)} | {rvol_text}"
     if extra:
-        line += f" | {extra}"
+        line += f" | {html.escape(extra)}"
     return line
 
 

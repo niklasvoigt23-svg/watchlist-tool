@@ -49,6 +49,10 @@ RVOL_BELOW_AVG_MAX = 1.0     # 0.5x - 1.0x   -> "Below Avg"
 RVOL_ABOVE_AVG_MAX = 2.0     # 1.0x - 2.0x   -> "Above Avg"
 RVOL_HIGH_MAX = 3.0          # 2.0x - 3.0x   -> "High", sonst "Extreme"
 
+# --- Telegram ---
+# Ticker in Alarmen sind Links auf diese Seite (Chart oben auf der Yahoo-Seite).
+CHART_URL_TEMPLATE = "https://finance.yahoo.com/quote/{ticker}"
+
 # --- News ---
 ENABLE_NEWS = False           # Auf Wunsch deaktiviert: Telegram soll nur trockene Signal-Alarme
                                # schicken, keine News-Artikel. Auf True setzen, um es wieder
