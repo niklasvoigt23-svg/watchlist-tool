@@ -1,5 +1,5 @@
 {
-  "last_run_at": "2026-10-11T14:04:28.099189+00:00",
+  "last_run_at": "2026-10-11T16:04:18.036495+00:00",
   "last_run_mode": "intraday",
   "tickers": {
     "APMD": {
@@ -167,16 +167,7 @@
     "MMED": {
       "company_name": "MiniMed Group Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bullish",
-          "label": "Volumen-Breakout",
-          "rvol_ratio": 3.196440734511183,
-          "rvol_tier": "Extreme",
-          "type": "volume_breakout",
-          "value": "-0.5%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "grey"
       },
@@ -248,16 +239,7 @@
     "NTSK": {
       "company_name": "Netskope Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bullish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 0.8598793001611551,
-          "rvol_tier": "Below Avg",
-          "type": "move",
-          "value": "+5.8%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "grey"
       },
@@ -311,16 +293,7 @@
     "PENG": {
       "company_name": "Penguin Solutions Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bullish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 1.6444776496039717,
-          "rvol_tier": "Above Avg",
-          "type": "move",
-          "value": "+6.6%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "green"
       },
@@ -428,16 +401,7 @@
     "TWST": {
       "company_name": "Twist Bioscience Corp",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bullish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 1.135911488749984,
-          "rvol_tier": "Above Avg",
-          "type": "move",
-          "value": "+5.1%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "grey"
       },
@@ -473,16 +437,7 @@
     "XMTR": {
       "company_name": "Xometry Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bullish",
-          "label": "52-Wochen-Hoch",
-          "rvol_ratio": 0.5245266268986348,
-          "rvol_tier": "Below Avg",
-          "type": "year_high",
-          "value": "+0.4%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "grey"
       },
