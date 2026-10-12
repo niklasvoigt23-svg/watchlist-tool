@@ -141,7 +141,8 @@
     "trendstruktur_status": "green",
     "volume_avg20": 393785.0,
     "volume_breakout_last_alert_date": "2026-09-20",
-    "year_high_252": 165.37
+    "year_high_252": 165.37,
+    "year_high_last_alert_date": "2026-10-12"
   },
   "NTSK": {
     "last_close": 20.755,
@@ -199,7 +200,7 @@
   },
   "QBTS": {
     "last_close": 14.57,
-    "move_alert_last_alert_date": "2026-10-08",
+    "move_alert_last_alert_date": "2026-10-12",
     "news_last_seen_ts": 1790590920,
     "nr4_active": false,
     "nr7_active": false,
@@ -247,7 +248,7 @@
   },
   "TWST": {
     "last_close": 159.78,
-    "move_alert_last_alert_date": "2026-10-11",
+    "move_alert_last_alert_date": "2026-10-12",
     "news_last_seen_ts": 1790589330,
     "nr4_active": false,
     "nr7_active": false,

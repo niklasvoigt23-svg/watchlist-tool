@@ -1,5 +1,5 @@
 {
-  "last_run_at": "2026-10-12T14:04:29.332186+00:00",
+  "last_run_at": "2026-10-12T16:04:22.917518+00:00",
   "last_run_mode": "intraday",
   "tickers": {
     "APMD": {
@@ -12,7 +12,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 18.41,
+      "price": 18.89,
       "relative_staerke": {
         "status": "grey"
       },
@@ -23,23 +23,14 @@
     "CBRS": {
       "company_name": "Cerebras Systems Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bearish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 0.012541140038169314,
-          "rvol_tier": "Dead",
-          "type": "move",
-          "value": "-7.0%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "grey"
       },
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 152.69,
+      "price": 148.26,
       "relative_staerke": {
         "status": "red"
       },
@@ -57,7 +48,7 @@
       "note": "Case noch pr\u00fcfen",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 64.085,
+      "price": 62.925,
       "relative_staerke": {
         "status": "green"
       },
@@ -75,7 +66,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 36.89,
+      "price": 36.725,
       "relative_staerke": {
         "status": "green"
       },
@@ -93,7 +84,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 74.575,
+      "price": 74.78,
       "relative_staerke": {
         "status": "green"
       },
@@ -111,7 +102,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 19.99,
+      "price": 19.7,
       "relative_staerke": {
         "status": "red"
       },
@@ -122,23 +113,14 @@
     "FORM": {
       "company_name": "FormFactor Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bearish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 0.0011598855256583032,
-          "rvol_tier": "Dead",
-          "type": "move",
-          "value": "-5.3%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "green"
       },
       "note": "Einstieg \u00fcber ca. 151 (13W-Hoch)",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 132.3,
+      "price": 131.43,
       "relative_staerke": {
         "status": "green"
       },
@@ -156,7 +138,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 220.255,
+      "price": 219.91,
       "relative_staerke": {
         "status": "red"
       },
@@ -174,7 +156,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 35.88,
+      "price": 35.7,
       "relative_staerke": {
         "status": "red"
       },
@@ -192,7 +174,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 18.955,
+      "price": 19.17,
       "relative_staerke": {
         "status": "red"
       },
@@ -210,7 +192,7 @@
       "note": "Strong Watch, Base abwarten",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 274.51,
+      "price": 272.85,
       "relative_staerke": {
         "status": "green"
       },
@@ -228,7 +210,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 16.245,
+      "price": 16.19,
       "relative_staerke": {
         "status": "red"
       },
@@ -239,14 +221,23 @@
     "NSIT": {
       "company_name": "Insight Enterprises Inc",
       "data_status": "ok",
-      "events_today": [],
+      "events_today": [
+        {
+          "direction": "bullish",
+          "label": "52-Wochen-Hoch",
+          "rvol_ratio": 0.008918572317381312,
+          "rvol_tier": "Dead",
+          "type": "year_high",
+          "value": "+0.4%"
+        }
+      ],
       "fundamental": {
         "status": "red"
       },
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 164.4,
+      "price": 166.0,
       "relative_staerke": {
         "status": "red"
       },
@@ -264,7 +255,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 21.05,
+      "price": 20.775,
       "relative_staerke": {
         "status": "red"
       },
@@ -282,7 +273,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 100.74,
+      "price": 99.72,
       "relative_staerke": {
         "status": "red"
       },
@@ -300,7 +291,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 63.135,
+      "price": 62.775,
       "relative_staerke": {
         "status": "red"
       },
@@ -318,7 +309,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 75.68,
+      "price": 79.37,
       "relative_staerke": {
         "status": "red"
       },
@@ -336,7 +327,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 92.68,
+      "price": 93.01,
       "relative_staerke": {
         "status": "green"
       },
@@ -347,14 +338,23 @@
     "QBTS": {
       "company_name": "D-Wave Quantum Inc",
       "data_status": "ok",
-      "events_today": [],
+      "events_today": [
+        {
+          "direction": "bearish",
+          "label": "Kursbewegung",
+          "rvol_ratio": 0.027192799896834954,
+          "rvol_tier": "Dead",
+          "type": "move",
+          "value": "-5.3%"
+        }
+      ],
       "fundamental": {
         "status": "grey"
       },
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 13.985,
+      "price": 13.805,
       "relative_staerke": {
         "status": "red"
       },
@@ -372,7 +372,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 124.44,
+      "price": 121.68,
       "relative_staerke": {
         "status": "green"
       },
@@ -390,7 +390,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 79.9,
+      "price": 79.855,
       "relative_staerke": {
         "status": "red"
       },
@@ -401,23 +401,14 @@
     "TTMI": {
       "company_name": "TTM Technologies Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bearish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 0.015374095893758741,
-          "rvol_tier": "Dead",
-          "type": "move",
-          "value": "-7.1%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "green"
       },
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 112.47,
+      "price": 107.86,
       "relative_staerke": {
         "status": "red"
       },
@@ -428,14 +419,23 @@
     "TWST": {
       "company_name": "Twist Bioscience Corp",
       "data_status": "ok",
-      "events_today": [],
+      "events_today": [
+        {
+          "direction": "bearish",
+          "label": "Kursbewegung",
+          "rvol_ratio": 0.01834432878540899,
+          "rvol_tier": "Dead",
+          "type": "move",
+          "value": "-5.8%"
+        }
+      ],
       "fundamental": {
         "status": "grey"
       },
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 158.49,
+      "price": 150.56,
       "relative_staerke": {
         "status": "green"
       },
@@ -453,7 +453,7 @@
       "note": "Strong Watch, Base abwarten",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 259.53,
+      "price": 258.78,
       "relative_staerke": {
         "status": "green"
       },
@@ -471,7 +471,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 109.94,
+      "price": 109.31,
       "relative_staerke": {
         "status": "green"
       },
@@ -489,7 +489,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 20.73,
+      "price": 20.87,
       "relative_staerke": {
         "status": "red"
       },
@@ -507,7 +507,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 33.725,
+      "price": 33.615,
       "relative_staerke": {
         "status": "green"
       },
