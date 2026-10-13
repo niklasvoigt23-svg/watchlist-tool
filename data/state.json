@@ -19,6 +19,7 @@
   },
   "CDNA": {
     "last_close": 63.13,
+    "move_alert_last_alert_date": "2026-10-13",
     "nr4_active": false,
     "nr7_active": false,
     "relative_staerke_status": "red",
@@ -136,6 +137,7 @@
   "NSIT": {
     "fundamental_status": "red",
     "last_close": 166.125,
+    "move_alert_last_alert_date": "2026-10-13",
     "news_last_seen_ts": 1790435630,
     "nr4_active": true,
     "nr7_active": false,
