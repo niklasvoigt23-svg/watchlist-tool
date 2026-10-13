@@ -1,5 +1,5 @@
 {
-  "last_run_at": "2026-10-13T14:04:29.635093+00:00",
+  "last_run_at": "2026-10-13T16:04:26.594913+00:00",
   "last_run_mode": "intraday",
   "tickers": {
     "APMD": {
@@ -12,7 +12,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 18.18,
+      "price": 18.175,
       "relative_staerke": {
         "status": "grey"
       },
@@ -30,7 +30,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 145.4,
+      "price": 148.215,
       "relative_staerke": {
         "status": "red"
       },
@@ -48,7 +48,7 @@
       "note": "Case noch pr\u00fcfen",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 62.73,
+      "price": 65.85,
       "relative_staerke": {
         "status": "red"
       },
@@ -66,7 +66,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 37.66,
+      "price": 37.44,
       "relative_staerke": {
         "status": "green"
       },
@@ -84,7 +84,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 72.7,
+      "price": 71.15,
       "relative_staerke": {
         "status": "green"
       },
@@ -95,14 +95,23 @@
     "FLY": {
       "company_name": "Firefly Aerospace Inc",
       "data_status": "ok",
-      "events_today": [],
+      "events_today": [
+        {
+          "direction": "bearish",
+          "label": "Kursbewegung",
+          "rvol_ratio": 0.01014134216883491,
+          "rvol_tier": "Dead",
+          "type": "move",
+          "value": "-5.1%"
+        }
+      ],
       "fundamental": {
         "status": "grey"
       },
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 18.725,
+      "price": 18.39,
       "relative_staerke": {
         "status": "red"
       },
@@ -120,7 +129,7 @@
       "note": "Einstieg \u00fcber ca. 151 (13W-Hoch)",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 127.04,
+      "price": 124.37,
       "relative_staerke": {
         "status": "green"
       },
@@ -138,7 +147,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 215.07,
+      "price": 209.8,
       "relative_staerke": {
         "status": "red"
       },
@@ -156,7 +165,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 35.77,
+      "price": 36.02,
       "relative_staerke": {
         "status": "red"
       },
@@ -174,7 +183,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 19.14,
+      "price": 18.98,
       "relative_staerke": {
         "status": "red"
       },
@@ -192,7 +201,7 @@
       "note": "Strong Watch, Base abwarten",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 267.49,
+      "price": 265.57,
       "relative_staerke": {
         "status": "green"
       },
@@ -210,7 +219,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 15.98,
+      "price": 16.73,
       "relative_staerke": {
         "status": "red"
       },
@@ -221,23 +230,14 @@
     "NSIT": {
       "company_name": "Insight Enterprises Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bullish",
-          "label": "52-Wochen-Hoch",
-          "rvol_ratio": 0.006153610849116725,
-          "rvol_tier": "Dead",
-          "type": "year_high",
-          "value": "+2.6%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "red"
       },
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 169.675,
+      "price": 171.51,
       "relative_staerke": {
         "status": "red"
       },
@@ -255,7 +255,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 20.97,
+      "price": 20.77,
       "relative_staerke": {
         "status": "red"
       },
@@ -273,7 +273,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 98.54,
+      "price": 97.61,
       "relative_staerke": {
         "status": "red"
       },
@@ -291,7 +291,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 62.825,
+      "price": 62.39,
       "relative_staerke": {
         "status": "green"
       },
@@ -309,7 +309,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 79.59,
+      "price": 78.26,
       "relative_staerke": {
         "status": "red"
       },
@@ -327,7 +327,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 91.73,
+      "price": 89.97,
       "relative_staerke": {
         "status": "green"
       },
@@ -345,7 +345,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 13.505,
+      "price": 13.39,
       "relative_staerke": {
         "status": "red"
       },
@@ -363,7 +363,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 121.7,
+      "price": 119.56,
       "relative_staerke": {
         "status": "red"
       },
@@ -374,23 +374,14 @@
     "RDVT": {
       "company_name": "Red Violet Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bullish",
-          "label": "52-Wochen-Hoch",
-          "rvol_ratio": 0.0001495115098084706,
-          "rvol_tier": "Dead",
-          "type": "year_high",
-          "value": "+0.9%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "green"
       },
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 80.985,
+      "price": 80.06,
       "relative_staerke": {
         "status": "red"
       },
@@ -408,7 +399,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 108.08,
+      "price": 109.405,
       "relative_staerke": {
         "status": "red"
       },
@@ -426,7 +417,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 148.14,
+      "price": 152.03,
       "relative_staerke": {
         "status": "red"
       },
@@ -444,7 +435,7 @@
       "note": "Strong Watch, Base abwarten",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 259.61,
+      "price": 260.87,
       "relative_staerke": {
         "status": "red"
       },
@@ -462,7 +453,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 107.43,
+      "price": 109.71,
       "relative_staerke": {
         "status": "green"
       },
@@ -480,7 +471,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 21.76,
+      "price": 21.64,
       "relative_staerke": {
         "status": "green"
       },
@@ -491,23 +482,14 @@
     "ZETA": {
       "company_name": "Zeta Global Holdings Corp",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bullish",
-          "label": "52-Wochen-Hoch",
-          "rvol_ratio": 0.002225895353470485,
-          "rvol_tier": "Dead",
-          "type": "year_high",
-          "value": "+1.1%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "grey"
       },
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 34.12,
+      "price": 34.39,
       "relative_staerke": {
         "status": "red"
       },
