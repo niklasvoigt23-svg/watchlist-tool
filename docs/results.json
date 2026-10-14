@@ -1,5 +1,5 @@
 {
-  "last_run_at": "2026-10-14T16:04:22.218628+00:00",
+  "last_run_at": "2026-10-14T18:04:24.592424+00:00",
   "last_run_mode": "intraday",
   "tickers": {
     "APMD": {
@@ -12,7 +12,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 17.19,
+      "price": 17.35,
       "relative_staerke": {
         "status": "grey"
       },
@@ -23,14 +23,23 @@
     "CBRS": {
       "company_name": "Cerebras Systems Inc",
       "data_status": "ok",
-      "events_today": [],
+      "events_today": [
+        {
+          "direction": "bearish",
+          "label": "Kursbewegung",
+          "rvol_ratio": 0.04473485316303551,
+          "rvol_tier": "Dead",
+          "type": "move",
+          "value": "-5.1%"
+        }
+      ],
       "fundamental": {
         "status": "grey"
       },
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 144.28,
+      "price": 141.44,
       "relative_staerke": {
         "status": "red"
       },
@@ -48,7 +57,7 @@
       "note": "Case noch pr\u00fcfen",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 65.33,
+      "price": 65.63,
       "relative_staerke": {
         "status": "red"
       },
@@ -66,7 +75,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 37.53,
+      "price": 37.27,
       "relative_staerke": {
         "status": "green"
       },
@@ -84,7 +93,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 71.02,
+      "price": 70.07,
       "relative_staerke": {
         "status": "green"
       },
@@ -95,23 +104,14 @@
     "FLY": {
       "company_name": "Firefly Aerospace Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bearish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 0.01632367707496285,
-          "rvol_tier": "Dead",
-          "type": "move",
-          "value": "-5.4%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "grey"
       },
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 17.35,
+      "price": 17.05,
       "relative_staerke": {
         "status": "red"
       },
@@ -122,14 +122,23 @@
     "FORM": {
       "company_name": "FormFactor Inc",
       "data_status": "ok",
-      "events_today": [],
+      "events_today": [
+        {
+          "direction": "bearish",
+          "label": "Kursbewegung",
+          "rvol_ratio": 0.018657598755014805,
+          "rvol_tier": "Dead",
+          "type": "move",
+          "value": "-6.4%"
+        }
+      ],
       "fundamental": {
         "status": "green"
       },
       "note": "Einstieg \u00fcber ca. 151 (13W-Hoch)",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 122.11,
+      "price": 119.91,
       "relative_staerke": {
         "status": "green"
       },
@@ -140,23 +149,14 @@
     "GNRC": {
       "company_name": "Generac Holdings Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bearish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 0.01776836707686126,
-          "rvol_tier": "Dead",
-          "type": "move",
-          "value": "-6.8%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "red"
       },
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 199.81,
+      "price": 197.32,
       "relative_staerke": {
         "status": "red"
       },
@@ -174,7 +174,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 35.6,
+      "price": 34.76,
       "relative_staerke": {
         "status": "red"
       },
@@ -185,14 +185,23 @@
     "MMED": {
       "company_name": "MiniMed Group Inc",
       "data_status": "ok",
-      "events_today": [],
+      "events_today": [
+        {
+          "direction": "bearish",
+          "label": "Kursbewegung",
+          "rvol_ratio": 0.1116945021258575,
+          "rvol_tier": "Dead",
+          "type": "move",
+          "value": "-6.6%"
+        }
+      ],
       "fundamental": {
         "status": "grey"
       },
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 17.5,
+      "price": 17.19,
       "relative_staerke": {
         "status": "red"
       },
@@ -203,14 +212,23 @@
     "MTRN": {
       "company_name": "Materion Corp",
       "data_status": "ok",
-      "events_today": [],
+      "events_today": [
+        {
+          "direction": "bearish",
+          "label": "Kursbewegung",
+          "rvol_ratio": 0.021833571467327412,
+          "rvol_tier": "Dead",
+          "type": "move",
+          "value": "-6.8%"
+        }
+      ],
       "fundamental": {
         "status": "green"
       },
       "note": "Strong Watch, Base abwarten",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 260.97,
+      "price": 253.405,
       "relative_staerke": {
         "status": "green"
       },
@@ -228,7 +246,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 16.93,
+      "price": 16.85,
       "relative_staerke": {
         "status": "red"
       },
@@ -239,14 +257,23 @@
     "NSIT": {
       "company_name": "Insight Enterprises Inc",
       "data_status": "ok",
-      "events_today": [],
+      "events_today": [
+        {
+          "direction": "bearish",
+          "label": "Kursbewegung",
+          "rvol_ratio": 0.03368856699430937,
+          "rvol_tier": "Dead",
+          "type": "move",
+          "value": "-5.2%"
+        }
+      ],
       "fundamental": {
         "status": "red"
       },
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 169.52,
+      "price": 166.725,
       "relative_staerke": {
         "status": "green"
       },
@@ -257,14 +284,23 @@
     "NTSK": {
       "company_name": "Netskope Inc",
       "data_status": "ok",
-      "events_today": [],
+      "events_today": [
+        {
+          "direction": "bearish",
+          "label": "Kursbewegung",
+          "rvol_ratio": 0.028504875040981047,
+          "rvol_tier": "Dead",
+          "type": "move",
+          "value": "-6.2%"
+        }
+      ],
       "fundamental": {
         "status": "grey"
       },
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 20.15,
+      "price": 19.835,
       "relative_staerke": {
         "status": "red"
       },
@@ -282,7 +318,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 97.155,
+      "price": 95.48,
       "relative_staerke": {
         "status": "red"
       },
@@ -300,7 +336,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 61.345,
+      "price": 61.265,
       "relative_staerke": {
         "status": "green"
       },
@@ -318,7 +354,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 69.75,
+      "price": 68.65,
       "relative_staerke": {
         "status": "green"
       },
@@ -336,7 +372,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 89.655,
+      "price": 87.99,
       "relative_staerke": {
         "status": "green"
       },
@@ -354,7 +390,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 12.45,
+      "price": 12.255,
       "relative_staerke": {
         "status": "red"
       },
@@ -372,7 +408,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 115.6,
+      "price": 112.72,
       "relative_staerke": {
         "status": "red"
       },
@@ -390,7 +426,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 76.73,
+      "price": 76.25,
       "relative_staerke": {
         "status": "red"
       },
@@ -401,23 +437,14 @@
     "TTMI": {
       "company_name": "TTM Technologies Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bearish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 0.02845218203790351,
-          "rvol_tier": "Dead",
-          "type": "move",
-          "value": "-6.7%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "green"
       },
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 108.29,
+      "price": 102.67,
       "relative_staerke": {
         "status": "red"
       },
@@ -435,7 +462,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 151.76,
+      "price": 148.85,
       "relative_staerke": {
         "status": "red"
       },
@@ -446,23 +473,14 @@
     "VICR": {
       "company_name": "Vicor Corp",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bearish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 0.011102168142256529,
-          "rvol_tier": "Dead",
-          "type": "move",
-          "value": "-6.7%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "red"
       },
       "note": "Strong Watch, Base abwarten",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 249.43,
+      "price": 244.42,
       "relative_staerke": {
         "status": "red"
       },
@@ -473,23 +491,14 @@
     "XMTR": {
       "company_name": "Xometry Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bearish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 0.011394553355156344,
-          "rvol_tier": "Dead",
-          "type": "move",
-          "value": "-9.1%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "grey"
       },
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 98.055,
+      "price": 94.73,
       "relative_staerke": {
         "status": "green"
       },
@@ -507,7 +516,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 21.61,
+      "price": 21.625,
       "relative_staerke": {
         "status": "green"
       },
@@ -525,7 +534,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 32.44,
+      "price": 32.485,
       "relative_staerke": {
         "status": "red"
       },
