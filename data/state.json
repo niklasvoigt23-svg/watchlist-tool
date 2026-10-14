@@ -57,7 +57,7 @@
   "FLY": {
     "aroon_bear_last_alert_date": "2026-10-12",
     "last_close": 18.34,
-    "move_alert_last_alert_date": "2026-10-13",
+    "move_alert_last_alert_date": "2026-10-14",
     "news_last_seen_ts": 1790409612,
     "nr4_active": true,
     "nr7_active": true,
@@ -82,7 +82,7 @@
   "GNRC": {
     "fundamental_status": "red",
     "last_close": 214.22,
-    "move_alert_last_alert_date": "2026-10-06",
+    "move_alert_last_alert_date": "2026-10-14",
     "nr4_active": false,
     "nr7_active": false,
     "pocket_pivot_last_alert_date": "2026-10-11",
@@ -244,7 +244,7 @@
     "aroon_bear_last_alert_date": "2026-10-12",
     "fundamental_status": "green",
     "last_close": 116.025,
-    "move_alert_last_alert_date": "2026-10-13",
+    "move_alert_last_alert_date": "2026-10-14",
     "news_last_seen_ts": 1790615449,
     "nr4_active": false,
     "nr7_active": false,
@@ -269,6 +269,7 @@
   "VICR": {
     "fundamental_status": "red",
     "last_close": 267.18,
+    "move_alert_last_alert_date": "2026-10-14",
     "nr4_active": false,
     "nr7_active": false,
     "relative_staerke_status": "red",
@@ -278,6 +279,7 @@
   },
   "XMTR": {
     "last_close": 107.94,
+    "move_alert_last_alert_date": "2026-10-14",
     "nr4_active": false,
     "nr7_active": false,
     "relative_staerke_status": "green",
