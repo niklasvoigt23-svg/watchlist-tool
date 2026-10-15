@@ -1,18 +1,27 @@
 {
-  "last_run_at": "2026-10-15T14:04:33.101571+00:00",
+  "last_run_at": "2026-10-15T16:04:24.372958+00:00",
   "last_run_mode": "intraday",
   "tickers": {
     "APMD": {
       "company_name": "Apnimed Inc",
       "data_status": "ok",
-      "events_today": [],
+      "events_today": [
+        {
+          "direction": "bullish",
+          "label": "Kursbewegung",
+          "rvol_ratio": 0.005039462497460707,
+          "rvol_tier": "Dead",
+          "type": "move",
+          "value": "+5.8%"
+        }
+      ],
       "fundamental": {
         "status": "grey"
       },
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 17.57,
+      "price": 18.23,
       "relative_staerke": {
         "status": "grey"
       },
@@ -23,23 +32,14 @@
     "CBRS": {
       "company_name": "Cerebras Systems Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bearish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 0.006834924290972097,
-          "rvol_tier": "Dead",
-          "type": "move",
-          "value": "-5.1%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "grey"
       },
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 134.31,
+      "price": 140.035,
       "relative_staerke": {
         "status": "red"
       },
@@ -57,7 +57,7 @@
       "note": "Case noch pr\u00fcfen",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 66.015,
+      "price": 66.32,
       "relative_staerke": {
         "status": "red"
       },
@@ -75,7 +75,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 38.71,
+      "price": 38.85,
       "relative_staerke": {
         "status": "green"
       },
@@ -93,7 +93,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 67.65,
+      "price": 69.13,
       "relative_staerke": {
         "status": "green"
       },
@@ -104,23 +104,14 @@
     "FLY": {
       "company_name": "Firefly Aerospace Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bearish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 0.004024338765399185,
-          "rvol_tier": "Dead",
-          "type": "move",
-          "value": "-5.2%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "grey"
       },
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 16.13,
+      "price": 17.345,
       "relative_staerke": {
         "status": "red"
       },
@@ -131,23 +122,14 @@
     "FORM": {
       "company_name": "FormFactor Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bearish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 0.004237643534697953,
-          "rvol_tier": "Dead",
-          "type": "move",
-          "value": "-9.4%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "green"
       },
       "note": "Einstieg \u00fcber ca. 151 (13W-Hoch)",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 108.47,
+      "price": 111.55,
       "relative_staerke": {
         "status": "green"
       },
@@ -165,7 +147,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 189.09,
+      "price": 196.59,
       "relative_staerke": {
         "status": "red"
       },
@@ -183,7 +165,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 34.51,
+      "price": 34.43,
       "relative_staerke": {
         "status": "red"
       },
@@ -201,7 +183,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 17.245,
+      "price": 17.12,
       "relative_staerke": {
         "status": "red"
       },
@@ -212,23 +194,14 @@
     "MTRN": {
       "company_name": "Materion Corp",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bearish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 0.0038486446479785363,
-          "rvol_tier": "Dead",
-          "type": "move",
-          "value": "-6.9%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "green"
       },
       "note": "Strong Watch, Base abwarten",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 238.215,
+      "price": 249.71,
       "relative_staerke": {
         "status": "green"
       },
@@ -246,7 +219,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 16.975,
+      "price": 17.18,
       "relative_staerke": {
         "status": "red"
       },
@@ -264,7 +237,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 160.9,
+      "price": 159.88,
       "relative_staerke": {
         "status": "red"
       },
@@ -282,7 +255,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 19.65,
+      "price": 20.065,
       "relative_staerke": {
         "status": "red"
       },
@@ -300,7 +273,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 96.15,
+      "price": 96.79,
       "relative_staerke": {
         "status": "red"
       },
@@ -318,7 +291,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 60.02,
+      "price": 61.185,
       "relative_staerke": {
         "status": "red"
       },
@@ -329,23 +302,14 @@
     "PENG": {
       "company_name": "Penguin Solutions Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bearish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 0.005924086642812495,
-          "rvol_tier": "Dead",
-          "type": "move",
-          "value": "-9.4%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "green"
       },
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 61.245,
+      "price": 61.82,
       "relative_staerke": {
         "status": "red"
       },
@@ -363,7 +327,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 84.71,
+      "price": 86.6,
       "relative_staerke": {
         "status": "green"
       },
@@ -374,23 +338,14 @@
     "QBTS": {
       "company_name": "D-Wave Quantum Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bearish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 0.011373869045747574,
-          "rvol_tier": "Dead",
-          "type": "move",
-          "value": "-5.2%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "grey"
       },
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 11.4,
+      "price": 12.37,
       "relative_staerke": {
         "status": "red"
       },
@@ -408,7 +363,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 111.05,
+      "price": 115.18,
       "relative_staerke": {
         "status": "red"
       },
@@ -426,7 +381,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 76.06,
+      "price": 77.085,
       "relative_staerke": {
         "status": "red"
       },
@@ -437,23 +392,14 @@
     "TTMI": {
       "company_name": "TTM Technologies Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bearish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 0.04084231434641731,
-          "rvol_tier": "Dead",
-          "type": "move",
-          "value": "-9.5%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "green"
       },
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 93.52,
+      "price": 97.69,
       "relative_staerke": {
         "status": "red"
       },
@@ -464,23 +410,14 @@
     "TWST": {
       "company_name": "Twist Bioscience Corp",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bearish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 0.016079458732943027,
-          "rvol_tier": "Dead",
-          "type": "move",
-          "value": "-8.7%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "grey"
       },
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 135.26,
+      "price": 141.975,
       "relative_staerke": {
         "status": "red"
       },
@@ -491,23 +428,14 @@
     "VICR": {
       "company_name": "Vicor Corp",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bearish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 0.012771506860020416,
-          "rvol_tier": "Dead",
-          "type": "move",
-          "value": "-11.1%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "red"
       },
       "note": "Strong Watch, Base abwarten",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 218.0,
+      "price": 213.08,
       "relative_staerke": {
         "status": "green"
       },
@@ -525,7 +453,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 93.25,
+      "price": 96.46,
       "relative_staerke": {
         "status": "red"
       },
@@ -543,7 +471,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 22.39,
+      "price": 22.5,
       "relative_staerke": {
         "status": "green"
       },
@@ -561,7 +489,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 32.63,
+      "price": 33.035,
       "relative_staerke": {
         "status": "red"
       },
