@@ -1,5 +1,5 @@
 {
-  "last_run_at": "2026-10-17T14:04:28.124660+00:00",
+  "last_run_at": "2026-10-17T16:04:18.858804+00:00",
   "last_run_mode": "intraday",
   "tickers": {
     "APMD": {
@@ -23,16 +23,7 @@
     "CBRS": {
       "company_name": "Cerebras Systems Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bearish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 1.2756768253544526,
-          "rvol_tier": "Above Avg",
-          "type": "move",
-          "value": "-10.5%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "grey"
       },
@@ -86,16 +77,7 @@
     "FEIM": {
       "company_name": "Frequency Electronics Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bearish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 0.8463198630646722,
-          "rvol_tier": "Below Avg",
-          "type": "move",
-          "value": "-6.9%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "green"
       },
@@ -113,16 +95,7 @@
     "FLY": {
       "company_name": "Firefly Aerospace Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bearish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 0.8495915974876336,
-          "rvol_tier": "Below Avg",
-          "type": "move",
-          "value": "-6.1%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "grey"
       },
@@ -140,16 +113,7 @@
     "FORM": {
       "company_name": "FormFactor Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bearish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 0.7518687435340745,
-          "rvol_tier": "Below Avg",
-          "type": "move",
-          "value": "-7.3%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "green"
       },
@@ -275,24 +239,7 @@
     "NTSK": {
       "company_name": "Netskope Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bearish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 3.204838998861968,
-          "rvol_tier": "Extreme",
-          "type": "move",
-          "value": "-7.1%"
-        },
-        {
-          "direction": "bullish",
-          "label": "Volumen-Breakout",
-          "rvol_ratio": 3.204838998861968,
-          "rvol_tier": "Extreme",
-          "type": "volume_breakout",
-          "value": "-7.1%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "grey"
       },
@@ -346,16 +293,7 @@
     "PENG": {
       "company_name": "Penguin Solutions Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bearish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 0.8694853463791855,
-          "rvol_tier": "Below Avg",
-          "type": "move",
-          "value": "-7.7%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "green"
       },
@@ -391,16 +329,7 @@
     "QBTS": {
       "company_name": "D-Wave Quantum Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bearish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 1.0667872041449917,
-          "rvol_tier": "Above Avg",
-          "type": "move",
-          "value": "-8.1%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "grey"
       },
@@ -418,16 +347,7 @@
     "RBRK": {
       "company_name": "Rubrik Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bearish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 1.4870691488004626,
-          "rvol_tier": "Above Avg",
-          "type": "move",
-          "value": "-5.2%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "grey"
       },
@@ -463,16 +383,7 @@
     "TTMI": {
       "company_name": "TTM Technologies Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bearish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 1.4795115248875221,
-          "rvol_tier": "Above Avg",
-          "type": "move",
-          "value": "-7.4%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "green"
       },
@@ -490,16 +401,7 @@
     "TWST": {
       "company_name": "Twist Bioscience Corp",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bearish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 0.8601057711618396,
-          "rvol_tier": "Below Avg",
-          "type": "move",
-          "value": "-8.1%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "grey"
       },
@@ -517,16 +419,7 @@
     "VICR": {
       "company_name": "Vicor Corp",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bearish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 1.8167611048791479,
-          "rvol_tier": "Above Avg",
-          "type": "move",
-          "value": "-12.9%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "red"
       },
@@ -544,16 +437,7 @@
     "XMTR": {
       "company_name": "Xometry Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bearish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 1.1847820049986115,
-          "rvol_tier": "Above Avg",
-          "type": "move",
-          "value": "-8.7%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "grey"
       },
@@ -589,16 +473,7 @@
     "ZETA": {
       "company_name": "Zeta Global Holdings Corp",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bearish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 1.5804249683786322,
-          "rvol_tier": "Above Avg",
-          "type": "move",
-          "value": "-5.2%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "grey"
       },
