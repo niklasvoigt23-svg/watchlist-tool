@@ -1,5 +1,5 @@
 {
-  "last_run_at": "2026-10-19T14:04:30.376046+00:00",
+  "last_run_at": "2026-10-19T16:04:20.851534+00:00",
   "last_run_mode": "intraday",
   "tickers": {
     "APMD": {
@@ -12,7 +12,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 18.25,
+      "price": 17.21,
       "relative_staerke": {
         "status": "grey"
       },
@@ -30,7 +30,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 122.12,
+      "price": 123.865,
       "relative_staerke": {
         "status": "red"
       },
@@ -41,14 +41,23 @@
     "CDNA": {
       "company_name": "CareDx Inc",
       "data_status": "ok",
-      "events_today": [],
+      "events_today": [
+        {
+          "direction": "bullish",
+          "label": "Kursbewegung",
+          "rvol_ratio": 0.018679055847237055,
+          "rvol_tier": "Dead",
+          "type": "move",
+          "value": "+5.4%"
+        }
+      ],
       "fundamental": {
         "status": "grey"
       },
       "note": "Case noch pr\u00fcfen",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 66.14,
+      "price": 67.44,
       "relative_staerke": {
         "status": "red"
       },
@@ -84,7 +93,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 66.89,
+      "price": 66.455,
       "relative_staerke": {
         "status": "red"
       },
@@ -102,7 +111,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 16.77,
+      "price": 17.07,
       "relative_staerke": {
         "status": "red"
       },
@@ -113,23 +122,14 @@
     "FORM": {
       "company_name": "FormFactor Inc",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bullish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 0.006208745574028472,
-          "rvol_tier": "Dead",
-          "type": "move",
-          "value": "+5.9%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "green"
       },
       "note": "Einstieg \u00fcber ca. 151 (13W-Hoch)",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 111.16,
+      "price": 113.93,
       "relative_staerke": {
         "status": "red"
       },
@@ -147,7 +147,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 192.53,
+      "price": 195.64,
       "relative_staerke": {
         "status": "red"
       },
@@ -165,7 +165,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 32.925,
+      "price": 33.57,
       "relative_staerke": {
         "status": "red"
       },
@@ -183,7 +183,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 17.48,
+      "price": 17.915,
       "relative_staerke": {
         "status": "red"
       },
@@ -201,7 +201,7 @@
       "note": "Strong Watch, Base abwarten",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 246.3,
+      "price": 246.86,
       "relative_staerke": {
         "status": "red"
       },
@@ -219,7 +219,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 16.67,
+      "price": 16.61,
       "relative_staerke": {
         "status": "red"
       },
@@ -237,7 +237,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 161.86,
+      "price": 165.17,
       "relative_staerke": {
         "status": "red"
       },
@@ -255,7 +255,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 19.17,
+      "price": 19.59,
       "relative_staerke": {
         "status": "red"
       },
@@ -273,7 +273,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": false,
-      "price": 98.01,
+      "price": 98.63,
       "relative_staerke": {
         "status": "red"
       },
@@ -291,7 +291,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 57.45,
+      "price": 58.15,
       "relative_staerke": {
         "status": "red"
       },
@@ -309,7 +309,7 @@
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 57.785,
+      "price": 58.48,
       "relative_staerke": {
         "status": "green"
       },
@@ -327,7 +327,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 86.4,
+      "price": 87.455,
       "relative_staerke": {
         "status": "green"
       },
@@ -345,7 +345,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 11.85,
+      "price": 12.07,
       "relative_staerke": {
         "status": "red"
       },
@@ -363,7 +363,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 112.36,
+      "price": 114.22,
       "relative_staerke": {
         "status": "red"
       },
@@ -381,7 +381,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 73.85,
+      "price": 73.8,
       "relative_staerke": {
         "status": "red"
       },
@@ -392,14 +392,23 @@
     "TTMI": {
       "company_name": "TTM Technologies Inc",
       "data_status": "ok",
-      "events_today": [],
+      "events_today": [
+        {
+          "direction": "bullish",
+          "label": "Kursbewegung",
+          "rvol_ratio": 0.040854177170369745,
+          "rvol_tier": "Dead",
+          "type": "move",
+          "value": "+6.1%"
+        }
+      ],
       "fundamental": {
         "status": "green"
       },
       "note": "",
       "nr4_active": true,
       "nr7_active": true,
-      "price": 98.11,
+      "price": 99.58,
       "relative_staerke": {
         "status": "red"
       },
@@ -410,14 +419,23 @@
     "TWST": {
       "company_name": "Twist Bioscience Corp",
       "data_status": "ok",
-      "events_today": [],
+      "events_today": [
+        {
+          "direction": "bullish",
+          "label": "Kursbewegung",
+          "rvol_ratio": 0.01321074508419701,
+          "rvol_tier": "Dead",
+          "type": "move",
+          "value": "+5.1%"
+        }
+      ],
       "fundamental": {
         "status": "grey"
       },
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 134.21,
+      "price": 139.58,
       "relative_staerke": {
         "status": "red"
       },
@@ -428,23 +446,14 @@
     "VICR": {
       "company_name": "Vicor Corp",
       "data_status": "ok",
-      "events_today": [
-        {
-          "direction": "bullish",
-          "label": "Kursbewegung",
-          "rvol_ratio": 0.01255117400600186,
-          "rvol_tier": "Dead",
-          "type": "move",
-          "value": "+5.5%"
-        }
-      ],
+      "events_today": [],
       "fundamental": {
         "status": "red"
       },
       "note": "Strong Watch, Base abwarten",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 202.08,
+      "price": 201.06,
       "relative_staerke": {
         "status": "red"
       },
@@ -462,7 +471,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 90.87,
+      "price": 93.35,
       "relative_staerke": {
         "status": "red"
       },
@@ -480,7 +489,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 23.8,
+      "price": 23.51,
       "relative_staerke": {
         "status": "green"
       },
@@ -498,7 +507,7 @@
       "note": "",
       "nr4_active": false,
       "nr7_active": false,
-      "price": 32.07,
+      "price": 32.6,
       "relative_staerke": {
         "status": "red"
       },
