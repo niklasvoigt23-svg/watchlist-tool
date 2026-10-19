@@ -73,7 +73,7 @@
   "FORM": {
     "fundamental_status": "green",
     "last_close": 105.010002,
-    "move_alert_last_alert_date": "2026-10-18",
+    "move_alert_last_alert_date": "2026-10-19",
     "nr4_active": false,
     "nr7_active": false,
     "relative_staerke_status": "red",
@@ -281,7 +281,7 @@
   "VICR": {
     "fundamental_status": "red",
     "last_close": 191.5,
-    "move_alert_last_alert_date": "2026-10-18",
+    "move_alert_last_alert_date": "2026-10-19",
     "nr4_active": false,
     "nr7_active": false,
     "relative_staerke_status": "red",
